@@ -10,7 +10,22 @@
         <!-- LEFT SIDEBAR -->
         <div class="sidebar">
             <h2>Players</h2>
-            <p>Filters go here</p>
+            <!--Unit selection-->
+            <div class="unit-buttons">
+                <button onclick="selectUnit('offense')">OFFENSE</button>
+                <button onclick="selectUnit('defense')">DEFENSE</button>
+                <button onclick="selectUnit('special')">SPECIAL TEAMS</button>
+            </div>
+
+            <!-- Position selection-->
+            <div class="position-buttons" id="position-buttons">
+
+            </div>
+
+            <!-- Players will go here -->
+            <div id="player-list">
+
+            </div>
         </div>
 
         <!--RIGHT BOARD-->
@@ -55,6 +70,71 @@
                     <span class="rank-number">5</span>
                     <span class="rank-slot">Empty</span>
                 </div>
+
+                <div class="rank">
+                    <span class="rank-number">6</span>
+                    <span class="rank-slot">Empty</span>
+                </div>
+            </div>
+
+            <!-- ROUND 4 -->
+            <div class="round">
+                <h2 class="round-title">4th Round</h2>
+
+                <div class="rank">
+                    <span class="rank-number">7</span>
+                    <span class="rank-slot">Empty</span>
+                </div>
+
+                <div class="rank">
+                    <span class="rank-number">8</span>
+                    <span class="rank-slot">Empty</span>
+                </div>
+            </div>
+
+            <!-- ROUND 5 -->
+            <div class="round">
+                <h2 class="round-title">5th Round</h2>
+
+                <div class="rank">
+                    <span class="rank-number">9</span>
+                    <span class="rank-slot">Empty</span>
+                </div>
+
+                <div class="rank">
+                    <span class="rank-number">10</span>
+                    <span class="rank-slot">Empty</span>
+                </div>
+            </div>
+
+            <!-- ROUND 6 -->
+            <div class="round">
+                <h2 class="round-title">6th Round</h2>
+
+                <div class="rank">
+                    <span class="rank-number">11</span>
+                    <span class="rank-slot">Empty</span>
+                </div>
+
+                <div class="rank">
+                    <span class="rank-number">12</span>
+                    <span class="rank-slot">Empty</span>
+                </div>
+            </div>
+
+            <!-- ROUND 7 -->
+            <div class="round">
+                <h2 class="round-title">7th Round</h2>
+
+                <div class="rank">
+                    <span class="rank-number">13</span>
+                    <span class="rank-slot">Empty</span>
+                </div>
+
+                <div class="rank">
+                    <span class="rank-number">14</span>
+                    <span class="rank-slot">Empty</span>
+                </div>
             </div>
 
             <!-- UDFA -->
@@ -66,10 +146,12 @@
                     <span class="rank-slot">Empty</span>
                 </div>
             </div>
-            
+
         </div>
     </div>
 
 </body>
 
 </html>
+
+<script src="script.js"></script>
