@@ -15,6 +15,7 @@ let selectedUnit = "offense";
 let selectedPosition = null;
 let searchQuery = "";
 const placedPlayers = new Set();
+const playerNotes = {};
 
 function handleSearch(value) {
     searchQuery = value.toLowerCase();
@@ -63,13 +64,14 @@ function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
             <img src="${p.photo}" class="player-photo">
             <img src="${p.logo}" class="school_logo">
             <div class="player-info">
-                <h3>${p.name}</h3>
+                <h3 class="player-name">${p.name}</h3>
                 <p>${p.height} | ${p.weight} lbs</p>
                 <p>${p.stats}</p>
             </div>
         `;
 
         playerList.appendChild(card);
+        card.querySelector(".player-name").onclick = () => showPlayerModal(p);
     });
 }
 
@@ -79,7 +81,8 @@ function allowDrop(ev) {
 
 function drag(ev) {
     const card = ev.target.closest(".player-card");
-    ev.dataTransfer.setData("text/plain", card.id || card.dataset.playerId);
+    const playerId = card.dataset.playerId || card.id;
+    ev.dataTransfer.setData("text/plain", playerId);
 }
 
 function dropIntoRound(ev) {
@@ -94,7 +97,6 @@ function dropIntoRound(ev) {
     if (!card) return;
 
     card.setAttribute("data-player-id", playerId);
-    card.removeAttribute("id");
     card.draggable = true;
     card.ondragstart = drag;
 
@@ -106,10 +108,16 @@ function dropIntoRound(ev) {
         removeBtn.innerText = "X";
 
         removeBtn.onclick = () => {
+            const boardCard = document.querySelector(
+                `.rank-list .player-card[data-player-id="${playerId}"]`
+            );
+            if (!boardCard) return;
+
+            boardCard.remove();
             placedPlayers.delete(playerId);
-            card.remove();
+
+            renderSidebarPlayers(selectedUnit, selectedPosition);
             updateRanks();
-            if (selectedPosition) selectPosition(selectedPosition);
         };
 
         card.appendChild(removeBtn);
@@ -163,16 +171,19 @@ function dropBackToSidebar(ev) {
     ev.preventDefault();
 
     const playerId = ev.dataTransfer.getData("text/plain");
+
+    if (!placedPlayers.has(playerId)) return;
+
     const boardCard = document.querySelector(
-        `.rank-list .player-card[data-player-id="${playerId}"]`
-    );
+        `.rank-list .player-card[data-player-id="${playerId}"]`) ||
+        document.getElementById(playerId);
 
     if (!boardCard) return;
 
-    placedPlayers.delete(playerId);
     boardCard.remove();
+    placedPlayers.delete(playerId);
 
-    if (selectedPosition) selectPosition(selectedPosition);
+    renderSidebarPlayers(selectedUnit, selectedPosition);
     updateRanks();
 }
 
@@ -180,6 +191,47 @@ function hideSideBarPlayer(playerId) {
     const sidebarCard = document.getElementById(playerId);
     if (sidebarCard) sidebarCard.style.display = "none";
 }
+
+function showPlayerModal(player) {
+    const modal = document.getElementById("player-modal");
+    const profileCard = modal.querySelector(".profile-card");
+    const notesArea = document.getElementById("player-notes");
+    const saveBtn = document.getElementById("save-notes");
+
+    profileCard.innerHTML = `
+        <img src="${player.photo}" class="player-photo">
+        <img src="${player.logo}" class="school_logo">
+        <div class="player-info">
+            <h3>${player.name}</h3>
+            <p>${player.height} | ${player.weight} lbs</p>
+            <p>${player.stats}</p>
+        </div>
+    `;
+
+    notesArea.value = playerNotes[player.id] || "";
+
+    saveBtn.onclick = () => {
+        playerNotes[player.id] = notesArea.value;
+        alert("Notes saved!");
+    };
+
+    modal.style.display = "flex";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("player-modal");
+    const closeBtn = document.getElementById("modal-close");
+
+    closeBtn.onclick = () => {
+        modal.style.display = "none";
+    };
+
+    modal.onclick = (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+});
 
 renderSidebarPlayers();
 selectUnit("offense");

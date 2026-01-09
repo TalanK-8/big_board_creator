@@ -9,7 +9,9 @@
 
     <div class="container">
         <!-- LEFT SIDEBAR -->
-        <div class="sidebar">
+        <div class="sidebar" 
+             ondragover="allowDrop(event)"
+             ondrop="dropBackToSidebar(event)">
             <h2>Players</h2>
             <input
                 type="text"
@@ -31,10 +33,7 @@
             </div>
 
             <!-- Players will go here -->
-            <div id="player-list"
-                 ondragover="allowDrop(event)"
-                 ondrop="dropBackToSidebar(event)">
-            </div>
+            <div id="player-list"></div>
         </div>
 
         <!--RIGHT BOARD-->
@@ -49,6 +48,7 @@
                      ondragover="allowDrop(event)"
                      ondrop="dropIntoRound(event)">
                 </div>
+            </div>
 
             <!-- ROUND 2 -->
             <div class="round" data-round="2">
@@ -124,5 +124,14 @@
     </div>
 
     <script src="script.js"></script>
+
+    <div id="player-modal" class="player-modal">
+        <div class="modal-content">
+            <span id="modal-close" class="modal-close">&times;</span>
+            <div class="profile-card"></div>
+            <textarea id="player-notes" placeholder="Write notes here..."></textarea>
+            <button id="save-notes">Save Notes</button>
+        </div>
+    </div>
 </body>
 </html>
