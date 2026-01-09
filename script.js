@@ -1,8 +1,14 @@
 //Player data
 
 const players = [
-    {id: "player-1", name: "Jordyn Tyson", unit: "offense", position: "WR", height: "6' 2\"", weight: "200", stats: "158rec   2282yds   22tds", photo: "images/players/JordynTyson.jpg", logo: "images/logos/ArizonaStateLogo.png"},
-    {id: "player-2", name: "Carnell Tate", unit: "offense", position: "WR", height: "6' 3\"", weight: "195", stats: "121rec   1872yds   14tds", photo: "images/players/CarnellTate.jpg", logo: "images/logos/OhioStateLogo.png"}
+    {id: "player-1", name: "Rueben Bain Jr.", unit: "defense", position: "EDGE", height: "6' 3\"", weight: "275", stats: "75pres   19.5sacks   33tfls", photo: "images/players/RuebenBain.jpg", logo: "images/logos/MiamiLogo.png"},
+    {id: "player-2", name: "Caleb Downs", unit: "defense", position: "S", height: "6' 0\"", weight: "205", stats: "256tcks   10pd   6ints", photo: "images/players/CalebDowns.jpg", logo: "images/logos/OhioStateLogo.png"},
+    {id: "player-3", name: "Fernando Mendoza", unit: "offense", position: "QB", height: "6' 5\"", weight: "225", stats: "68.5cmp%   7884yds   66tds   22ints", photo: "images/players/FernandoMendoza.jpg", logo: "images/logos/IndianaLogo.png"},
+    {id: "player-4", name: "Peter Woods", unit: "defense", position: "IDL", height: "6' 3\"", weight: "315", stats: "41pres   5sacks   14.5tfls", photo: "images/players/PeterWoods.jpg", logo: "images/logos/ClemsonLogo.png"},
+    {id: "player-5", name: "Francis Mauigoa", unit: "offense", position: "OT", height: "6' 6\"", weight: "315", stats: "42gs   8sa   0.5pres%", photo: "images/players/FrancisMauigoa.jpg", logo: "images/logos/MiamiLogo.png"},
+    {id: "player-6", name: "Jeremiyah Love", unit: "offense", position: "RB", height: "6' 0\"", weight: "214", stats: "6.7ypc   3476yds   42tds", photo: "images/players/JeremiyahLove.jpg", logo: "images/logos/NotreDameLogo.png"},
+    {id: "player-7", name: "Jordyn Tyson", unit: "offense", position: "WR", height: "6' 2\"", weight: "200", stats: "158recs   2282yds   22tds", photo: "images/players/JordynTyson.jpg", logo: "images/logos/ArizonaStateLogo.png"},
+    {id: "player-8", name: "Carnell Tate", unit: "offense", position: "WR", height: "6' 3\"", weight: "195", stats: "121recs   1872yds   14tds", photo: "images/players/CarnellTate.jpg", logo: "images/logos/OhioStateLogo.png"}
 ];
 
 const positionsByUnit = {
