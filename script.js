@@ -29,12 +29,14 @@ function selectUnit(unit) {
     const positionContainer = document.getElementById("position-buttons");
     positionContainer.innerHTML = "";
 
-    positionsByUnit[unit].forEach(pos => {
-        const btn = document.createElement("button");
-        btn.innerText = pos;
-        btn.onclick = () => selectPosition(pos);
-        positionContainer.appendChild(btn);
-    });
+    if (unit !== "all") {
+        positionsByUnit[unit].forEach(pos => {
+            const btn = document.createElement("button");
+            btn.innerText = pos;
+            btn.onclick = () => selectPosition(pos);
+            positionContainer.appendChild(btn);
+        });
+    }
 
     renderSidebarPlayers(unit);
 }
@@ -50,7 +52,7 @@ function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
 
     players.forEach(p => {
         if (placedPlayers.has(p.id)) return;
-        if (filterUnit && p.unit !== filterUnit) return;
+        if (filterUnit && filterUnit !== "all" && p.unit !== filterUnit) return;
         if (filterPosition && p.position !== filterPosition) return;
         if (searchQuery && !p.name.toLowerCase().includes(searchQuery)) return;
 
@@ -152,17 +154,26 @@ function getDragAfterElement(container, y) {
 }
 
 function updateRanks() {
-    const allPlayers = document.querySelectorAll(".rank-list .player-card");
+    const allRounds = document.querySelectorAll(".round");
+    const boardData = {};
 
-    allPlayers.forEach((player, index) => {
+    allRounds.forEach(round => {
+        const roundNumber = round.dataset.round;
+        const playerIds = [...round.querySelectorAll(".player-card")].map(card =>
+            card.dataset.playerId || card.id
+        );
+        boardData[roundNumber] = playerIds;
+    });
+
+    localStorage.setItem("bigBoardData", JSON.stringify(boardData));
+
+    document.querySelectorAll(".rank-list .player-card").forEach((player, index) => {
         let rank = player.querySelector(".rank-number");
-
         if (!rank) {
             rank = document.createElement("span");
             rank.className = "rank-number";
             player.prepend(rank);
         }
-
         rank.innerText = index + 1;
     });
 }
@@ -212,10 +223,58 @@ function showPlayerModal(player) {
 
     saveBtn.onclick = () => {
         playerNotes[player.id] = notesArea.value;
-        alert("Notes saved!");
     };
 
     modal.style.display = "flex";
+}
+
+function loadBoard() {
+    const savedData = localStorage.getItem("bigBoardData");
+    if (!savedData) return;
+
+    const boardData = JSON.parse(savedData);
+
+    Object.keys(boardData).forEach(roundNumber => {
+        const roundDiv = document.querySelector(`.round[data-round="${roundNumber}"] .rank-list`);
+        if (!roundDiv) return;
+
+        boardData[roundNumber].forEach(playerId => {
+            const player = players.find(p => p.id === playerId);
+            if (!player) return;
+
+            const card = document.createElement("div");
+            card.className = "player-card";
+            card.draggable = true;
+            card.dataset.playerId = player.id;
+            card.ondragstart = drag;
+
+            card.innerHTML = `
+                <img src="${player.photo}" class="player-photo">
+                <img src="${player.logo}" class="school_logo">
+                <div class="player-info">
+                    <h3>${player.name}</h3>
+                    <p>${player.height} | ${player.weight} lbs</p>
+                    <p>${player.stats}</p>
+                </div>
+            `;
+
+            const removeBtn = document.createElement("button");
+            removeBtn.className = "remove-btn";
+            removeBtn.innerText = "X";
+            removeBtn.onclick = () => {
+                card.remove();
+                placedPlayers.delete(player.id);
+                updateRanks();
+                renderSidebarPlayers(selectedUnit, selectedPosition);
+            };
+            card.appendChild(removeBtn);
+
+            roundDiv.appendChild(card);
+            placedPlayers.add(player.id);
+        });
+    });
+
+    updateRanks();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -233,5 +292,5 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 });
 
-renderSidebarPlayers();
-selectUnit("offense");
+loadBoard();
+selectUnit("all");
