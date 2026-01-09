@@ -15,7 +15,7 @@ let selectedUnit = "offense";
 let selectedPosition = null;
 
 function selectUnit(unit) {
-    selectUnit = unit;
+    selectedUnit = unit;
     selectedPosition = null;
 
     const positionContainer = document.getElementById("position-buttons");
@@ -24,7 +24,7 @@ function selectUnit(unit) {
     positionsByUnit[unit].forEach(pos => {
         const btn = document.createElement("button");
         btn.innerText = pos;
-        btn.onClick = () => selectedPosition(pos);
+        btn.onclick = () => selectPosition(pos);
         positionContainer.appendChild(btn);
     });
 
@@ -34,7 +34,11 @@ function selectUnit(unit) {
 function selectPosition(position) {
     selectedPosition = position;
 
-    const filteredPlayers = players.filter(p => p.unit === selectedUnit && p.position === position);
+    const filteredPlayers = players.filter(p => 
+        p.unit === selectedUnit && 
+        p.position === position &&
+        !document.querySelector(`.rank-list .player-card[data-player-id="${p.id}"]`)
+    );
 
     const playerList = document.getElementById("player-list");
     playerList.innerHTML = "";
@@ -64,3 +68,90 @@ function selectPosition(position) {
 function allowDrop(ev) {
     ev.preventDefault();
 }
+
+function drag(ev) {
+    const card = ev.target.closest(".player-card");
+    ev.dataTransfer.setData("text/plain", card.id || card.dataset.playerId);
+}
+
+function dropIntoRound(ev) {
+    ev.preventDefault();
+
+    const playerId = ev.dataTransfer.getData("text/plain");
+    const card =
+        document.getElementById(playerId) ||
+        document.querySelector(`.player-card[data-player-id="${playerId}"]`);
+
+    if (!card) return;
+
+    card.setAttribute("data-player-id", playerId);
+    card.removeAttribute("id");
+
+    const roundList = ev.currentTarget;
+    const afterElement = getDragAfterElement(roundList, ev.clientY);
+
+    if (afterElement == null) {
+        roundList.appendChild(card);
+    } else {
+        roundList.insertBefore(card, afterElement);
+    }
+
+    hideSideBarPlayer(playerId);
+    updateRanks();
+}
+
+function getDragAfterElement(container, y) {
+    const draggableElements = [...container.querySelectorAll(".player-card")];
+
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+        } else {
+            return closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY}).element;
+}
+
+function updateRanks() {
+    const allPlayers = document.querySelectorAll(".rank-list .player-card");
+
+    allPlayers.forEach((player, index) => {
+        let rank = player.querySelector(".rank-number");
+
+        if (!rank) {
+            rank = document.createElement("span");
+            rank.className = "rank-number";
+            player.prepend(rank);
+        }
+
+        rank.innerText = index + 1;
+    });
+}
+
+function dropBackToSidebar(ev) {
+    ev.preventDefault();
+
+    const playerId = ev.dataTransfer.getData("text/plain");
+    const boardCard = document.querySelector(
+        `.rank-list .player-card[data-player-id="${playerId}"]`
+    );
+
+    if (!boardCard) return;
+
+    boardCard.remove();
+
+    const sidebarCard = document.getElementById(playerId);
+    if (sidebarCard) sidebarCard.style.display = "block";
+
+    updateRanks();
+}
+
+function hideSideBarPlayer(playerId) {
+    const sidebarCard = document.getElementById(playerId);
+    if (sidebarCard) sidebarCard.style.display = "none";
+}
+
+selectUnit(selectedUnit);

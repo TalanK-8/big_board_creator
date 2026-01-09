@@ -3,6 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>NFL Big Board</title>
+
+    <style>
+        .rank-list {
+            min-height: 80px;
+            border: 2px dashed #999;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        .player-card {
+            border: 1px solid black;
+            padding: 6px;
+            margin-bottom: 6px;
+            cursor: grab;
+            background: white;
+        }
+    </style>
 </head>
 <body>
 
@@ -23,8 +40,9 @@
             </div>
 
             <!-- Players will go here -->
-            <div id="player-list">
-
+            <div id="player-list"
+                 ondragover="allowDrop(event)"
+                 ondrop="dropBackToSidebar(event)">
             </div>
         </div>
 
@@ -33,117 +51,81 @@
             <h1>BIG BOARD</h1>
 
             <!-- ROUND 1 -->
-            <div class="round">
+            <div class="round" data-round="1">
                 <h2 class="round-title">1st Round</h2>
 
-                <div class="rank">
-                    <span class="rank-number">1</span>
-                    <span class="rank-slot">Empty</span>
+                <div class="rank-list"
+                     ondragover="allowDrop(event)"
+                     ondrop="dropIntoRound(event)">
                 </div>
-
-                <div class="rank">
-                    <span class="rank-number">2</span>
-                    <span class="rank-slot">Empty</span>
-                </div>
-            </div>
 
             <!-- ROUND 2 -->
-            <div class="round">
+            <div class="round" data-round="2">
                 <h2 class="round-title">2nd Round</h2>
 
-                <div class="rank">
-                    <span class="rank-number">3</span>
-                    <span class="rank-slot">Empty</span>
-                </div>
-
-                <div class="rank">
-                    <span class="rank-number">4</span>
-                    <span class="rank-slot">Empty</span>
+                <div class="rank-list"
+                     ondragover="allowDrop(event)"
+                     ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
             <!-- ROUND 3 -->
-            <div class="round">
+            <div class="round" data-round="3">
                 <h2 class="round-title">3rd Round</h2>
 
-                <div class="rank">
-                    <span class="rank-number">5</span>
-                    <span class="rank-slot">Empty</span>
-                </div>
-
-                <div class="rank">
-                    <span class="rank-number">6</span>
-                    <span class="rank-slot">Empty</span>
+                <div class="rank-list"
+                     ondragover="allowDrop(event)"
+                     ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
             <!-- ROUND 4 -->
-            <div class="round">
+            <div class="round" data-round="4">
                 <h2 class="round-title">4th Round</h2>
 
-                <div class="rank">
-                    <span class="rank-number">7</span>
-                    <span class="rank-slot">Empty</span>
-                </div>
-
-                <div class="rank">
-                    <span class="rank-number">8</span>
-                    <span class="rank-slot">Empty</span>
+                <div class="rank-list"
+                     ondragover="allowDrop(event)"
+                     ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
             <!-- ROUND 5 -->
-            <div class="round">
+            <div class="round" data-round="5">
                 <h2 class="round-title">5th Round</h2>
 
-                <div class="rank">
-                    <span class="rank-number">9</span>
-                    <span class="rank-slot">Empty</span>
-                </div>
-
-                <div class="rank">
-                    <span class="rank-number">10</span>
-                    <span class="rank-slot">Empty</span>
+                <div class="rank-list"
+                     ondragover="allowDrop(event)"
+                     ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
             <!-- ROUND 6 -->
-            <div class="round">
+            <div class="round" data-round="6">
                 <h2 class="round-title">6th Round</h2>
 
-                <div class="rank">
-                    <span class="rank-number">11</span>
-                    <span class="rank-slot">Empty</span>
-                </div>
-
-                <div class="rank">
-                    <span class="rank-number">12</span>
-                    <span class="rank-slot">Empty</span>
+                <div class="rank-list"
+                     ondragover="allowDrop(event)"
+                     ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
             <!-- ROUND 7 -->
-            <div class="round">
+            <div class="round" data-round="7">
                 <h2 class="round-title">7th Round</h2>
 
-                <div class="rank">
-                    <span class="rank-number">13</span>
-                    <span class="rank-slot">Empty</span>
-                </div>
-
-                <div class="rank">
-                    <span class="rank-number">14</span>
-                    <span class="rank-slot">Empty</span>
+                <div class="rank-list"
+                     ondragover="allowDrop(event)"
+                     ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
             <!-- UDFA -->
-            <div class="round">
+            <div class="round" data-round="8">
                 <h2 class="round-title">UDFA</h2>
 
-                <div class="rank">
-                    <span class="rank-number">--</span>
-                    <span class="rank-slot">Empty</span>
+                <div class="rank-list"
+                     ondragover="allowDrop(event)"
+                     ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
