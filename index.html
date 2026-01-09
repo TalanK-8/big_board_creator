@@ -3,30 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>NFL Big Board</title>
-
-    <style>
-        .rank-list {
-            min-height: 80px;
-            border: 2px dashed #999;
-            margin-bottom: 20px;
-            padding: 10px;
-        }
-
-        .player-card {
-            border: 1px solid black;
-            padding: 6px;
-            margin-bottom: 6px;
-            cursor: grab;
-            background: white;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body> 
 
     <div class="container">
         <!-- LEFT SIDEBAR -->
         <div class="sidebar">
             <h2>Players</h2>
+            <input
+                type="text"
+                id="player-search"
+                placeholder="Search players..."
+                oninput="handleSearch(this.value)"
+                class="search-bar"
+            />
             <!--Unit selection-->
             <div class="unit-buttons">
                 <button onclick="selectUnit('offense')">OFFENSE</button>
@@ -132,8 +123,6 @@
         </div>
     </div>
 
+    <script src="script.js"></script>
 </body>
-
 </html>
-
-<script src="script.js"></script>

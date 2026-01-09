@@ -1,8 +1,8 @@
 //Player data
 
 const players = [
-    {id: "player-1", name: "Jordyn Tyson", unit: "offense", position: "WR", height: "6' 2\"", weight: "200", stats: "158rec   2282yds   22tds", photo: "JordynTyson.jpg", logo: "ArizonaStateLogo.png"},
-    {id: "player-2", name: "Carnell Tate", unit: "offense", position: "WR", height: "6' 3\"", weight: "195", stats: "121rec   1872yds   14tds", photo: "CarnellTate.jpg", logo: "OhioStateLogo.png"}
+    {id: "player-1", name: "Jordyn Tyson", unit: "offense", position: "WR", height: "6' 2\"", weight: "200", stats: "158rec   2282yds   22tds", photo: "images/players/JordynTyson.jpg", logo: "images/logos/ArizonaStateLogo.png"},
+    {id: "player-2", name: "Carnell Tate", unit: "offense", position: "WR", height: "6' 3\"", weight: "195", stats: "121rec   1872yds   14tds", photo: "images/players/CarnellTate.jpg", logo: "images/logos/OhioStateLogo.png"}
 ];
 
 const positionsByUnit = {
@@ -13,6 +13,13 @@ const positionsByUnit = {
 
 let selectedUnit = "offense";
 let selectedPosition = null;
+let searchQuery = "";
+const placedPlayers = new Set();
+
+function handleSearch(value) {
+    searchQuery = value.toLowerCase();
+    renderSidebarPlayers(selectedUnit, selectedPosition);
+}
 
 function selectUnit(unit) {
     selectedUnit = unit;
@@ -28,22 +35,24 @@ function selectUnit(unit) {
         positionContainer.appendChild(btn);
     });
 
-    document.getElementById("player-list").innerHTML = "";
+    renderSidebarPlayers(unit);
 }
 
 function selectPosition(position) {
     selectedPosition = position;
+    renderSidebarPlayers(selectedUnit, position);
+}
 
-    const filteredPlayers = players.filter(p => 
-        p.unit === selectedUnit && 
-        p.position === position &&
-        !document.querySelector(`.rank-list .player-card[data-player-id="${p.id}"]`)
-    );
-
+function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
     const playerList = document.getElementById("player-list");
     playerList.innerHTML = "";
 
-    filteredPlayers.forEach(p => {
+    players.forEach(p => {
+        if (placedPlayers.has(p.id)) return;
+        if (filterUnit && p.unit !== filterUnit) return;
+        if (filterPosition && p.position !== filterPosition) return;
+        if (searchQuery && !p.name.toLowerCase().includes(searchQuery)) return;
+
         const card = document.createElement("div");
         card.className = "player-card";
         card.draggable = true;
@@ -51,16 +60,15 @@ function selectPosition(position) {
         card.ondragstart = drag;
 
         card.innerHTML = `
-            <div class="player-top">
-                <img src="${p.photo}" alt="Player Photo" class="player-photo">
-                <img src="${p.logo}" alt="School Logo" class="school_logo">
-            </div>
+            <img src="${p.photo}" class="player-photo">
+            <img src="${p.logo}" class="school_logo">
             <div class="player-info">
-                <h3 class="player-name">${p.name}</h3>
-                <p class="player-height-weight">${p.height} | ${p.weight} lbs</p>
-                <p class="player-stats">${p.stats}</p>
+                <h3>${p.name}</h3>
+                <p>${p.height} | ${p.weight} lbs</p>
+                <p>${p.stats}</p>
             </div>
         `;
+
         playerList.appendChild(card);
     });
 }
@@ -78,7 +86,8 @@ function dropIntoRound(ev) {
     ev.preventDefault();
 
     const playerId = ev.dataTransfer.getData("text/plain");
-    const card =
+
+    let card =
         document.getElementById(playerId) ||
         document.querySelector(`.player-card[data-player-id="${playerId}"]`);
 
@@ -86,6 +95,25 @@ function dropIntoRound(ev) {
 
     card.setAttribute("data-player-id", playerId);
     card.removeAttribute("id");
+    card.draggable = true;
+    card.ondragstart = drag;
+
+    placedPlayers.add(playerId);
+
+    if (!card.querySelector(".remove-btn")) {
+        const removeBtn = document.createElement("button");
+        removeBtn.className = "remove-btn";
+        removeBtn.innerText = "X";
+
+        removeBtn.onclick = () => {
+            placedPlayers.delete(playerId);
+            card.remove();
+            updateRanks();
+            if (selectedPosition) selectPosition(selectedPosition);
+        };
+
+        card.appendChild(removeBtn);
+    }
 
     const roundList = ev.currentTarget;
     const afterElement = getDragAfterElement(roundList, ev.clientY);
@@ -96,8 +124,8 @@ function dropIntoRound(ev) {
         roundList.insertBefore(card, afterElement);
     }
 
-    hideSideBarPlayer(playerId);
     updateRanks();
+    if (selectedPosition) selectPosition(selectedPosition);
 }
 
 function getDragAfterElement(container, y) {
@@ -141,11 +169,10 @@ function dropBackToSidebar(ev) {
 
     if (!boardCard) return;
 
+    placedPlayers.delete(playerId);
     boardCard.remove();
 
-    const sidebarCard = document.getElementById(playerId);
-    if (sidebarCard) sidebarCard.style.display = "block";
-
+    if (selectedPosition) selectPosition(selectedPosition);
     updateRanks();
 }
 
@@ -154,4 +181,5 @@ function hideSideBarPlayer(playerId) {
     if (sidebarCard) sidebarCard.style.display = "none";
 }
 
-selectUnit(selectedUnit);
+renderSidebarPlayers();
+selectUnit("offense");

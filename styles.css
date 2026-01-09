@@ -1,0 +1,208 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #f4f6f8;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    background: #0e1117;
+    color: white;
+    padding: 12px;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.unit-buttons,
+.position-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.unit-buttons button,
+.position-buttons button {
+    flex: 1;
+    padding: 6px;
+    font-size: 11px;
+    background: #1f2937;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.unit-buttons button:hover,
+.position-buttons button:hover {
+    background: #374151;
+}
+
+#player-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sidebar .player-card {
+    background: #111827;
+    border-radius: 8px;
+    padding: 6px;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.player-photo {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.school_logo {
+    width: 20px;
+    height: 20px;
+}
+
+.player-info h3 {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.player-info p {
+    font-size: 10px;
+    color: #9ca3af;
+}
+
+.player-name-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.player-name-row h3 {
+    font-size: 11px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.inline-logo {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.board {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.board h1 {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.round {
+    margin-bottom: 20px;
+}
+
+.round-title {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.rank-list {
+    min-height: 70px;
+    border: 2px dashed #9ca3af;
+    border-radius: 10px;
+    padding: 6px;
+    background: #ffffff;
+}
+
+.rank-list .player-card {
+    background: white;
+    border-radius: 10px;
+    padding: 8px 28px 8px 8px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    cursor: grab;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.rank-number {
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+.remove-btn {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    border: none;
+    background: #ef4444;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background: #dc2626;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    background: #1f2937;
+    color: white;
+}
+
+.search-bar::placeholder {
+    color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 40vh;
+    }
+
+    .board {
+        height: 60vh;
+    }
+}
