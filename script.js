@@ -104,7 +104,16 @@ const players = [
     {id: "player-101", name: "Jaishawn Barham", unit: "defense", position: "LB", height: "6' 3\"", weight: "243", stats: "193tcks   23tfls   12sacks", photo: "images/players/JaishawnBarham.jpg", logo: "images/logos/MichiganLogo.png"},
     {id: "player-102", name: "Tacario Davis", unit: "defense", position: "CB", height: "6' 4\"", weight: "200", stats: "95tcks   26pd   3ints", photo: "images/players/TacarioDavis.jpg", logo: "images/logos/WashingtonLogo.png"},
     {id: "player-103", name: "Bryce Lance", unit: "offense", position: "WR", height: "6' 3\"", weight: "209", stats: "127recs   2139yds   25tds", photo: "images/players/BryceLance.jpg", logo: "images/logos/NorthDakotaStateLogo.png"},
-    {id: "player-104", name: "Chase Bisontis", unit: "offense", position: "OG", height: "6' 5\"", weight: "315", stats: "33gs   5sa   3.3pres%", photo: "images/players/ChaseBisontis.jpg", logo: "images/logos/TexasA&MLogo.png"}
+    {id: "player-104", name: "Chase Bisontis", unit: "offense", position: "OG", height: "6' 5\"", weight: "315", stats: "33gs   5sa   3.3pres%", photo: "images/players/ChaseBisontis.jpg", logo: "images/logos/TexasA&MLogo.png"},
+    {id: "player-105", name: "Parker Brailsford", unit: "offense", position: "C", height: "6' 2\"", weight: "290", stats: "40gs   1sa   3.22pres%", photo: "images/players/ParkerBrailsford.jpg", logo: "images/logos/AlabamaLogo.png"},
+    {id: "player-106", name: "Jadarian Price", unit: "offense", position: "RB", height: "5' 11\"", weight: "209", stats: "6ypc   1854yds   24tds", photo: "images/players/JadarianPrice.jpg", logo: "images/logos/NotreDameLogo.png"},
+    {id: "player-107", name: "Blake Miller", unit: "offense", position: "OT", height: "6' 6\"", weight: "315", stats: "54gs   8sa   0.6pres%", photo: "images/players/BlakeMiller.jpg", logo: "images/logos/ClemsonLogo.png"},
+    {id: "player-108", name: "Akheem Mesidor", unit: "defense", position: "EDGE", height: "6' 3\"", weight: "280", stats: "205tcks   33.5sacks   50.5tfls", photo: "images/players/AkheemMesidor.jpg", logo: "images/logos/MiamiLogo.png"},
+    {id: "player-109", name: "Michael Trigg", unit: "offense", position: "TE", height: "6' 4\"", weight: "240", stats: "108recs   1419yds   14tds", photo: "images/players/MichaelTrigg.jpg", logo: "images/logos/BaylorLogo.png"},
+    {id: "player-110", name: "Jude Bowry", unit: "offense", position: "OT", height: "6' 5\"", weight: "311", stats: "23gs   2sa   N/A", photo: "images/players/JudeBowry.jpg", logo: "images/logos/BostonCollegeLogo.png"},
+    {id: "player-111", name: "Demond Claiborne", unit: "offense", position: "RB", height: "5' 10\"", weight: "195", stats: "4.7ypc   3023yds   28tds", photo: "images/players/DemondClaiborne.jpg", logo: "images/logos/WakeForestLogo.png"},
+    {id: "player-112", name: "Keylan Rutledge", unit: "offense", position: "OG", height: "6' 4\"", weight: "320", stats: "42gs   7sa   1.25pres%", photo: "images/players/KeylanRutledge.jpg", logo: "images/logos/GeorgiaTechLogo.png"},
+    {id: "player-113", name: "JC Davis", unit: "offense", position: "OT", height: "6' 5\"", weight: "320", stats: "49gs   8sacks   3.6pres%", photo: "images/players/JCDavis.jpg", logo: "images/logos/IllinoisLogo.png"}
 ];
 
 const positionsByUnit = {
