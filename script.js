@@ -32,7 +32,7 @@ const players = [
     {id: "player-29", name: "Kadyn Proctor", unit: "offense", position: "OT", height: "6' 7\"", weight: "366", stats: "38gs   16sa   3.18pres%", photo: "images/players/KadynProctor.jpg", logo: "images/logos/AlabamaLogo.png"},
     {id: "player-30", name: "Ja'Kobi Lane", unit: "offense", position: "WR", height: "6' 4\"", weight: "200", stats: "99recs   1364yds   18tds", photo: "images/players/JaKobiLane.jpg", logo: "images/logos/USCLogo.png"},
     {id: "player-31", name: "Denzel Boston", unit: "offense", position: "WR", height: "6' 4\"", weight: "209", stats: "132recs   1781yds   20tds", photo: "images/players/DenzelBoston.jpg", logo: "images/logos/WashingtonLogo.png"},
-    {id: "player-32", name: "A'Mauri Washington", unit: "defense", position: "IDL", height: "6' 3\"", weight: "330", stats: "43tcks   1.5sacks   6tfls", photo: "images/players/AMauriWashington.jpg", logo: "images/logos/OregonLogo.png"},
+    {id: "player-32", name: "Jakobe Thomas", unit: "defense", position: "S", height: "6' 2\"", weight: "200", stats: "199tcks   16pd   9ints", photo: "images/players/JakobeThomas.jpg", logo: "images/logos/MiamiLogo.png"},
     {id: "player-33", name: "Kayden McDonald", unit: "defense", position: "IDL", height: "6' 3\"", weight: "326", stats: "85tcks   3sacks   11tfls", photo: "images/players/KaydenMcDonald.jpg", logo: "images/logos/OhioStateLogo.png"},
     {id: "player-34", name: "Colton Hood", unit: "defense", position: "CB", height: "6' 0\"", weight: "195", stats: "77tcks   14pd   3ints", photo: "images/players/ColtonHood.jpg", logo: "images/logos/TennesseeLogo.png"},
     {id: "player-35", name: "Brandon Cisse", unit: "defense", position: "CB", height: "6' 0\"", weight: "190", stats: "65tcks   10pd   2ints", photo: "images/players/BrandonCisse.jpg", logo: "images/logos/SouthCarolinaLogo.png"},
@@ -113,7 +113,34 @@ const players = [
     {id: "player-110", name: "Jude Bowry", unit: "offense", position: "OT", height: "6' 5\"", weight: "311", stats: "23gs   2sa   N/A", photo: "images/players/JudeBowry.jpg", logo: "images/logos/BostonCollegeLogo.png"},
     {id: "player-111", name: "Demond Claiborne", unit: "offense", position: "RB", height: "5' 10\"", weight: "195", stats: "4.7ypc   3023yds   28tds", photo: "images/players/DemondClaiborne.jpg", logo: "images/logos/WakeForestLogo.png"},
     {id: "player-112", name: "Keylan Rutledge", unit: "offense", position: "OG", height: "6' 4\"", weight: "320", stats: "42gs   7sa   1.25pres%", photo: "images/players/KeylanRutledge.jpg", logo: "images/logos/GeorgiaTechLogo.png"},
-    {id: "player-113", name: "JC Davis", unit: "offense", position: "OT", height: "6' 5\"", weight: "320", stats: "49gs   8sacks   3.6pres%", photo: "images/players/JCDavis.jpg", logo: "images/logos/IllinoisLogo.png"}
+    {id: "player-113", name: "JC Davis", unit: "offense", position: "OT", height: "6' 5\"", weight: "320", stats: "49gs   8sacks   3.6pres%", photo: "images/players/JCDavis.jpg", logo: "images/logos/IllinoisLogo.png"},
+    {id: "player-114", name: "Justin Joly", unit: "offense", position: "TE", height: "6' 3\"", weight: "251", stats: "166recs   1978yds   15tds", photo: "images/players/JustinJoly.jpg", logo: "images/logos/NCStateLogo.png"},
+    {id: "player-115", name: "Logan Jones", unit: "offense", position: "C", height: "6' 3\"", weight: "302", stats: "50gs   4sa   1.5pres%", photo: "images/players/LoganJones.jpg", logo: "images/logos/IowaLogo.png"},
+    {id: "player-116", name: "Eric Rivers", unit: "offense", position: "WR", height: "5' 11\"", weight: "180", stats: "140recs   2173yds   16tds", photo: "images/players/EricRivers.jpg", logo: "images/logos/GeorgiaTechLogo.png"},
+    {id: "player-117", name: "Ar'maj Reed-Adams", unit: "offense", position: "OG", height: "6' 5\"", weight: "325", stats: "40gs   3sa   0pres%", photo: "images/players/ArmajReedAdams.jpg", logo: "images/logos/TexasA&MLogo.png"},
+    {id: "player-118", name: "Mike Washington Jr.", unit: "offense", position: "RB", height: "6' 2\"", weight: "223", stats: "5ypc   3384yds   29tds", photo: "images/players/MikeWashington.jpg", logo: "images/logos/ArkansasLogo.png"},
+    {id: "player-119", name: "Nic Anderson", unit: "offense", position: "WR", height: "6' 4\"", weight: "208", stats: "50recs   904yds   12tds", photo: "images/players/NicAnderson.jpg", logo: "images/logos/LSULogo.png"},
+    {id: "player-120", name: "Derrick Moore", unit: "defense", position: "EDGE", height: "6' 3\"", weight: "260", stats: "95tcks   21sacks   24.5tfls", photo: "images/players/DerrickMoore.jpg", logo: "images/logos/MichiganLogo.png"},
+    {id: "player-121", name: "Skyler Gill-Howard", unit: "defense", position: "IDL", height: "6' 1\"", weight: "290", stats: "88tcks   6.5sacks   14.5tfls", photo: "images/players/SkylerGillHoward.jpg", logo: "images/logos/TexasTechLogo.png"},
+    {id: "player-122", name: "Chase Roberts", unit: "offense", position: "WR", height: "6' 4\"", weight: "210", stats: "170recs   2586yds   18tds", photo: "images/players/ChaseRoberts.jpg", logo: "images/logos/BYULogo.png"},
+    {id: "player-123", name: "Tim Keenan III", unit: "defense", position: "IDL", height: "6' 2\"", weight: "320", stats: "95tcks   5.5sacks   12.5tfls", photo: "images/players/TimKeenan.jpg", logo: "images/logos/AlabamaLogo.png"},
+    {id: "player-124", name: "DeMonte Capehart", unit: "defense", position: "IDL", height: "6' 5\"", weight: "315", stats: "72tcks   3sacks   13.5tfls", photo: "images/players/DeMonteCapehart.jpg", logo: "images/logos/ClemsonLogo.png"},
+    {id: "player-125", name: "Drew Allar", unit: "offense", position: "QB", height: "6' 5\"", weight: "235", stats: "63.2cmp%   7402yds   61tds   13ints", photo: "images/players/DrewAllar.jpg", logo: "images/logos/PennStateLogo.png"},
+    {id: "player-126", name: "Kage Casey", unit: "offense", position: "OT", height: "6' 5\"", weight: "316", stats: "41gs   7sa   3.2pres%", photo: "images/players/KageCasey.jpg", logo: "images/logos/BoiseStateLogo.png"},
+    {id: "player-127", name: "Malachi Lawrence", unit: "defense", position: "EDGE", height: "6' 4\"", weight: "250", stats: "72tcks   20sacks   28tfls", photo: "images/players/MalachiLawrence.jpg", logo: "images/logos/UCFLogo.png"},
+    {id: "player-128", name: "Jalen Stroman", unit: "defense", position: "S", height: "6' 1\"", weight: "199", stats: "149tcks   7pd   1int", photo: "images/players/JalenStroman.jpg", logo: "images/logos/NotreDameLogo.png"},
+    {id: "player-129", name: "Max Iheanachor", unit: "offense", position: "OT", height: "6' 6\"", weight: "330", stats: "32gs   0sa   3.09pres%", photo: "images/players/MaxIheanachor.jpg", logo: "images/logos/ArizonaStateLogo.png"},
+    {id: "player-130", name: "Jacob Rodriguez", unit: "defense", position: "LB", height: "6' 1\"", weight: "230", stats: "317tcks   25.5tfls   6sacks", photo: "images/players/JacobRodriguez.jpg", logo: "images/logos/TexasTechLogo.png"},
+    {id: "player-131", name: "J'Mari Taylor", unit: "offense", position: "RB", height: "5' 9\"", weight: "204", stats: "5.1ypc   3812yds   47tds", photo: "images/players/JMariTaylor.jpg", logo: "images/logos/VirginiaLogo.png"},
+    {id: "player-132", name: "Tanner Koziol", unit: "offense", position: "TE", height: "6' 7\"", weight: "240", stats: "237recs   2234yds   24tds", photo: "images/players/TannerKoziol.jpg", logo: "images/logos/HoustonLogo.png"},
+    {id: "player-133", name: "Kevin Coleman Jr.", unit: "offense", position: "WR", height: "5' 11\"", weight: "180", stats: "199recs   2536yds   12tds", photo: "images/players/KevinColeman.jpg", logo: "images/logos/MissouriLogo.png"},
+    {id: "player-134", name: "Kyle Louis", unit: "defense", position: "LB", height: "6' 1\"", weight: "220", stats: "201tcks   25.5tfls   10sacks", photo: "images/players/KyleLouis.jpg", logo: "images/logos/PittLogo.png"},
+    {id: "player-135", name: "Davison Igbinosun", unit: "defense", position: "CB", height: "6' 2\"", weight: "195", stats: "192tcks   25pd   4ints", photo: "images/players/DavisonIgbinosun.jpg", logo: "images/logos/OhioStateLogo.png"},
+    {id: "player-136", name: "Ted Hurst", unit: "offense", position: "WR", height: "6' 3\"", weight: "185", stats: "127recs   1965yds   15tds", photo: "images/players/TedHurst.jpg", logo: "images/logos/GeorgiaStateLogo.png"},
+    {id: "player-137", name: "Connor Tollison", unit: "offense", position: "C", height: "6' 4\"", weight: "285", stats: "47gs   8sa   N/A", photo: "images/players/ConnorTollison.jpg", logo: "images/logos/MissouriLogo.png"},
+    {id: "player-138", name: "Aaron Graves", unit: "defense", position: "IDL", height: "6' 5\"", weight: "295", stats: "122tcks   16.5sacks   25tfls", photo: "images/players/AaronGraves.jpg", logo: "images/logos/IowaLogo.png"},
+    {id: "player-139", name: "Albert Regis", unit: "defense", position: "IDL", height: "6' 1\"", weight: "317", stats: "116tcks   3.5sacks   11tfls", photo: "images/players/AlbertRegis.jpg", logo: "images/logos/TexasA&MLogo.png"},
+    {id: "player-140", name: "Aaron Anderson", unit: "offense", position: "WR", height: "5' 8\"", weight: "188", stats: "106recs   1341yds   5tds", photo: "images/players/AaronAnderson.jpg", logo: "images/logos/LSULogo.png"}
 ];
 
 const positionsByUnit = {
@@ -127,6 +154,12 @@ let selectedPosition = null;
 let searchQuery = "";
 const placedPlayers = new Set();
 const playerNotes = {};
+
+const savedNotes = localStorage.getItem("playerNotes");
+if (savedNotes) {
+    Object.assign(playerNotes, JSON.parse(savedNotes));
+}
+
 
 function handleSearch(value) {
     searchQuery = value.toLowerCase();
@@ -184,7 +217,6 @@ function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
         `;
 
         playerList.appendChild(card);
-        card.querySelector(".player-name").onclick = () => showPlayerModal(p);
     });
 }
 
@@ -334,6 +366,7 @@ function showPlayerModal(player) {
 
     saveBtn.onclick = () => {
         playerNotes[player.id] = notesArea.value;
+        localStorage.setItem("playerNotes", JSON.stringify(playerNotes));
     };
 
     modal.style.display = "flex";
@@ -363,7 +396,7 @@ function loadBoard() {
                 <img src="${player.photo}" class="player-photo">
                 <img src="${player.logo}" class="school_logo">
                 <div class="player-info">
-                    <h3>${player.name}</h3>
+                    <h3 class="player-name">${player.name}</h3>
                     <p>${player.height} | ${player.weight} lbs</p>
                     <p>${player.stats}</p>
                 </div>
@@ -405,3 +438,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 loadBoard();
 selectUnit("all");
+
+document.addEventListener("click", (e) => {
+    const name = e.target.closest(".player-name");
+    if (!name) return;
+
+    const card = name.closest(".player-card");
+    if (!card) return;
+
+    const playerId = card.dataset.playerId || card.id;
+    if (!playerId) return;
+
+    const player = players.find(p => p.id === playerId);
+    if (!player) return;
+
+    showPlayerModal(player);
+});
