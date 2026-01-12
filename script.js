@@ -140,7 +140,27 @@ const players = [
     {id: "player-137", name: "Connor Tollison", unit: "offense", position: "C", height: "6' 4\"", weight: "285", stats: "47gs   8sa   N/A", photo: "images/players/ConnorTollison.jpg", logo: "images/logos/MissouriLogo.png"},
     {id: "player-138", name: "Aaron Graves", unit: "defense", position: "IDL", height: "6' 5\"", weight: "295", stats: "122tcks   16.5sacks   25tfls", photo: "images/players/AaronGraves.jpg", logo: "images/logos/IowaLogo.png"},
     {id: "player-139", name: "Albert Regis", unit: "defense", position: "IDL", height: "6' 1\"", weight: "317", stats: "116tcks   3.5sacks   11tfls", photo: "images/players/AlbertRegis.jpg", logo: "images/logos/TexasA&MLogo.png"},
-    {id: "player-140", name: "Aaron Anderson", unit: "offense", position: "WR", height: "5' 8\"", weight: "188", stats: "106recs   1341yds   5tds", photo: "images/players/AaronAnderson.jpg", logo: "images/logos/LSULogo.png"}
+    {id: "player-140", name: "Aaron Anderson", unit: "offense", position: "WR", height: "5' 8\"", weight: "188", stats: "106recs   1341yds   5tds", photo: "images/players/AaronAnderson.jpg", logo: "images/logos/LSULogo.png"},
+    {id: "player-141", name: "Lee Hunter", unit: "defense", position: "IDL", height: "6' 4\"", weight: "325", stats: "172tcks   7.5sacks   32tfls", photo: "images/players/LeeHunter.jpg", logo: "images/logos/TexasTechLogo.png"},
+    {id: "player-142", name: "Lewis Bond", unit: "offense", position: "WR", height: "5' 11\"", weight: "190", stats: "213recs   2385yds   11tds", photo: "images/players/LewisBond.jpg", logo: "images/logos/BostonCollegeLogo.png"},
+    {id: "player-143", name: "Josiah Trotter", unit: "defense", position: "LB", height: "6' 2\"", weight: "237", stats: "176tcks   17tfls   2.5sacks", photo: "images/players/JosiahTrotter.jpg", logo: "images/logos/MissouriLogo.png"},
+    {id: "player-144", name: "Caden Curry", unit: "defense", position: "EDGE", height: "6' 3\"", weight: "260", stats: "111tcks   15.5sacks   25tfls", photo: "images/players/CadenCurry.jpg", logo: "images/logos/OhioStateLogo.png"},
+    {id: "player-145", name: "Devin Moore", unit: "defense", position: "CB", height: "6' 3\"", weight: "198", stats: "64tcks   8pd   5ints", photo: "images/players/DevinMoore.jpg", logo: "images/logos/FloridaLogo.png"},
+    {id: "player-146", name: "Trinidad Chambliss", unit: "offense", position: "QB", height: "6' 0\"", weight: "200", stats: "66.1cmp%  3937yds   22tds   3ints", photo: "images/players/TrinidadChambliss.jpg", logo: "images/logos/OleMissLogo.png"},
+    {id: "player-147", name: "Treydan Stukes", unit: "defense", position: "CB", height: "6' 2\"", weight: "195", stats: "207tcks   26pd   7ints", photo: "images/players/TreydanStukes.jpg", logo: "images/logos/ArizonaLogo.png"},
+    {id: "player-148", name: "Eli Raridon", unit: "offense", position: "TE", height: "6' 7\"", weight: "251", stats: "48recs   623yds   3tds", photo: "images/players/EliRaridon.jpg", logo: "images/logos/NotreDameLogo.png"},
+    {id: "player-149", name: "Zane Durant", unit: "defense", position: "IDL", height: "6' 1\"", weight: "294", stats: "89tcks   10sacks   22tfls", photo: "images/players/ZaneDurant.jpg", logo: "images/logos/PennStateLogo.png"},
+    {id: "player-150", name: "Lander Barton", unit: "defense", position: "LB", height: "6' 5\"", weight: "236", stats: "207tcks   17tfls   8sacks", photo: "images/players/LanderBarton.jpg", logo: "images/logos/UtahLogo.png"},
+    {id: "player-151", name: "Oscar Delp", unit: "offense", position: "TE", height: "6' 5\"", weight: "245", stats: "70recs   854yds   9tds", photo: "images/players/OscarDelp.jpg", logo: "images/logos/GeorgiaLogo.png"},
+    {id: "player-152", name: "CJ Daniels", unit: "offense", position: "WR", height: "6' 2\"", weight: "205", stats: "194recs   2929yds   28tds", photo: "images/players/CJDaniels.jpg", logo: "images/logos/MiamiLogo.png"},
+    {id: "player-153", name: "Zxavian Harris", unit: "defense", position: "IDL", height: "6' 7\"", weight: "320", stats: "123tcks   5.5sacks   17.5tfls", photo: "images/players/ZxavianHarris.jpg", logo: "images/logos/OleMissLogo.png"},
+    {id: "player-154", name: "Red Murdock", unit: "defense", position: "LB", height: "6' 3\"", weight: "240", stats: "364tcks   39.5tfls   9sacks", photo: "images/players/RedMurdock.jpg", logo: "images/logos/BuffaloLogo.png"},
+    {id: "player-155", name: "Chris Adams", unit: "offense", position: "OG", height: "6' 5\"", weight: "277", stats: "39gs   6sa   N/A", photo: "images/players/ChrisAdams.jpg", logo: "images/logos/MemphisLogo.png"},
+    {id: "player-156", name: "Matt Gulbin", unit: "offense", position: "C", height: "6' 4\"", weight: "312", stats: "35gs   1sa   N/A", photo: "images/players/MattGulbin.jpg", logo: "images/logos/MichiganStateLogo.png"},
+    {id: "player-157", name: "Hezekiah Masses", unit: "defense", position: "CB", height: "6' 1\"", weight: "185", stats: "152tcks   24pd   7ints", photo: "images/players/HezekiahMasses.jpg", logo: "images/logos/CalLogo.png"},
+    {id: "player-158", name: "Brenen Thompson", unit: "offense", position: "WR", height: "5' 9\"", weight: "170", stats: "84recs   1557yds   10tds", photo: "images/players/BrenenThompson.jpg", logo: "images/logos/MississippiStateLogo.png"},
+    {id: "player-159", name: "Patrick Payton", unit: "defense", position: "EDGE", height: "6' 6\"", weight: "255", stats: "144tcks   17sacks   36.5tfls", photo: "images/players/PatrickPayton.jpg", logo: "images/logos/LSULogo.png"},
+    {id: "player-160", name: "Aamil Wagner", unit: "offense", position: "OT", height: "6' 6\"", weight: "296", stats: "28gs   3sa   1.68pres%", photo: "images/players/AamilWagner.jpg", logo: "images/logos/NotreDameLogo.png"},
 ];
 
 const positionsByUnit = {
