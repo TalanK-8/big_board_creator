@@ -161,6 +161,26 @@ const players = [
     {id: "player-158", name: "Brenen Thompson", unit: "offense", position: "WR", height: "5' 9\"", weight: "170", stats: "84recs   1557yds   10tds", photo: "images/players/BrenenThompson.jpg", logo: "images/logos/MississippiStateLogo.png"},
     {id: "player-159", name: "Patrick Payton", unit: "defense", position: "EDGE", height: "6' 6\"", weight: "255", stats: "144tcks   17sacks   36.5tfls", photo: "images/players/PatrickPayton.jpg", logo: "images/logos/LSULogo.png"},
     {id: "player-160", name: "Aamil Wagner", unit: "offense", position: "OT", height: "6' 6\"", weight: "296", stats: "28gs   3sa   1.68pres%", photo: "images/players/AamilWagner.jpg", logo: "images/logos/NotreDameLogo.png"},
+    {id: "player-161", name: "DJ Campbell", unit: "offense", position: "OG", height: "6' 3\"", weight: "321", stats: "42gs   10sa   4.1pres%", photo: "images/players/DJCampbell.jpg", logo: "images/logos/TexasLogo.png"},
+    {id: "player-162", name: "Charles Demmings", unit: "defense", position: "CB", height: "6' 1\"", weight: "190", stats: "64tcks   26pd   8ints", photo: "images/players/CharlesDemmings.jpg", logo: "images/logos/StephenFAustinLogo.png"},
+    {id: "player-163", name: "Bud Clark", unit: "defense", position: "S", height: "6' 2\"", weight: "185", stats: "215tcks   20pd   15ints", photo: "images/players/BudClark.jpg", logo: "images/logos/TCULogo.png"},
+    {id: "player-164", name: "Fa'alili Fa'amoe", unit: "offense", position: "OT", height: "6' 5\"", weight: "317", stats: "36gs   8sa   N/A", photo: "images/players/FaaliliFaamoe.jpg", logo: "images/logos/WakeForestLogo.png"},
+    {id: "player-165", name: "Dametrious Crownover", unit: "offense", position: "OT", height: "6' 7\"", weight: "336", stats: "27gs   3sa   4.9pres%", photo: "images/players/DametriousCrownover.jpg", logo: "images/logos/TexasA&MLogo.png"},
+    {id: "player-166", name: "Arion Carter", unit: "defense", position: "LB", height: "6' 1\"", weight: "235", stats: "161tcks  13.5tfls   1.5sacks", photo: "images/players/ArionCarter.jpg", logo: "images/logos/TennesseeLogo.png"},
+    {id: "player-167", name: "Max Llewellyn", unit: "defense", position: "EDGE", height: "6' 5\"", weight: "263", stats: "64tcks   14.5sacks   20.5tfls", photo: "images/players/MaxLlewellyn.jpg", logo: "images/logos/IowaLogo.png"},
+    {id: "player-168", name: "Logan Fano", unit: "defense", position: "EDGE", height: "6' 5\"", weight: "249", stats: "93tcks   10.5sacks   18tfls", photo: "images/players/LoganFano.jpg", logo: "images/logos/UtahLogo.png"},
+    {id: "player-169", name: "Devon Marshall", unit: "defense", position: "CB", height: "5' 11\"", weight: "200", stats: "143tcks   35pd   4ints", photo: "images/players/DevonMarshall.jpg", logo: "images/logos/NCStateLogo.png"},
+    {id: "player-170", name: "Josh Cameron", unit: "offense", position: "WR", height: "6' 1\"", weight: "224", stats: "170recs   2236yds   19tds", photo: "images/players/JoshCameron.jpg", logo: "images/logos/BaylorLogo.png"},
+    {id: "player-171", name: "Dae'Quan Wright", unit: "offense", position: "TE", height: "6' 4\"", weight: "255", stats: "113recs   1603yds   9tds", photo: "images/players/DaeQuanWright.jpg", logo: "images/logos/OleMissLogo.png"},
+    {id: "player-172", name: "Adam Randall", unit: "offense", position: "RB", height: "6' 2\"", weight: "230", stats: "5ypc   1645yds   15tds", photo: "images/players/AdamRandall.jpg", logo: "images/logos/ClemsonLogo.png"},
+    {id: "player-173", name: "Marlin Klein", unit: "offense", position: "TE", height: "6' 6\"", weight: "250", stats: "38recs   364yds   1td", photo: "images/players/MarlinKlein.jpg", logo: "images/logos/MichiganLogo.png"},
+    {id: "player-174", name: "VJ Payne", unit: "defense", position: "S", height: "6' 3\"", weight: "208", stats: "207tcks   9pd   4ints", photo: "images/players/VJPayne.jpg", logo: "images/logos/KansasStateLogo.png"},
+    {id: "player-175", name: "John Michael Gyllenborg", unit: "offense", position: "TE", height: "6' 5\"", weight: "250", stats: "80recs   1023yds   7tds", photo: "images/players/JohnMichaelGyllenborg.jpg", logo: "images/logos/WyomingLogo.png"},
+    {id: "player-176", name: "Tristan Leigh", unit: "offense", position: "OT", height: "6' 6\"", weight: "310", stats: "33gs   N/A   N/A", photo: "images/players/TristanLeigh.jpg", logo: "images/logos/ClemsonLogo.png"},
+    {id: "player-177", name: "Eric McAlister", unit: "offense", position: "WR", height: "6' 3\"", weight: "205", stats: "169recs   3084yds   24tds", photo: "images/players/EricMcAlister.jpg", logo: "images/logos/TCULogo.png"},
+    {id: "player-178", name: "Keyron Crawford", unit: "defense", position: "EDGE", height: "6' 4\"", weight: "255", stats: "116tcks   11.5sacks   24tfls", photo: "images/players/KeyronCrawford.jpg", logo: "images/logos/AuburnLogo.png"},
+    {id: "player-179", name: "Taylen Green", unit: "offense", position: "QB", height: "6' 6\"", weight: "224", stats: "60.1cmp%   9662yds   59tds   35ints", photo: "images/players/TaylenGreen.jpg", logo: "images/logos/ArkansasLogo.png"},
+    {id: "player-180", name: "Trey Zuhn III", unit: "offense", position: "OT", height: "6' 6\"", weight: "319", stats: "49gs   7sa   2.1pres%", photo: "images/players/TreyZuhn.jpg", logo: "images/logos/TexasA&MLogo.png"}
 ];
 
 const positionsByUnit = {
