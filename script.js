@@ -201,6 +201,14 @@ const players = [
     {id: "player-198", name: "Bryce Foster", unit: "offense", position: "C", height: "6' 5\"", weight: "310", stats: "40gs   N/A   N/A", photo: "images/players/BryceFoster.jpg", logo: "images/logos/KansasLogo.png"},
     {id: "player-199", name: "Cole Wisniewski", unit: "defense", position: "S", height: "6' 4\"", weight: "220", stats: "195tcks   11pd   8ints", photo: "images/players/ColeWisniewski.jpg", logo: "images/logos/TexasTechLogo.png"},
     {id: "player-200", name: "Le'Veon Moss", unit: "offense", position: "RB", height: "5' 11\"", weight: "210", stats: "5.5ypc   2003yds 22tds", photo: "images/players/LeVeonMoss.jpg", logo: "images/logos/TexasA&MLogo.png"},
+    {id: "player-201", name: "Beau Stephens", unit: "offense", position: "OG", height: "6' 5\"", weight: "315", stats: "33gs   N/A   1.99pres%", photo: "images/players/BeauStephens.jpg", logo: "images/logos/IowaLogo.png"},
+    {id: "player-202", name: "Dorion Strawn", unit: "offense", position: "OT", height: "6' 6\"", weight: "315", stats: "36gs   N/A   N/A", photo: "images/players/DorionStrawn.jpg", logo: "images/logos/TexasStateLogo.png"},
+    {id: "player-203", name: "Ethan Onianwa", unit: "offense", position: "OT", height: "6' 7\"", weight: "331", stats: "34gs   14sa   N/A", photo: "images/players/EthanOnianwa.jpg", logo: "images/logos/OhioStateLogo.png"},
+    {id: "player-204", name: "Jack Pyburn", unit: "defense", position: "EDGE", height: "6' 4\"", weight: "264", stats: "132tcks   3sacks   10.5tfls", photo: "images/players/JackPyburn.jpg", logo: "images/logos/LSULogo.png"},
+    {id: "player-205", name: "Isaiah Nwokobia", unit: "defense", position: "S", height: "6' 1\"", weight: "205", stats: "273tcks   14pd   11ints", photo: "images/players/IsaiahNwokobia.jpg", logo: "images/logos/SMULogo.png"},
+    {id: "player-206", name: "Sam Roush", unit: "offense", position: "TE", height: "6' 5\"", weight: "260", stats: "119recs   1201yds   4tds", photo: "images/players/SamRoush.jpg", logo: "images/logos/StanfordLogo.png"},
+    {id: "player-207", name: "Lance Mason", unit: "offense", position: "TE", height: "6' 4\"", weight: "240", stats: "86recs   1198yds   12tds", photo: "images/players/LanceMason.jpg", logo: "images/logos/WisconsinLogo.png"},
+    {id: "player-208", name: "Aiden Fisher", unit: "defense", position: "LB", height: "6' 1\"", weight: "233", stats: "324tcks   21tfls   6.5sacks", photo: "images/players/AidenFisher.jpg", logo: "images/logos/IndianaLogo.png"},
 ];
 
 const positionsByUnit = {
