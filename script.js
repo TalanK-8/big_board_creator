@@ -209,6 +209,19 @@ const players = [
     {id: "player-206", name: "Sam Roush", unit: "offense", position: "TE", height: "6' 5\"", weight: "260", stats: "119recs   1201yds   4tds", photo: "images/players/SamRoush.jpg", logo: "images/logos/StanfordLogo.png"},
     {id: "player-207", name: "Lance Mason", unit: "offense", position: "TE", height: "6' 4\"", weight: "240", stats: "86recs   1198yds   12tds", photo: "images/players/LanceMason.jpg", logo: "images/logos/WisconsinLogo.png"},
     {id: "player-208", name: "Aiden Fisher", unit: "defense", position: "LB", height: "6' 1\"", weight: "233", stats: "324tcks   21tfls   6.5sacks", photo: "images/players/AidenFisher.jpg", logo: "images/logos/IndianaLogo.png"},
+    {id: "player-209", name: "Josh Moten", unit: "defense", position: "CB", height: "6' 0\"", weight: "185", stats: "129tcks   21pd   11ints", photo: "images/players/JoshMoten.jpg", logo: "images/logos/SouthernMissLogo.png"},
+    {id: "player-210", name: "Keagen Trost", unit: "offense", position: "OT", height: "6' 4\"", weight: "316", stats: "38gs   6sa   1.4pres%", photo: "images/players/KeagenTrost.jpg", logo: "images/logos/MissouriLogo.png"},
+    {id: "player-211", name: "Miles Kitselman", unit: "offense", position: "TE", height: "6' 5\"", weight: "255", stats: "50recs   572yds   6tds", photo: "images/players/MilesKitselman.jpg", logo: "images/logos/TennesseeLogo.png"},
+    {id: "player-212", name: "Markel Bell", unit: "offense", position: "OT", height: "6' 9\"", weight: "340", stats: "17gs   0sa   N/A", photo: "images/players/MarkelBell.jpg", logo: "images/logos/MiamiLogo.png"},
+    {id: "player-213", name: "Jameson Geers", unit: "offense", position: "TE", height: "6' 5\"", weight: "250", stats: "58recs   518yds   9tds", photo: "images/players/JamesonGeers.jpg", logo: "images/logos/MinnesotaLogo.png"},
+    {id: "player-214", name: "Isaiah Jatta", unit: "offense", position: "OT", height: "6' 6\"", weight: "315", stats: "17gs   1sa   4.3pres%", photo: "images/players/IsaiahJatta.jpg", logo: "images/logos/BYULogo.png"},
+    {id: "player-215", name: "Sawyer Robertson", unit: "offense", position: "QB", height: "6' 4\"", weight: "220", stats: "60.5cmp%   7639yds   61tds   25ints", photo: "images/players/SawyerRobertson.jpg", logo: "images/logos/BaylorLogo.png"},
+    {id: "player-216", name: "George Gumbs Jr.", unit: "defense", position: "EDGE", height: "6' 4\"", weight: "250", stats: "98tcks   11sacks   21tfls", photo: "images/players/GeorgeGumbs.jpg", logo: "images/logos/FloridaLogo.png"},
+    {id: "player-217", name: "Thaddeus Dixon", unit: "defense", position: "CB", height: "6' 1\"", weight: "185", stats: "89tcks   22pd   2ints", photo: "images/players/ThaddeusDixon.jpg", logo: "images/logos/NorthCarolinaLogo.png"},
+    {id: "player-218", name: "Dominic Bailey", unit: "defense", position: "EDGE", height: "6' 3\"", weight: "292", stats: "76tcks   8sacks   12.5tfls", photo: "images/players/DominicBailey.jpg", logo: "images/logos/TennesseeLogo.png"},
+    {id: "player-219", name: "Febechi Nwaiwu", unit: "offense", position: "OG", height: "6' 4\"", weight: "326", stats: "40gs   2sa   0.42pres%", photo: "images/players/FebechiNwaiwu.jpg", logo: "images/logos/OklahomaLogo.png"},
+    {id: "player-220", name: "Miller Moss", unit: "offense", position: "QB", height: "6' 2\"", weight: "210", stats: "65.1cmp%   6148yds   43tds   17ints", photo: "images/players/MillerMoss.jpg", logo: "images/logos/LouisvilleLogo.png"},
+    {id: "player-221", name: "Riley Mahlman", unit: "offense", position: "OT", height: "6' 8\"", weight: "320", stats: "31gs   12sa   N/A", photo: "images/players/RileyMahlman.jpg", logo: "images/logos/WisconsinLogo.png"},
 ];
 
 const positionsByUnit = {
