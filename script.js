@@ -24,6 +24,17 @@ const positionsByUnit = {
     special: ["K", "P", "LS"]
 };
 
+const roundTitles = {
+    1: "1st Round",
+    2: "2nd Round",
+    3: "3rd Round",
+    4: "4th Round",
+    5: "5th Round",
+    6: "6th Round",
+    7: "7th Round",
+    8: "UDFA"
+};
+
 const favorites = new Set();
 const savedFavorites = localStorage.getItem("favorites");
 if (savedFavorites) {
@@ -81,6 +92,10 @@ function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
         card.dataset.playerId = p.id;
         card.ondragstart = drag;
 
+        if (favorites.has(p.id)) {
+            card.classList.add("favorited");
+        };
+
         card.innerHTML = `
             <img src="${p.photo}" class="player-photo">
             <img src="${p.logo}" class="school_logo">
@@ -97,7 +112,78 @@ function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
 
 window.addEventListener("DOMContentLoaded", () => {
     loadPlayers();
+
+    const modal = document.getElementById("player-modal");
+    const closeBtn = document.getElementById("modal-close");
+
+    closeBtn.onclick = () => {
+        modal.style.display = "none";
+    };
+
+    modal.onclick = (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    // Attach one delegated click listener
+    document.addEventListener("click", (e) => {
+        // Ignore clicks on star/remove buttons
+        if (e.target.closest(".card-actions")) return;
+
+        // Find the nearest player-card parent
+        const card = e.target.closest(".player-card");
+        if (!card) return;
+
+        const playerId = card.dataset.playerId;
+        if (!playerId) return;
+
+        // Make sure players are loaded
+        if (!players || !players.length) return;
+
+        const player = players.find(p => p.id === playerId);
+        if (!player) return;
+
+        // Show the modal
+        showPlayerModal(player);
+    });
 });
+
+function showPlayerModal(player) {
+    const modal = document.getElementById("player-modal");
+    const profileCard = modal.querySelector(".profile-card");
+    const starBtn = document.createElement("button");
+    const notesArea = document.getElementById("player-notes");
+    const saveBtn = document.getElementById("save-notes");
+
+    starBtn.classList.add("favorite-btn");
+
+    const isFav = favorites.has(player.id);
+    starBtn.innerHTML = isFav ? "★" : "☆";
+    starBtn.classList.toggle("active", isFav);
+
+    profileCard.innerHTML = `
+        <img src="${player.photo}" class="player-photo">
+        <img src="${player.logo}" class="school_logo">
+        <div class="player-info">
+            <h3>${player.name}</h3>
+            <p>${player.height} | ${player.weight} lbs</p>
+            <p>${player.stats}</p>
+        </div>
+    `;
+
+    notesArea.value = playerNotes[player.id] || "";
+
+    starBtn.onclick = () => toggleFavorite(player.id);
+    saveBtn.onclick = () => {
+        playerNotes[player.id] = notesArea.value;
+        localStorage.setItem("playerNotes", JSON.stringify(playerNotes));
+    };
+
+    profileCard.appendChild(starBtn);
+    modal.style.display = "flex";
+}
+
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -134,6 +220,7 @@ function dropIntoRound(ev) {
             const starBtn = document.createElement("button");
             starBtn.className = "favorite-btn";
             starBtn.innerHTML = favorites.has(playerId) ? "★" : "☆";
+            starBtn.classList.toggle("active", favorites.has(playerId));
             starBtn.onclick = (e) => {
                 e.stopPropagation();
                 toggleFavorite(playerId);
@@ -147,6 +234,7 @@ function dropIntoRound(ev) {
                 card.remove();
                 placedPlayers.delete(playerId);
                 updateRanks();
+                renderSidebarPlayers(selectedUnit, selectedPosition);
             };
 
             actionContainer.appendChild(starBtn);
@@ -260,41 +348,6 @@ function hideSideBarPlayer(playerId) {
     if (sidebarCard) sidebarCard.style.display = "none";
 }
 
-function showPlayerModal(player) {
-    const modal = document.getElementById("player-modal");
-    const profileCard = modal.querySelector(".profile-card");
-    const starBtn = document.createElement("button");
-    const notesArea = document.getElementById("player-notes");
-    const saveBtn = document.getElementById("save-notes");
-
-    starBtn.classList.add("favorite-btn");
-
-    const isFav = favorites.has(player.id);
-    starBtn.innerHTML = isFav ? "★" : "☆";
-    starBtn.classList.toggle("active", isFav);
-
-    profileCard.innerHTML = `
-        <img src="${player.photo}" class="player-photo">
-        <img src="${player.logo}" class="school_logo">
-        <div class="player-info">
-            <h3>${player.name}</h3>
-            <p>${player.height} | ${player.weight} lbs</p>
-            <p>${player.stats}</p>
-        </div>
-    `;
-
-    notesArea.value = playerNotes[player.id] || "";
-
-    starBtn.onclick = () => toggleFavorite(player.id);
-    saveBtn.onclick = () => {
-        playerNotes[player.id] = notesArea.value;
-        localStorage.setItem("playerNotes", JSON.stringify(playerNotes));
-    };
-
-    profileCard.appendChild(starBtn);
-    modal.style.display = "flex";
-}
-
 function loadBoard() {
     const savedData = localStorage.getItem("bigBoardData");
     if (!savedData) return;
@@ -351,7 +404,8 @@ function loadBoard() {
                 toggleFavorite(player.id);
             });
 
-            removeBtn.onclick = () => {
+            removeBtn.onclick = (e) => {
+                e.stopPropagation();
                 card.remove();
                 placedPlayers.delete(player.id);
                 updateRanks();
@@ -359,29 +413,18 @@ function loadBoard() {
             };
 
             card.appendChild(actionContainer);
-
             roundDiv.appendChild(card);
+
+            // --- Add to placedPlayers only AFTER creating the card ---
             placedPlayers.add(player.id);
         });
     });
 
+    // Render the sidebar after board cards are loaded
+    renderSidebarPlayers(selectedUnit, selectedPosition);
+
     updateRanks();
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("player-modal");
-    const closeBtn = document.getElementById("modal-close");
-
-    closeBtn.onclick = () => {
-        modal.style.display = "none";
-    };
-
-    modal.onclick = (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    };
-});
 
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".round").forEach(round => {
@@ -391,18 +434,68 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-document.addEventListener("click", (e) => {
-    const name = e.target.closest(".player-name");
-    if (!name) return;
+document.getElementById("download-board-btn").addEventListener("click", () => {
+    downloadBigBoard();
+})
 
-    const card = name.closest(".player-card");
-    if (!card) return;
+async function downloadBigBoard() {
+    const boardData = JSON.parse(localStorage.getItem("bigBoardData") || '{}');
+    const favoritesSet = new Set(JSON.parse(localStorage.getItem("favorites") || '[]'));
 
-    const playerId = card.dataset.playerId || card.id;
-    if (!playerId) return;
+    // Build the HTML
+    let html = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>My Big Board</title>
+        <style>
+            body { font-family: sans-serif; background: #f0f0f0; }
+            .round { border: 1px solid #aaa; padding: 10px; margin: 10px; display: inline-block; vertical-align: top; width: 200px; }
+            .player-card { border: 1px solid #333; padding: 5px; margin: 5px; background: #fff; position: relative; display: flex; align-items: center; gap: 5px; }
+            .player-photo { width: 50px; height: 50px; object-fit: cover; }
+            .rank-number { font-weight: bold; margin-right: 5px; }
+            .favorite-star { position: absolute; top: 5px; right: 5px; color: gold; font-weight: bold; }
+        </style>
+    </head>
+    <body>
+        <h1>My Big Board</h1>
+        <div id="board-container">
+    `;
 
-    const player = players.find(p => p.id === playerId);
-    if (!player) return;
+    Object.keys(boardData).forEach(roundNum => {
+        const title = roundNum === "8" ? "UDFA" : roundNum + "th Round";
+        html += `<div class="round"><h2>${title}</h2>`;
 
-    showPlayerModal(player);
-});
+        boardData[roundNum].forEach(playerId => {
+            const player = players.find(p => p.id === playerId);
+            if (!player) return;
+
+            const isFav = favoritesSet.has(playerId);
+            html += `
+                <div class="player-card">
+                    <span class="rank-number">${boardData[roundNum].indexOf(playerId) + 1}</span>
+                    <img src="${player.photo}" class="player-photo">
+                    <div><strong>${player.name}</strong></div>
+                    ${isFav ? '<div class="favorite-star">★</div>' : ''}
+                </div>
+            `;
+        });
+
+        html += `</div>`; // close round
+    });
+
+    html += `
+        </div>
+    </body>
+    </html>
+    `;
+
+    // Download the file
+    const blob = new Blob([html], { type: "text/html" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "bigboard.html";
+    a.click();
+}
+

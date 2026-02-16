@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>NFL Big Board 2026</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body> 
+
+<body>
 
     <div class="container">
+        <button id="download-board-btn">Download Big Board</button>
         <!-- LEFT SIDEBAR -->
-        <div class="sidebar" 
-             ondragover="allowDrop(event)"
-             ondrop="dropBackToSidebar(event)">
+        <div class="sidebar" ondragover="allowDrop(event)" ondrop="dropBackToSidebar(event)">
             <h2>Players</h2>
-            <input
-                type="text"
-                id="player-search"
-                placeholder="Search players..."
-                oninput="handleSearch(this.value)"
-                class="search-bar"
-            />
+            <input type="text" id="player-search" placeholder="Search players..." oninput="handleSearch(this.value)"
+                class="search-bar" />
             <!--Unit selection-->
             <div class="unit-buttons">
                 <button onclick="selectUnit('all')">ALL</button>
@@ -45,9 +41,7 @@
             <div class="round" data-round="1">
                 <h2 class="round-title">1st Round</h2>
 
-                <div class="rank-list"
-                     ondragover="allowDrop(event)"
-                     ondrop="dropIntoRound(event)">
+                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
@@ -55,9 +49,7 @@
             <div class="round" data-round="2">
                 <h2 class="round-title">2nd Round</h2>
 
-                <div class="rank-list"
-                     ondragover="allowDrop(event)"
-                     ondrop="dropIntoRound(event)">
+                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
@@ -65,9 +57,7 @@
             <div class="round" data-round="3">
                 <h2 class="round-title">3rd Round</h2>
 
-                <div class="rank-list"
-                     ondragover="allowDrop(event)"
-                     ondrop="dropIntoRound(event)">
+                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
@@ -75,9 +65,7 @@
             <div class="round" data-round="4">
                 <h2 class="round-title">4th Round</h2>
 
-                <div class="rank-list"
-                     ondragover="allowDrop(event)"
-                     ondrop="dropIntoRound(event)">
+                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
@@ -85,9 +73,7 @@
             <div class="round" data-round="5">
                 <h2 class="round-title">5th Round</h2>
 
-                <div class="rank-list"
-                     ondragover="allowDrop(event)"
-                     ondrop="dropIntoRound(event)">
+                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
@@ -95,9 +81,7 @@
             <div class="round" data-round="6">
                 <h2 class="round-title">6th Round</h2>
 
-                <div class="rank-list"
-                     ondragover="allowDrop(event)"
-                     ondrop="dropIntoRound(event)">
+                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
@@ -105,9 +89,7 @@
             <div class="round" data-round="7">
                 <h2 class="round-title">7th Round</h2>
 
-                <div class="rank-list"
-                     ondragover="allowDrop(event)"
-                     ondrop="dropIntoRound(event)">
+                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
@@ -115,9 +97,7 @@
             <div class="round" data-round="8">
                 <h2 class="round-title">UDFA</h2>
 
-                <div class="rank-list"
-                     ondragover="allowDrop(event)"
-                     ondrop="dropIntoRound(event)">
+                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
                 </div>
             </div>
 
@@ -135,4 +115,5 @@
         </div>
     </div>
 </body>
+
 </html>
