@@ -149,7 +149,23 @@ body {
     gap: 8px;
     position: relative;
     cursor: grab;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.rank-list .player-card {
+    padding: 8px;
+}
+
+.card-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card-actions button {
+    border: none;
+    cursor: pointer;
 }
 
 .rank-number {
@@ -158,7 +174,6 @@ body {
 }
 
 .remove-btn {
-    position: absolute;
     right: 6px;
     top: 6px;
     border: none;
@@ -200,7 +215,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
 }
@@ -215,6 +230,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.modal-content .profile-card {
+    position: relative;
 }
 
 .modal-close {
@@ -251,6 +270,27 @@ body {
 .modal-content .profile-card .player-info p {
     font-size: 14px;
     color: #ccc;
+}
+
+.favorite-btn {
+    background: transparent;
+    font-size: 16px;
+    padding: 2px 4px;
+    color: #9ca3af;
+}
+
+.favorite-btn:hover {
+    color: #fbbf24;
+    transform: scale(1.1);
+}
+
+.favorite-btn.active {
+    color: #fbbf24;
+}
+
+.player-card.favorited {
+    border: 2px solid gold;
+    box-shadow: 0 0 8px gold;
 }
 
 #player-notes {
