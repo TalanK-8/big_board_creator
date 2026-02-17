@@ -475,7 +475,7 @@ async function downloadBigBoard() {
             html += `
                 <div class="player-card">
                     <span class="rank-number">${boardData[roundNum].indexOf(playerId) + 1}</span>
-                    <img src="${player.photo}" class="player-photo">
+                    <img src="${player.logo}" class="player-photo">
                     <div><strong>${player.name}</strong></div>
                     ${isFav ? '<div class="favorite-star">★</div>' : ''}
                 </div>
