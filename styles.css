@@ -11,18 +11,28 @@ body {
     overflow: hidden;
 }
 
+.disclaimer {
+    font-size: 10px;
+    color: #6b7280;
+    /* subtle gray */
+    margin-top: 4px;
+    font-style: italic;
+}
+
 .container {
     display: flex;
     height: 100vh;
+    width: 100%;
 }
 
+/* ---------- Sidebar ---------- */
 .sidebar {
-    width: 280px;
+    flex: 0 0 280px;
+    /* fixed width on desktop */
     background: #0e1117;
     color: white;
     padding: 12px;
     overflow-y: auto;
-    flex-shrink: 0;
 }
 
 .sidebar h2 {
@@ -40,7 +50,7 @@ body {
 
 .unit-buttons button,
 .position-buttons button {
-    flex: 1;
+    flex: 1 1 30%;
     padding: 6px;
     font-size: 11px;
     background: #1f2937;
@@ -72,8 +82,8 @@ body {
 }
 
 .player-photo {
-    width: 36px;
-    height: 36px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -81,6 +91,7 @@ body {
 .school_logo {
     width: 20px;
     height: 20px;
+    object-fit: contain;
 }
 
 .player-info h3 {
@@ -111,8 +122,11 @@ body {
     object-fit: contain;
 }
 
+/* ---------- Board (stacked rounds) ---------- */
 .board {
-    flex: 1;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
     padding: 16px;
     overflow-y: auto;
 }
@@ -123,7 +137,10 @@ body {
 }
 
 .round {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    /* spacing between rounds */
 }
 
 .round-title {
@@ -137,23 +154,22 @@ body {
     border-radius: 10px;
     padding: 6px;
     background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .rank-list .player-card {
+    width: 100%;
     background: white;
     border-radius: 10px;
-    padding: 8px 28px 8px 8px;
-    margin-bottom: 6px;
+    padding: 8px;
     display: flex;
     align-items: center;
     gap: 8px;
     position: relative;
     cursor: grab;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-}
-
-.rank-list .player-card {
-    padding: 8px;
 }
 
 .card-actions {
@@ -190,6 +206,7 @@ body {
     background: #dc2626;
 }
 
+/* ---------- Search ---------- */
 .search-bar {
     width: 100%;
     padding: 8px 10px;
@@ -206,6 +223,7 @@ body {
     color: #9ca3af;
 }
 
+/* ---------- Player Modal ---------- */
 .player-modal {
     display: none;
     position: fixed;
@@ -230,17 +248,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.modal-content .profile-card {
-    position: relative;
-}
-
-.modal-close {
-    align-self: flex-end;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
 }
 
 .modal-content .profile-card {
@@ -272,6 +279,7 @@ body {
     color: #ccc;
 }
 
+/* ---------- Favorites ---------- */
 .favorite-btn {
     background: transparent;
     font-size: 16px;
@@ -293,6 +301,7 @@ body {
     box-shadow: 0 0 8px gold;
 }
 
+/* ---------- Notes & Buttons ---------- */
 #player-notes {
     width: 100%;
     min-height: 80px;
@@ -325,6 +334,7 @@ body {
     cursor: pointer;
 }
 
+/* ---------- Responsive ---------- */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -332,11 +342,16 @@ body {
 
     .sidebar {
         width: 100%;
-        height: auto;
         max-height: 40vh;
     }
 
     .board {
-        height: 60vh;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .board {
+        padding: 8px;
     }
 }
