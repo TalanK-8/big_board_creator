@@ -3308,7 +3308,7 @@
         "weight": "242",
         "stats": "",
         "photo": "images/players/KendalDaniels.jpg",
-        "logo": "images/logos/OklahomaLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OklahomaLogo.png"
     },
     {
         "id": "player-303",
@@ -3319,7 +3319,7 @@
         "weight": "190",
         "stats": "",
         "photo": "images/players/PhillipDunnam.jpg",
-        "logo": "images/logos/UCFLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/UCFLogo.png"
     },
     {
         "id": "player-304",
@@ -3330,7 +3330,7 @@
         "weight": "215",
         "stats": "",
         "photo": "images/players/JayGreen.jpg",
-        "logo": "images/logos/StanfordLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/StanfordLogo.png"
     },
     {
         "id": "player-305",
@@ -3341,7 +3341,7 @@
         "weight": "227",
         "stats": "",
         "photo": "images/players/OwenHeinecke.jpg",
-        "logo": "images/logos/OklahomaLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OklahomaLogo.png"
     },
     {
         "id": "player-306",
@@ -3352,7 +3352,7 @@
         "weight": "232",
         "stats": "",
         "photo": "images/players/BryceBoettcher.jpg",
-        "logo": "images/logos/OregonLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OregonLogo.png"
     },
     {
         "id": "player-307",
@@ -3363,7 +3363,7 @@
         "weight": "225",
         "stats": "",
         "photo": "images/players/XavianSorey.jpg",
-        "logo": "images/logos/ArkansasLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/ArkansasLogo.png"
     },
     {
         "id": "player-308",
@@ -3374,7 +3374,7 @@
         "weight": "230",
         "stats": "",
         "photo": "images/players/ScoobyWilliams.jpg",
-        "logo": "images/logos/TexasA&MLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/TexasA&MLogo.png"
     },
     {
         "id": "player-309",
@@ -3385,7 +3385,7 @@
         "weight": "250",
         "stats": "",
         "photo": "images/players/JadenDugger.jpg",
-        "logo": "images/logos/LouisianaLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/LouisianaLogo.png"
     },
     {
         "id": "player-310",
@@ -3396,7 +3396,7 @@
         "weight": "205",
         "stats": "",
         "photo": "images/players/WesleyBissainthe.jpg",
-        "logo": "images/logos/MiamiLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MiamiLogo.png"
     },
     {
         "id": "player-311",
@@ -3407,7 +3407,7 @@
         "weight": "235",
         "stats": "",
         "photo": "images/players/WadeWoodaz.jpg",
-        "logo": "images/logos/ClemsonLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/ClemsonLogo.png"
     },
     {
         "id": "player-312",
@@ -3418,7 +3418,7 @@
         "weight": "230",
         "stats": "",
         "photo": "images/players/KalebElarmsOrr.jpg",
-        "logo": "images/logos/TCULogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/TCULogo.png"
     },
     {
         "id": "player-313",
@@ -3429,7 +3429,7 @@
         "weight": "227",
         "stats": "",
         "photo": "images/players/JustinJefferson.jpg",
-        "logo": "images/logos/AlabamaLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/AlabamaLogo.png"
     },
     {
         "id": "player-314",
@@ -3440,7 +3440,7 @@
         "weight": "280",
         "stats": "",
         "photo": "images/players/KalebProctor.jpg",
-        "logo": "images/logos/SoutheasternLouisianaLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/SoutheasternLouisianaLogo.png"
     },
     {
         "id": "player-315",
@@ -3451,7 +3451,7 @@
         "weight": "310",
         "stats": "",
         "photo": "images/players/JamesThompson.jpg",
-        "logo": "images/logos/IllinoisLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/IllinoisLogo.png"
     },
     {
         "id": "player-316",
@@ -3462,7 +3462,7 @@
         "weight": "320",
         "stats": "",
         "photo": "images/players/DevenEastern.jpg",
-        "logo": "images/logos/MinnesotaLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MinnesotaLogo.png"
     },
     {
         "id": "player-317",
@@ -3473,7 +3473,7 @@
         "weight": "315",
         "stats": "",
         "photo": "images/players/BrandonCleveland.jpg",
-        "logo": "images/logos/NCStateLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/NCStateLogo.png"
     },
     {
         "id": "player-318",
@@ -3484,7 +3484,7 @@
         "weight": "340",
         "stats": "",
         "photo": "images/players/GarySmith.jpg",
-        "logo": "images/logos/UCLALogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/UCLALogo.png"
     },
     {
         "id": "player-319",
@@ -3495,7 +3495,7 @@
         "weight": "287",
         "stats": "",
         "photo": "images/players/LandonRobinson.jpg",
-        "logo": "images/logos/NavyLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/NavyLogo.png"
     },
     {
         "id": "player-320",
@@ -3506,7 +3506,7 @@
         "weight": "323",
         "stats": "",
         "photo": "images/players/CameronBall.jpg",
-        "logo": "images/logos/ArkansasLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/ArkansasLogo.png"
     },
     {
         "id": "player-321",
@@ -3517,7 +3517,7 @@
         "weight": "323",
         "stats": "",
         "photo": "images/players/DamonicWilliams.jpg",
-        "logo": "images/logos/OklahomaLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OklahomaLogo.png"
     },
     {
         "id": "player-322",
@@ -3528,7 +3528,7 @@
         "weight": "250",
         "stats": "",
         "photo": "images/players/NadameTucker.jpg",
-        "logo": "images/logos/WesternMichiganLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/WesternMichiganLogo.png"
     },
     {
         "id": "player-323",
@@ -3539,7 +3539,7 @@
         "weight": "240",
         "stats": "",
         "photo": "images/players/QuintayviousHutchins.jpg",
-        "logo": "images/logos/BostonCollegeLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/BostonCollegeLogo.png"
     },
     {
         "id": "player-324",
@@ -3550,7 +3550,7 @@
         "weight": "250",
         "stats": "",
         "photo": "images/players/TJGuy.jpg",
-        "logo": "images/logos/MichiganLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MichiganLogo.png"
     },
     {
         "id": "player-325",
@@ -3561,7 +3561,7 @@
         "weight": "260",
         "stats": "",
         "photo": "images/players/VincentAnthony.jpg",
-        "logo": "images/logos/DukeLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/DukeLogo.png"
     },
     {
         "id": "player-326",
@@ -3572,7 +3572,7 @@
         "weight": "261",
         "stats": "",
         "photo": "images/players/EricONeill.jpg",
-        "logo": "images/logos/RutgersLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/RutgersLogo.png"
     },
     {
         "id": "player-327",
@@ -3583,7 +3583,7 @@
         "weight": "248",
         "stats": "",
         "photo": "images/players/MasonReiger.jpg",
-        "logo": "images/logos/WisconsinLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/WisconsinLogo.png"
     },
     {
         "id": "player-328",
@@ -3594,7 +3594,7 @@
         "weight": "244",
         "stats": "",
         "photo": "images/players/KeyshawnJamesNewby.jpg",
-        "logo": "images/logos/NewMexicoLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/NewMexicoLogo.png"
     },
     {
         "id": "player-329",
@@ -3605,7 +3605,7 @@
         "weight": "235",
         "stats": "",
         "photo": "images/players/BenBell.jpg",
-        "logo": "images/logos/VirginiaTechLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/VirginiaTechLogo.png"
     },
     {
         "id": "player-330",
@@ -3616,7 +3616,7 @@
         "weight": "262",
         "stats": "",
         "photo": "images/players/TreSmith.jpg",
-        "logo": "images/logos/ArizonaLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/ArizonaLogo.png"
     },
     {
         "id": "player-331",
@@ -3627,7 +3627,7 @@
         "weight": "250",
         "stats": "",
         "photo": "images/players/MoWestmoreland.jpg",
-        "logo": "images/logos/TulaneLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/TulaneLogo.png"
     },
     {
         "id": "player-332",
@@ -3638,7 +3638,7 @@
         "weight": "255",
         "stats": "",
         "photo": "images/players/AidanHubbard.jpg",
-        "logo": "images/logos/NorthwesternLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/NorthwesternLogo.png"
     },
     {
         "id": "player-333",
@@ -3649,7 +3649,7 @@
         "weight": "295",
         "stats": "",
         "photo": "images/players/WillWhitson.jpg",
-        "logo": "images/logos/MississippiStateLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MississippiStateLogo.png"
     },
     {
         "id": "player-334",
@@ -3660,7 +3660,7 @@
         "weight": "259",
         "stats": "",
         "photo": "images/players/EthanBurke.jpg",
-        "logo": "images/logos/TexasLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/TexasLogo.png"
     },
     {
         "id": "player-335",
@@ -3671,7 +3671,7 @@
         "weight": "250",
         "stats": "",
         "photo": "images/players/NyjalikKelly.jpg",
-        "logo": "images/logos/UCFLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/UCFLogo.png"
     },
     {
         "id": "player-336",
@@ -3682,6 +3682,6 @@
         "weight": "255",
         "stats": "",
         "photo": "images/players/TreyWhite.jpg",
-        "logo": "images/logos/TexasTechLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/TexasTechLogo.png"
     }
 ]
