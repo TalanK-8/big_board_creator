@@ -1097,7 +1097,7 @@
         "weight": "211",
         "stats": "178tcks   21pd   8ints",
         "photo": "images/players/JalonKilgore.jpg",
-        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/GeorgiaLogo.png"
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/SouthCarolinaLogo.png"
     },
     {
         "id": "player-101",
@@ -3683,5 +3683,16 @@
         "stats": "",
         "photo": "images/players/TreyWhite.jpg",
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/TexasTechLogo.png"
+    },
+    {
+        "id": "player-337",
+        "name": "Monroe Freeling",
+        "unit": "offense",
+        "position": "OT",
+        "height": "6' 7\"",
+        "weight": "315",
+        "stats": "",
+        "photo": "images/players/MonroeFreeling.jpg",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/GeorgiaLogo.png"
     }
 ]
