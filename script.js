@@ -102,8 +102,8 @@ function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
             <div class="player-info">
                 <h3 class="player-name">${p.name}</h3>
                 <p>${p.height} | ${p.weight} lbs</p>
-                <p>${p.stats}</p>
             </div>
+            ${!selectedPosition ? `<p class="player-position">${p.position}</p>` : ""}
         `;
 
         playerList.appendChild(card);
@@ -243,6 +243,19 @@ function dropIntoRound(ev) {
         }
     }
 
+    // Add position if missing
+    if (!card.querySelector(".player-position")) {
+        const player = players.find(p => p.id === playerId);
+
+        if (player) {
+            const position = document.createElement("p");
+            position.className = "player-position";
+            position.innerText = player.position;
+
+            card.appendChild(position);
+        }
+    }
+
     // Move card into the round
     const afterElement = getDragAfterElement(roundList, ev.clientY);
     if (!afterElement) roundList.appendChild(card);
@@ -378,8 +391,8 @@ function loadBoard() {
                 <div class="player-info">
                     <h3 class="player-name">${player.name}</h3>
                     <p>${player.height} | ${player.weight} lbs</p>
-                    <p>${player.stats}</p>
                 </div>
+                <p class="player-position">${player.position}</p> 
             `;
 
             const removeBtn = document.createElement("button");

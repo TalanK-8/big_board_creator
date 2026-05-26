@@ -95,6 +95,11 @@ body {
     object-fit: contain;
 }
 
+.player-position {
+    padding-left: 5px;
+    font-size: 25px;
+}
+
 .player-info h3 {
     font-size: 11px;
     font-weight: 600;
@@ -347,14 +352,14 @@ body {
 
 /* Draggable handle */
 ::-webkit-scrollbar-thumb {
-    background: #3b82f6;
+    background: #f3f3f3ff;
     border-radius: 10px;
     border: 2px solid #111827;
 }
 
 /* Hover effect */
 ::-webkit-scrollbar-thumb:hover {
-    background: #2563eb;
+    background: #b7b7b7;
 }
 
 /* ---------- Responsive ---------- */
