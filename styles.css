@@ -6,7 +6,8 @@
 }
 
 body {
-    background: #f4f6f8;
+    background: #0e1117ff;
+    color: #f3f3f3ff;
     height: 100vh;
     overflow: hidden;
 }
@@ -30,7 +31,7 @@ body {
     flex: 0 0 280px;
     /* fixed width on desktop */
     background: #0e1117;
-    color: white;
+    color: #f3f3f3ff;
     padding: 12px;
     overflow-y: auto;
 }
@@ -54,7 +55,7 @@ body {
     padding: 6px;
     font-size: 11px;
     background: #1f2937;
-    color: white;
+    color: #f3f3f3ff;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -101,7 +102,7 @@ body {
 
 .player-info p {
     font-size: 10px;
-    color: #9ca3af;
+    color: #f3f3f3ff;
 }
 
 .player-name-row {
@@ -150,10 +151,10 @@ body {
 
 .rank-list {
     min-height: 70px;
-    border: 2px dashed #9ca3af;
+    border: 2px dashed #f3f3f3ff;
     border-radius: 10px;
     padding: 6px;
-    background: #ffffff;
+    background: #111827ff;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -161,7 +162,7 @@ body {
 
 .rank-list .player-card {
     width: 100%;
-    background: white;
+    background: #111827ff;
     border-radius: 10px;
     padding: 8px;
     display: flex;
@@ -194,9 +195,9 @@ body {
     top: 6px;
     border: none;
     background: #ef4444;
-    color: white;
-    width: 20px;
-    height: 20px;
+    color: #f3f3f3ff;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     font-size: 12px;
     cursor: pointer;
@@ -216,7 +217,7 @@ body {
     outline: none;
     font-size: 12px;
     background: #1f2937;
-    color: white;
+    color: #f3f3f3ff;
 }
 
 .search-bar::placeholder {
@@ -239,7 +240,7 @@ body {
 }
 
 .player-modal .modal-content {
-    background-color: #f4f6f8;
+    background-color: #111827ff;
     margin: auto;
     padding: 20px;
     border-radius: 12px;
@@ -255,7 +256,7 @@ body {
     align-items: center;
     gap: 12px;
     background: #111827;
-    color: white;
+    color: #f3f3f3ff;
     border-radius: 10px;
     padding: 12px;
     width: 100%;
@@ -282,7 +283,7 @@ body {
 /* ---------- Favorites ---------- */
 .favorite-btn {
     background: transparent;
-    font-size: 16px;
+    font-size: 44px;
     padding: 2px 4px;
     color: #9ca3af;
 }
@@ -294,11 +295,6 @@ body {
 
 .favorite-btn.active {
     color: #fbbf24;
-}
-
-.player-card.favorited {
-    border: 2px solid gold;
-    box-shadow: 0 0 8px gold;
 }
 
 /* ---------- Notes & Buttons ---------- */
@@ -327,11 +323,38 @@ body {
 
 #download-board-btn {
     position: absolute;
+    background: #1f2937ff;
+    color: #f3f3f3ff;
+    border: 2px #000000ff;
     top: 10px;
     right: 30px;
     padding: 5px 10px;
     font-size: 14px;
     cursor: pointer;
+}
+
+/* ---------- Scroll Bar ---------- */
+/* Entire scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track (background) */
+::-webkit-scrollbar-track {
+    background: #111827;
+    border-radius: 10px;
+}
+
+/* Draggable handle */
+::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 10px;
+    border: 2px solid #111827;
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
 }
 
 /* ---------- Responsive ---------- */
