@@ -252,7 +252,13 @@ function dropIntoRound(ev) {
             position.className = "player-position";
             position.innerText = player.position;
 
-            card.appendChild(position);
+            const actions = card.querySelector(".card-actions");
+
+            if (actions) {
+                card.insertBefore(position,actions);
+            } else {
+                card.appendChild(position);
+            }
         }
     }
 
