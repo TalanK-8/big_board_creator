@@ -41,6 +41,12 @@ if (savedFavorites) {
     JSON.parse(savedFavorites).forEach(id => favorites.add(id));
 }
 
+const busts = new Set();
+const savedBusts = localStorage.getItem("busts");
+if (savedBusts) {
+    JSON.parse(savedBusts).forEach(id => busts.add(id));
+}
+
 const savedNotes = localStorage.getItem("playerNotes");
 if (savedNotes) {
     Object.assign(playerNotes, JSON.parse(savedNotes));
@@ -95,6 +101,10 @@ function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
         if (favorites.has(p.id)) {
             card.classList.add("favorited");
         };
+
+        if (busts.has(p.id)) {
+            card.classList.add("busted");
+        }
 
         card.innerHTML = `
             <img src="${p.logo}" class="school_logo">
@@ -152,14 +162,20 @@ function showPlayerModal(player) {
     const modal = document.getElementById("player-modal");
     const profileCard = modal.querySelector(".profile-card");
     const starBtn = document.createElement("button");
+    const bustBtn = document.createElement("button");
     const notesArea = document.getElementById("player-notes");
     const saveBtn = document.getElementById("save-notes");
 
     starBtn.classList.add("favorite-btn");
+    bustBtn.classList.add("bust-btn");
+
 
     const isFav = favorites.has(player.id);
+    const isBust = busts.has(player.id);
     starBtn.innerHTML = isFav ? "★" : "☆";
     starBtn.classList.toggle("active", isFav);
+    bustBtn.innerHTML = isBust ? "▼" : "▽";
+    bustBtn.classList.toggle("active", isBust);
 
     profileCard.innerHTML = `
         <img src="${player.logo}" class="school_logo">
@@ -173,11 +189,13 @@ function showPlayerModal(player) {
     notesArea.value = playerNotes[player.id] || "";
 
     starBtn.onclick = () => toggleFavorite(player.id);
+    bustBtn.onclick = () => toggleBust(player.id);
     saveBtn.onclick = () => {
         playerNotes[player.id] = notesArea.value;
         localStorage.setItem("playerNotes", JSON.stringify(playerNotes));
     };
 
+    profileCard.appendChild(bustBtn);
     profileCard.appendChild(starBtn);
     modal.style.display = "flex";
 }
@@ -215,6 +233,15 @@ function dropIntoRound(ev) {
             const actionContainer = document.createElement("div");
             actionContainer.className = "card-actions";
 
+            const bustBtn = document.createElement("button");
+            bustBtn.className = "bust-btn";
+            bustBtn.innerHTML = busts.has(playerId) ? "⬇" : "⇩";
+            bustBtn.classList.toggle("active", favorites.has(playerId));
+            bustBtn.onclick = (e) => {
+                e.stopPropagation();
+                toggleBust(playerId);
+            }
+
             const starBtn = document.createElement("button");
             starBtn.className = "favorite-btn";
             starBtn.innerHTML = favorites.has(playerId) ? "★" : "☆";
@@ -235,6 +262,7 @@ function dropIntoRound(ev) {
                 renderSidebarPlayers(selectedUnit, selectedPosition);
             };
 
+            actionContainer.appendChild(bustBtn);
             actionContainer.appendChild(starBtn);
             actionContainer.appendChild(removeBtn);
             card.appendChild(actionContainer);
@@ -294,6 +322,17 @@ function toggleFavorite(playerId) {
     updateAllFavoriteIcons(playerId);
 }
 
+function toggleBust(playerId) {
+    if (busts.has(playerId)) {
+        busts.delete(playerId);
+    } else {
+        busts.add(playerId);
+    }
+
+    localStorage.setItem("busts", JSON.stringify([...busts]));
+    updateAllBustsIcons(playerId);
+}
+
 function updateAllFavoriteIcons(playerId) {
     const isFav = favorites.has(playerId);
 
@@ -312,6 +351,27 @@ function updateAllFavoriteIcons(playerId) {
     document.querySelectorAll(`.player-card[data-player-id="${playerId}"]`)
         .forEach(card => {
             card.classList.toggle("favorited", isFav);
+        });
+}
+
+function updateAllBustsIcons(playerId) {
+    const isBust = busts.has(playerId);
+
+    document.querySelectorAll(`.player-card[data-player-id="${playerId}"] .bust-btn`)
+        .forEach(btn => {
+            btn.innerHTML = isBust ? "▼" : "▽";
+            btn.classList.toggle("active", isBust);
+        });
+    
+    const modalArrow = document.querySelector("#player-modal .bust-btn");
+    if (modalArrow) {
+        modalArrow.innerHTML = isBust ? "▼" : "▽";
+        modalArrow.classList.toggle("active", isBust);
+    }
+
+    document.querySelectorAll(`.player-card[data-player-id="${playerId}"]`)
+        .forEach(card => {
+            card.classList.toggle("busted", isBust);
         });
 }
 
@@ -385,6 +445,9 @@ function loadBoard() {
             card.dataset.playerId = player.id;
             card.ondragstart = drag;
 
+            if (busts.has(player.id)) {
+                card.classList.add("busted");
+            }
             if (favorites.has(player.id)) {
                 card.classList.add("favorited");
             }
@@ -400,19 +463,31 @@ function loadBoard() {
 
             const removeBtn = document.createElement("button");
             const starBtn = document.createElement("button");
+            const bustBtn = document.createElement("button");
             const actionContainer = document.createElement("div");
             actionContainer.className = "card-actions";
 
+            actionContainer.appendChild(bustBtn);
             actionContainer.appendChild(starBtn);
             actionContainer.appendChild(removeBtn);
 
+            const isBust = busts.has(player.id);
+            bustBtn.className = "bust-btn";
+            bustBtn.innerHTML = isBust ? "▼" : "▽";
             const isFav = favorites.has(player.id);
             starBtn.className = "favorite-btn";
             starBtn.innerHTML = isFav ? "★" : "☆";
             removeBtn.className = "remove-btn";
             removeBtn.innerText = "X";
 
+            bustBtn.classList.toggle("active", isBust);
             starBtn.classList.toggle("active", isFav);
+
+            bustBtn.addEventListener("click", function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                toggleBust(player.id);
+            });
 
             starBtn.addEventListener("click", function (e) {
                 e.stopPropagation();
@@ -454,64 +529,64 @@ document.getElementById("download-board-btn").addEventListener("click", () => {
     downloadBigBoard();
 })
 
-async function downloadBigBoard() {
-    const boardData = JSON.parse(localStorage.getItem("bigBoardData") || '{}');
-    const favoritesSet = new Set(JSON.parse(localStorage.getItem("favorites") || '[]'));
+// async function downloadBigBoard() {
+//     const boardData = JSON.parse(localStorage.getItem("bigBoardData") || '{}');
+//     const favoritesSet = new Set(JSON.parse(localStorage.getItem("favorites") || '[]'));
 
-    // Build the HTML
-    let html = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>My Big Board</title>
-        <style>
-            body { font-family: sans-serif; background: #f0f0f0; }
-            .round { border: 1px solid #aaa; padding: 10px; margin: 10px; display: inline-block; vertical-align: top; width: 200px; }
-            .player-card { border: 1px solid #333; padding: 5px; margin: 5px; background: #fff; position: relative; display: flex; align-items: center; gap: 5px; }
-            .player-photo { width: 50px; height: 50px; object-fit: cover; }
-            .rank-number { font-weight: bold; margin-right: 5px; }
-            .favorite-star { position: absolute; top: 5px; right: 5px; color: gold; font-weight: bold; }
-        </style>
-    </head>
-    <body>
-        <h1>My Big Board</h1>
-        <div id="board-container">
-    `;
+//     // Build the HTML
+//     let html = `
+//     <!DOCTYPE html>
+//     <html lang="en">
+//     <head>
+//         <meta charset="UTF-8">
+//         <title>My Big Board</title>
+//         <style>
+//             body { font-family: sans-serif; background: #f0f0f0; }
+//             .round { border: 1px solid #aaa; padding: 10px; margin: 10px; display: inline-block; vertical-align: top; width: 200px; }
+//             .player-card { border: 1px solid #333; padding: 5px; margin: 5px; background: #fff; position: relative; display: flex; align-items: center; gap: 5px; }
+//             .player-photo { width: 50px; height: 50px; object-fit: cover; }
+//             .rank-number { font-weight: bold; margin-right: 5px; }
+//             .favorite-star { position: absolute; top: 5px; right: 5px; color: gold; font-weight: bold; }
+//         </style>
+//     </head>
+//     <body>
+//         <h1>My Big Board</h1>
+//         <div id="board-container">
+//     `;
 
-    Object.keys(boardData).forEach(roundNum => {
-        const title = roundNum === "8" ? "UDFA" : roundNum + "th Round";
-        html += `<div class="round"><h2>${title}</h2>`;
+//     Object.keys(boardData).forEach(roundNum => {
+//         const title = roundNum === "8" ? "UDFA" : roundNum + "th Round";
+//         html += `<div class="round"><h2>${title}</h2>`;
 
-        boardData[roundNum].forEach(playerId => {
-            const player = players.find(p => p.id === playerId);
-            if (!player) return;
+//         boardData[roundNum].forEach(playerId => {
+//             const player = players.find(p => p.id === playerId);
+//             if (!player) return;
 
-            const isFav = favoritesSet.has(playerId);
-            html += `
-                <div class="player-card">
-                    <span class="rank-number">${boardData[roundNum].indexOf(playerId) + 1}</span>
-                    <img src="${player.logo}" class="player-photo">
-                    <div><strong>${player.name}</strong></div>
-                    ${isFav ? '<div class="favorite-star">★</div>' : ''}
-                </div>
-            `;
-        });
+//             const isFav = favoritesSet.has(playerId);
+//             html += `
+//                 <div class="player-card">
+//                     <span class="rank-number">${boardData[roundNum].indexOf(playerId) + 1}</span>
+//                     <img src="${player.logo}" class="player-photo">
+//                     <div><strong>${player.name}</strong></div>
+//                     ${isFav ? '<div class="favorite-star">★</div>' : ''}
+//                 </div>
+//             `;
+//         });
 
-        html += `</div>`; // close round
-    });
+//         html += `</div>`; // close round
+//     });
 
-    html += `
-        </div>
-    </body>
-    </html>
-    `;
+//     html += `
+//         </div>
+//     </body>
+//     </html>
+//     `;
 
-    // Download the file
-    const blob = new Blob([html], { type: "text/html" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "bigboard.html";
-    a.click();
-}
+//     // Download the file
+//     const blob = new Blob([html], { type: "text/html" });
+//     const a = document.createElement("a");
+//     a.href = URL.createObjectURL(blob);
+//     a.download = "bigboard.html";
+//     a.click();
+// }
 

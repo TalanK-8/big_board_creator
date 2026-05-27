@@ -197,8 +197,6 @@ body {
 }
 
 .remove-btn {
-    right: 6px;
-    top: 6px;
     border: none;
     background: #ef4444;
     color: #f3f3f3ff;
@@ -207,6 +205,9 @@ body {
     border-radius: 50%;
     font-size: 12px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .remove-btn:hover {
@@ -286,12 +287,18 @@ body {
     color: #ccc;
 }
 
-/* ---------- Favorites ---------- */
-.favorite-btn {
+/* ---------- fvrt & bust btns ---------- */
+.favorite-btn, .bust-btn {
     background: transparent;
     font-size: 44px;
-    padding: 2px 4px;
+    width: 44px;
+    height: 44px;
+    line-height: 1;
+    padding: 0;
     color: #9ca3af;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .favorite-btn:hover {
@@ -301,6 +308,15 @@ body {
 
 .favorite-btn.active {
     color: #fbbf24;
+}
+
+.bust-btn:hover {
+    color: #e69138ff;
+    transform: scale(1.1);
+}
+
+.bust-btn.active {
+    color: #e69138ff;
 }
 
 /* ---------- Notes & Buttons ---------- */
