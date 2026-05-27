@@ -97,13 +97,12 @@ function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
         };
 
         card.innerHTML = `
-            <img src="${p.photo}" class="player-photo">
             <img src="${p.logo}" class="school_logo">
+            ${!selectedPosition ? `<p class="player-position">${p.position}</p>` : ""}
             <div class="player-info">
                 <h3 class="player-name">${p.name}</h3>
                 <p>${p.height} | ${p.weight} lbs</p>
             </div>
-            ${!selectedPosition ? `<p class="player-position">${p.position}</p>` : ""}
         `;
 
         playerList.appendChild(card);
@@ -163,7 +162,6 @@ function showPlayerModal(player) {
     starBtn.classList.toggle("active", isFav);
 
     profileCard.innerHTML = `
-        <img src="${player.photo}" class="player-photo">
         <img src="${player.logo}" class="school_logo">
         <div class="player-info">
             <h3>${player.name}</h3>
@@ -252,10 +250,10 @@ function dropIntoRound(ev) {
             position.className = "player-position";
             position.innerText = player.position;
 
-            const actions = card.querySelector(".card-actions");
+            const playerInfo = card.querySelector(".player-info");
 
-            if (actions) {
-                card.insertBefore(position,actions);
+            if (playerInfo) {
+                card.insertBefore(position, playerInfo);
             } else {
                 card.appendChild(position);
             }
@@ -392,13 +390,12 @@ function loadBoard() {
             }
 
             card.innerHTML = `
-                <img src="${player.photo}" class="player-photo">
                 <img src="${player.logo}" class="school_logo">
+                <p class="player-position">${player.position}</p> 
                 <div class="player-info">
                     <h3 class="player-name">${player.name}</h3>
                     <p>${player.height} | ${player.weight} lbs</p>
                 </div>
-                <p class="player-position">${player.position}</p> 
             `;
 
             const removeBtn = document.createElement("button");
