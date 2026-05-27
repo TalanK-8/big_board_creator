@@ -28,7 +28,7 @@ body {
 
 /* ---------- Sidebar ---------- */
 .sidebar {
-    flex: 0 0 280px;
+    flex: 0 0 400px;
     /* fixed width on desktop */
     background: #0e1117;
     color: #f3f3f3ff;
@@ -51,7 +51,7 @@ body {
 
 .unit-buttons button,
 .position-buttons button {
-    flex: 1 1 30%;
+    flex: 1 1 80px;
     padding: 6px;
     font-size: 11px;
     background: #1f2937;
