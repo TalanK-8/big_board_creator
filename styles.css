@@ -28,7 +28,7 @@ body {
 
 /* ---------- Sidebar ---------- */
 .sidebar {
-    flex: 0 0 400px;
+    flex: 0 0 500px;
     /* fixed width on desktop */
     background: #0e1117;
     color: #f3f3f3ff;
@@ -353,14 +353,58 @@ body {
 }
 
 #download-board-btn {
+    flex: 1 1 80px;
+    border-radius: 6px;
     position: absolute;
     background: #1f2937ff;
     color: #f3f3f3ff;
     border: 2px #000000ff;
-    top: 10px;
+    top: 12px;
     right: 30px;
     padding: 5px 10px;
-    font-size: 14px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#compare-tab-btn {
+    flex: 1 1 80px;
+    border-radius: 6px;
+    position: absolute;
+    background: #1f2937ff;
+    color: #f3f3f3ff;
+    border: 2px #000000ff;
+    top: 12px;
+    left: 515px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#favorites-tab-btn {
+    flex: 1 1 80px;
+    border-radius: 6px;
+    position: absolute;
+    background: #1f2937ff;
+    color: #f3f3f3ff;
+    border: 2px #000000ff;
+    top: 12px;
+    left: 595px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#watchlist-tab-btn {
+    flex: 1 1 80px;
+    border-radius: 6px;
+    position: absolute;
+    background: #1f2937ff;
+    color: #f3f3f3ff;
+    border: 2px #000000ff;
+    top: 12px;
+    left: 679px;
+    padding: 5px 10px;
+    font-size: 12px;
     cursor: pointer;
 }
 
