@@ -261,8 +261,8 @@ function dropIntoRound(ev) {
 
             const bustBtn = document.createElement("button");
             bustBtn.className = "bust-btn";
-            bustBtn.innerHTML = busts.has(playerId) ? "⬇" : "⇩";
-            bustBtn.classList.toggle("active", favorites.has(playerId));
+            bustBtn.innerHTML = busts.has(playerId) ? "▼" : "▽";
+            bustBtn.classList.toggle("active", busts.has(playerId));
             bustBtn.onclick = (e) => {
                 e.stopPropagation();
                 toggleBust(playerId);
