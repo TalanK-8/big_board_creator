@@ -47,6 +47,12 @@ if (savedBusts) {
     JSON.parse(savedBusts).forEach(id => busts.add(id));
 }
 
+const reviews = new Set();
+const savedReviews = localStorage.getItem("reviews");
+if (savedReviews) {
+    JSON.parse(savedReviews).forEach(id => reviews.add(id));
+}
+
 const savedNotes = localStorage.getItem("playerNotes");
 if (savedNotes) {
     Object.assign(playerNotes, JSON.parse(savedNotes));
@@ -100,10 +106,14 @@ function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
 
         if (favorites.has(p.id)) {
             card.classList.add("favorited");
-        };
+        }
 
         if (busts.has(p.id)) {
             card.classList.add("busted");
+        }
+
+        if (reviews.has(p.id)) {
+            card.classList.add("reviewed");
         }
 
         card.innerHTML = `
@@ -163,19 +173,24 @@ function showPlayerModal(player) {
     const profileCard = modal.querySelector(".profile-card");
     const starBtn = document.createElement("button");
     const bustBtn = document.createElement("button");
+    const reviewBtn = document.createElement("button");
     const notesArea = document.getElementById("player-notes");
     const saveBtn = document.getElementById("save-notes");
 
     starBtn.classList.add("favorite-btn");
     bustBtn.classList.add("bust-btn");
+    reviewBtn.classList.add("review-btn");
 
 
     const isFav = favorites.has(player.id);
     const isBust = busts.has(player.id);
+    const isReview = reviews.has(player.id);
     starBtn.innerHTML = isFav ? "★" : "☆";
     starBtn.classList.toggle("active", isFav);
     bustBtn.innerHTML = isBust ? "▼" : "▽";
     bustBtn.classList.toggle("active", isBust);
+    reviewBtn.innerHTML = isReview ? "⚑" : "⚐";
+    reviewBtn.classList.toggle("active", isReview);
 
     profileCard.innerHTML = `
         <img src="${player.logo}" class="school_logo">
@@ -190,11 +205,13 @@ function showPlayerModal(player) {
 
     starBtn.onclick = () => toggleFavorite(player.id);
     bustBtn.onclick = () => toggleBust(player.id);
+    reviewBtn.onclick = () => toggleReview(player.id);
     saveBtn.onclick = () => {
         playerNotes[player.id] = notesArea.value;
         localStorage.setItem("playerNotes", JSON.stringify(playerNotes));
     };
 
+    profileCard.appendChild(reviewBtn);
     profileCard.appendChild(bustBtn);
     profileCard.appendChild(starBtn);
     modal.style.display = "flex";
@@ -233,6 +250,15 @@ function dropIntoRound(ev) {
             const actionContainer = document.createElement("div");
             actionContainer.className = "card-actions";
 
+            const reviewBtn = document.createElement("button");
+            reviewBtn.className = "review-btn";
+            reviewBtn.innerHTML = reviews.has(playerId) ? "⚑" : "⚐";
+            reviewBtn.classList.toggle("active", reviews.has(playerId));
+            reviewBtn.onclick = (e) => {
+                e.stopPropagation();
+                toggleReview(playerId);
+            }
+
             const bustBtn = document.createElement("button");
             bustBtn.className = "bust-btn";
             bustBtn.innerHTML = busts.has(playerId) ? "⬇" : "⇩";
@@ -262,6 +288,7 @@ function dropIntoRound(ev) {
                 renderSidebarPlayers(selectedUnit, selectedPosition);
             };
 
+            actionContainer.appendChild(reviewBtn);
             actionContainer.appendChild(bustBtn);
             actionContainer.appendChild(starBtn);
             actionContainer.appendChild(removeBtn);
@@ -333,6 +360,17 @@ function toggleBust(playerId) {
     updateAllBustsIcons(playerId);
 }
 
+function toggleReview(playerId) {
+    if (reviews.has(playerId)) {
+        reviews.delete(playerId);
+    } else {
+        reviews.add(playerId);
+    }
+
+    localStorage.setItem("reviews", JSON.stringify([...reviews]));
+    updateAllReviewsIcons(playerId);
+}
+
 function updateAllFavoriteIcons(playerId) {
     const isFav = favorites.has(playerId);
 
@@ -372,6 +410,27 @@ function updateAllBustsIcons(playerId) {
     document.querySelectorAll(`.player-card[data-player-id="${playerId}"]`)
         .forEach(card => {
             card.classList.toggle("busted", isBust);
+        });
+}
+
+function updateAllReviewsIcons(playerId) {
+    const isReview = reviews.has(playerId);
+
+    document.querySelectorAll(`.player-card[data-player-id="${playerId}"] .review-btn`)
+        .forEach(btn => {
+            btn.innerHTML = isReview ? "⚑" : "⚐";
+            btn.classList.toggle("active", isReview);
+        });
+
+    const modalFlag = document.querySelector("#player-modal .review-btn");
+    if (modalFlag) {
+        modalFlag.innerHTML = isReview ? "⚑" : "⚐";
+        modalFlag.classList.toggle("active", isReview);
+    }
+
+    document.querySelectorAll(`.player-card[data-player-id="${playerId}"]`)
+        .forEach(card => {
+            card.classList.toggle("reviewed", isReview);
         });
 }
 
@@ -445,6 +504,9 @@ function loadBoard() {
             card.dataset.playerId = player.id;
             card.ondragstart = drag;
 
+            if (reviews.has(player.id)) {
+                card.classList.add("reviewed");
+            }
             if (busts.has(player.id)) {
                 card.classList.add("busted");
             }
@@ -464,13 +526,18 @@ function loadBoard() {
             const removeBtn = document.createElement("button");
             const starBtn = document.createElement("button");
             const bustBtn = document.createElement("button");
+            const reviewBtn = document.createElement("button");
             const actionContainer = document.createElement("div");
             actionContainer.className = "card-actions";
 
+            actionContainer.appendChild(reviewBtn);
             actionContainer.appendChild(bustBtn);
             actionContainer.appendChild(starBtn);
             actionContainer.appendChild(removeBtn);
 
+            const isReview = reviews.has(player.id);
+            reviewBtn.className = "review-btn";
+            reviewBtn.innerHTML = isReview ? "⚑" : "⚐";
             const isBust = busts.has(player.id);
             bustBtn.className = "bust-btn";
             bustBtn.innerHTML = isBust ? "▼" : "▽";
@@ -480,8 +547,15 @@ function loadBoard() {
             removeBtn.className = "remove-btn";
             removeBtn.innerText = "X";
 
+            reviewBtn.classList.toggle("active", isReview);
             bustBtn.classList.toggle("active", isBust);
             starBtn.classList.toggle("active", isFav);
+
+            reviewBtn.addEventListener("click", function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                toggleReview(player.id);
+            })
 
             bustBtn.addEventListener("click", function (e) {
                 e.stopPropagation();

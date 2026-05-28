@@ -288,7 +288,7 @@ body {
 }
 
 /* ---------- fvrt & bust btns ---------- */
-.favorite-btn, .bust-btn {
+.favorite-btn, .bust-btn, .review-btn {
     background: transparent;
     font-size: 44px;
     width: 44px;
@@ -317,6 +317,15 @@ body {
 
 .bust-btn.active {
     color: #e69138ff;
+}
+
+.review-btn:hover {
+    color: #3c78d8ff;
+    transform: scale(1.1);
+}
+
+.review-btn.active {
+    color: #3c78d8ff;
 }
 
 /* ---------- Notes & Buttons ---------- */
