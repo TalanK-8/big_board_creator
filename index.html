@@ -3,17 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>NFL Big Board 2026</title>
+    <title>NFL Big Board 2027</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+    <div class="top-bar">
+        <div class="left-tabs">
+            <button id="compare-tab-btn">COMPARE</button>
+            <button id="favorites-tab-btn">FAVORITES</button>
+            <button id="watchlist-tab-btn">WATCHLIST</button>
+        </div>
+
+        <h1 class="main-title">BIG BOARD</h1>
+
+        <div class="right-tabs">
+            <button id="settings-tab-btn">SETTINGS</button>
+            <button id="download-board-btn">EXPORT</button>
+        </div>
+    </div>
+
     <div class="container">
-        <button id="download-board-btn">EXPORT</button>
-        <button id="compare-tab-btn">COMPARE</button>
-        <button id="favorites-tab-btn">FAVORITES</button>
-        <button id="watchlist-tab-btn">WATCHLIST</button>
         <!-- LEFT SIDEBAR -->
         <div class="sidebar" ondragover="allowDrop(event)" ondrop="dropBackToSidebar(event)">
             <h2>Players</h2>
@@ -38,7 +49,6 @@
 
         <!--RIGHT BOARD-->
         <div class="board">
-            <h1>BIG BOARD</h1>
             <p class="disclaimer">*Not affiliated with NFL or NCAA</p>
 
             <!-- ROUND 1 -->

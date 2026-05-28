@@ -22,7 +22,7 @@ body {
 
 .container {
     display: flex;
-    height: 100vh;
+    height: calc(100vh - 64px);
     width: 100%;
 }
 
@@ -352,60 +352,55 @@ body {
     background: #374151;
 }
 
-#download-board-btn {
-    flex: 1 1 80px;
-    border-radius: 6px;
-    position: absolute;
-    background: #1f2937ff;
-    color: #f3f3f3ff;
-    border: 2px #000000ff;
-    top: 12px;
-    right: 30px;
-    padding: 5px 10px;
-    font-size: 12px;
-    cursor: pointer;
+.top-bar {
+    height: 64px;
+    width: 100%;
+    background: #0e1117;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 2px solid #07090c;
 }
 
-#compare-tab-btn {
-    flex: 1 1 80px;
-    border-radius: 6px;
-    position: absolute;
-    background: #1f2937ff;
-    color: #f3f3f3ff;
-    border: 2px #000000ff;
-    top: 12px;
-    left: 515px;
-    padding: 5px 10px;
-    font-size: 12px;
-    cursor: pointer;
+.left-tabs,
+.right-tabs {
+    display: flex;
+    gap: 10px;
 }
 
-#favorites-tab-btn {
-    flex: 1 1 80px;
-    border-radius: 6px;
-    position: absolute;
-    background: #1f2937ff;
-    color: #f3f3f3ff;
-    border: 2px #000000ff;
-    top: 12px;
-    left: 595px;
-    padding: 5px 10px;
-    font-size: 12px;
-    cursor: pointer;
+.right-tabs {
+    justify-content: flex-end;
 }
 
+.main-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+#download-board-btn,
+#settings-tab-btn,
+#compare-tab-btn,
+#favorites-tab-btn,
 #watchlist-tab-btn {
-    flex: 1 1 80px;
     border-radius: 6px;
-    position: absolute;
-    background: #1f2937ff;
-    color: #f3f3f3ff;
-    border: 2px #000000ff;
-    top: 12px;
-    left: 679px;
-    padding: 5px 10px;
+    background: #1f2937;
+    color: #f3f3f3;
+    border: none;
+    padding: 8px 14px;
     font-size: 12px;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+#download-board-btn:hover,
+#settings-tab-btn:hover,
+#compare-tab-btn:hover,
+#favorites-tab-btn:hover,
+#watchlist-tab-btn:hover {
+    background: #374151;
 }
 
 /* ---------- Scroll Bar ---------- */
