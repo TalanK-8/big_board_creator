@@ -23,8 +23,9 @@ if (savedBusts) JSON.parse(savedBusts).forEach(id => busts.add(id));
 const savedReviews = localStorage.getItem("reviews");
 if (savedReviews) JSON.parse(savedReviews).forEach(id => reviews.add(id));
 
-const savedNotes = localStorage.getItem("playerNotes");
-if (savedNotes) Object.assign(playerNotes, JSON.parse(savedNotes));
+Object.assign(playerNotes,
+    JSON.parse(localStorage.getItem("playerNotes") || "{}")
+);
 
 
 // =====================================================
@@ -56,12 +57,11 @@ const roundTitles = {
 async function loadPlayers() {
     const res = await fetch("./data/players.json");
     players = await res.json();
-    initUI();
-}
 
-function initUI() {
-    selectUnit("all");
-    loadBoard();
+    requestAnimationFrame(() => {
+        selectUnit("all");
+        loadBoard();
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -112,9 +112,12 @@ function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
     playerList.innerHTML = "";
 
     players.forEach(p => {
+        const unitFilter = filterUnit || selectedUnit;
+        const positionFilter = filterPosition || selectedPosition;
+
         if (placedPlayers.has(p.id)) return;
-        if (filterUnit && filterUnit !== "all" && p.unit !== filterUnit) return;
-        if (filterPosition && p.position !== filterPosition) return;
+        if (unitFilter !== "all" && p.unit !== unitFilter) return;
+        if (positionFilter && p.position !== positionFilter) return;
         if (searchQuery && !p.name.toLowerCase().includes(searchQuery)) return;
 
         const card = document.createElement("div");
@@ -218,10 +221,30 @@ function updateAllReviewsIcons(playerId) {
 
 
 // =====================================================
+// PLAYER PROFILE OPENER
+// =====================================================
+
+document.addEventListener("click", (e) => {
+    const card = e.target.closest(".player-card");
+    if (!card) return;
+
+    // IMPORTANT: ignore clicks on action buttons
+    if (e.target.closest(".card-actions")) return;
+
+    const playerId = card.dataset.playerId;
+    if (!playerId || !players.length) return;
+
+    const player = players.find(p => p.id === playerId);
+    if (!player) return;
+
+    openPlayerModal(player);
+});
+
+
+// =====================================================
 // NOTES STORAGE
 // =====================================================
 
-const savedNotes = localStorage.getItem("playerNotes");
-if (savedNotes) {
-    Object.assign(playerNotes, JSON.parse(savedNotes));
-}
+Object.assign(playerNotes,
+    JSON.parse(localStorage.getItem("playerNotes") || "{}")
+);
