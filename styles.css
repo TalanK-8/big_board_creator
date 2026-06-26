@@ -248,26 +248,31 @@ body {
 
 .player-modal .modal-content {
     background-color: #111827ff;
-    margin: auto;
-    padding: 20px;
     border-radius: 12px;
-    width: 400px;
-    max-width: 90%;
+
+    width: 90vw;
+    height: 90vh;
+
+    max-width: 1600px;
+    max-height: 900px;
+
+    padding: 20px;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .modal-content .profile-card {
+    width: 100%;
+    min-height: 200px;
+
     display: flex;
-    flex: 1 1 700;
     align-items: center;
-    gap: 12px;
+    gap: 20px;
+
     background: #111827;
-    color: #f3f3f3ff;
     border-radius: 10px;
-    padding: 12px;
-    margin-bottom: 12px;
+    padding: 20px;
 }
 
 .modal-content .profile-card img {
