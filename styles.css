@@ -292,6 +292,50 @@ body {
     color: #ccc;
 }
 
+.profile-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.profile-left {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+
+.profile-logo {
+    width: 100px;
+    height: 100px;
+}
+
+
+.profile-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+.profile-actions {
+    display: flex;
+    gap: 10px;
+}
+
+
+.profile-tabs {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+}
+
+
+.profile-tabs button {
+    flex: 1;
+}
+
 /* ---------- fvrt & bust btns ---------- */
 .favorite-btn,
 .bust-btn,
@@ -336,28 +380,6 @@ body {
 }
 
 /* ---------- Notes & Buttons ---------- */
-#player-notes {
-    width: 100%;
-    min-height: 80px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    padding: 6px;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-#save-notes {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 6px;
-    background: #1f2937;
-    color: white;
-    cursor: pointer;
-}
-
-#save-notes:hover {
-    background: #374151;
-}
 
 .top-bar {
     height: 64px;

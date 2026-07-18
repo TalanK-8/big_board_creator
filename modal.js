@@ -2,52 +2,62 @@
 // MODAL STATE / ELEMENTS
 // =====================================================
 
-const modal = document.getElementById("player-modal");
-const profileCard = modal.querySelector(".profile-card");
-const notesArea = document.getElementById("player-notes");
-const saveBtn = document.getElementById("save-notes");
-const closeBtn = document.getElementById("modal-close");
+let modal;
+let profileCard;
+let closeBtn;
 
 let currentPlayerId = null;
-
 
 // =====================================================
 // INIT MODAL EVENTS
 // =====================================================
-
 document.addEventListener("DOMContentLoaded", () => {
+
+    modal = document.getElementById("player-modal");
+    profileCard = modal.querySelector(".profile-card");
+    closeBtn = document.getElementById("modal-close");
+
     setupModalEvents();
+
 });
 
 function setupModalEvents() {
+
     if (!modal || !closeBtn) return;
 
     closeBtn.onclick = closeModal;
 
     modal.onclick = (event) => {
-        if (event.target === modal) closeModal();
+        if(event.target === modal){
+            closeModal();
+        }
     };
+
+    document.addEventListener("keydown",(event)=>{
+        if(event.key === "Escape" && modal.style.display === "flex"){
+            closeModal();
+        }
+    });
 }
 
+function closeModal(){
+    modal.style.display = "none";
+    currentPlayerId = null;
+}
 
 // =====================================================
 // OPEN / CLOSE MODAL
 // =====================================================
 
 function openPlayerModal(player) {
+
     currentPlayerId = player.id;
 
     renderPlayerProfile(player);
     setupProfileButtons(player);
-
-    notesArea.value = playerNotes[player.id] || "";
+    setupProfileTabs(player);
 
     modal.style.display = "flex";
-}
-
-function closeModal() {
-    modal.style.display = "none";
-    currentPlayerId = null;
 }
 
 
@@ -58,10 +68,10 @@ function closeModal() {
 function renderPlayerProfile(player) {
     profileCard.innerHTML = `
         <img src="${player.logo}" class="school_logo">
+
         <div class="player-info">
-            <h3>${player.name}</h3>
-            <p>${player.height} | ${player.weight} lbs</p>
-            <p>${player.stats}</p>
+            <h3>${player.name} | ${player.position}</h3>
+            <p>${player.height} | ${player.weight}lbs | ${player.age}</p>
         </div>
     `;
 }
@@ -72,6 +82,11 @@ function renderPlayerProfile(player) {
 // =====================================================
 
 function setupProfileButtons(player) {
+
+    const actionArea = document.querySelector(".profile-actions");
+
+    actionArea.innerHTML = "";
+
     const starBtn = document.createElement("button");
     const bustBtn = document.createElement("button");
     const reviewBtn = document.createElement("button");
@@ -88,27 +103,79 @@ function setupProfileButtons(player) {
     bustBtn.innerHTML = isBust ? "▼" : "▽";
     reviewBtn.innerHTML = isReview ? "⚑" : "⚐";
 
-    starBtn.classList.toggle("active", isFav);
-    bustBtn.classList.toggle("active", isBust);
-    reviewBtn.classList.toggle("active", isReview);
 
     starBtn.onclick = () => toggleFavorite(player.id);
     bustBtn.onclick = () => toggleBust(player.id);
     reviewBtn.onclick = () => toggleReview(player.id);
 
-    profileCard.appendChild(reviewBtn);
-    profileCard.appendChild(bustBtn);
-    profileCard.appendChild(starBtn);
+
+    actionArea.appendChild(reviewBtn);
+    actionArea.appendChild(bustBtn);
+    actionArea.appendChild(starBtn);
 }
 
+function setupProfileTabs(player) {
 
-// =====================================================
-// NOTES SYSTEM (PROFILE ONLY)
-// =====================================================
+    const tabs = document.querySelectorAll(".profile-tab");
+    const content = document.getElementById("profile-tab-content");
 
-saveBtn.onclick = () => {
-    if (!currentPlayerId) return;
+    tabs.forEach(tab => {
 
-    playerNotes[currentPlayerId] = notesArea.value;
-    localStorage.setItem("playerNotes", JSON.stringify(playerNotes));
-};
+        tab.onclick = () => {
+
+            tabs.forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            const selectedTab = tab.dataset.tab;
+
+            if (selectedTab === "notes") {
+                content.innerHTML = `
+                    <textarea 
+                        id="player-notes"
+                        placeholder="Write notes here..."
+                    >${playerNotes[player.id] || ""}</textarea>
+                `;
+
+                const notes = document.getElementById("player-notes");
+
+                notes.addEventListener("input", () => {
+                    playerNotes[player.id] = notes.value;
+
+                    localStorage.setItem(
+                        "playerNotes",
+                        JSON.stringify(playerNotes)
+                    );
+                });
+            }
+
+
+            if (selectedTab === "stats") {
+                content.innerHTML = `
+                    <h3>Stats</h3>
+                    <p>${player.stats || "No stats yet"}</p>
+                `;
+            }
+
+
+            if (selectedTab === "physicals") {
+                content.innerHTML = `
+                    <h3>Physicals</h3>
+                    <p>${player.height}</p>
+                    <p>${player.weight} lbs</p>
+                `;
+            }
+
+
+            if (selectedTab === "traits") {
+                content.innerHTML = `
+                    <h3>Traits</h3>
+                    <p>No traits added yet.</p>
+                `;
+            }
+        };
+    });
+
+
+    // open Notes by default
+    document.querySelector(".profile-tab[data-tab='notes']").click();
+}

@@ -118,18 +118,45 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
-    <script src="board.js"></script>
-    <script src="modal.js" defer></script>
-
     <div id="player-modal" class="player-modal">
         <div class="modal-content">
+
             <span id="modal-close" class="modal-close">&times;</span>
+
+            <!-- Top Player Card -->
             <div class="profile-card"></div>
-            <textarea id="player-notes" placeholder="Write notes here..."></textarea>
-            <button id="save-notes">Save Notes</button>
+
+            <div class="profile-actions"></div>
+
+            <!-- Profile Tabs -->
+            <div class="profile-tabs">
+                <button class="profile-tab active" data-tab="notes">
+                    Notes
+                </button>
+
+                <button class="profile-tab" data-tab="stats">
+                    Stats
+                </button>
+
+                <button class="profile-tab" data-tab="physicals">
+                    Physicals
+                </button>
+
+                <button class="profile-tab" data-tab="traits">
+                    Traits
+                </button>
+            </div>
+
+
+            <!-- Tab Content -->
+            <div id="profile-tab-content">
+
+            </div>
+
         </div>
     </div>
+    <script src="script.js"></script>
+    <script src="board.js"></script>
+    <script src="modal.js"></script>
 </body>
-
 </html>
