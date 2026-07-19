@@ -14,6 +14,9 @@ const favorites = new Set();
 const busts = new Set();
 const reviews = new Set();
 
+const evaluations = {};
+let gradeFormulas = {};
+
 const savedFavorites = localStorage.getItem("favorites");
 if (savedFavorites) JSON.parse(savedFavorites).forEach(id => favorites.add(id));
 
@@ -55,8 +58,14 @@ const roundTitles = {
 // =====================================================
 
 async function loadPlayers() {
-    const res = await fetch("./data/players.json");
-    players = await res.json();
+    const playersRes = await fetch("./data/players.json");
+    players = await playersRes.json();
+
+    const formulasRes = await fetch("./data/gradeFormulas.json");
+    gradeFormulas = await formulasRes.json();
+
+    const evaluationsRes = await fetch("./data/evaluations.json");
+    Object.assign(evaluations, await evaluationsRes.json());
 
     requestAnimationFrame(() => {
         selectUnit("all");
@@ -240,6 +249,31 @@ document.addEventListener("click", (e) => {
     openPlayerModal(player);
 });
 
+// =====================================================
+// HELPER FUNCTION FOR GRADES
+// =====================================================
+
+function calculateOverallGrade(player) {
+    const position = player.position;
+
+    const formula = gradeFormulas[position];
+    if (!formula) return null;
+
+    const evaluation = evaluations[player.id];
+    if (!evaluation) return null;
+
+    let total = 0;
+
+    for (const characteristic in  formula) {
+        const value = evaluation[characteristic];
+
+        if (value === undefined) continue;
+
+        total += value * formula[characteristic];
+    }
+
+    return total;
+}
 
 // =====================================================
 // NOTES STORAGE

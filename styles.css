@@ -1,9 +1,17 @@
+/* =====================================================
+   GLOBAL RESET
+===================================================== */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
+
+/* =====================================================
+   BODY
+===================================================== */
 
 body {
     background: #0e1117ff;
@@ -12,374 +20,9 @@ body {
     overflow: hidden;
 }
 
-.disclaimer {
-    font-size: 10px;
-    color: #6b7280;
-    /* subtle gray */
-    margin-top: 4px;
-    font-style: italic;
-}
-
-.container {
-    display: flex;
-    height: calc(100vh - 64px);
-    width: 100%;
-}
-
-/* ---------- Sidebar ---------- */
-.sidebar {
-    flex: 0 0 500px;
-    /* fixed width on desktop */
-    background: #0e1117;
-    color: #f3f3f3ff;
-    padding: 12px;
-    overflow-y: auto;
-}
-
-.sidebar h2 {
-    text-align: center;
-    margin-bottom: 12px;
-}
-
-.unit-buttons,
-.position-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 10px;
-}
-
-.unit-buttons button,
-.position-buttons button {
-    flex: 1 1 80px;
-    padding: 6px;
-    font-size: 11px;
-    background: #1f2937;
-    color: #f3f3f3ff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.unit-buttons button:hover,
-.position-buttons button:hover {
-    background: #374151;
-}
-
-#player-list {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.sidebar .player-card {
-    background: #111827;
-    border-radius: 8px;
-    padding: 6px;
-    cursor: grab;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.player-photo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.school_logo {
-    width: 44px;
-    height: 44px;
-    object-fit: contain;
-}
-
-.player-position {
-    padding: 5px;
-    font-size: 25px;
-}
-
-.player-info h3 {
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.player-info p {
-    font-size: 15px;
-    color: #f3f3f3ff;
-}
-
-.player-name-row {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.player-name-row h3 {
-    font-size: 11px;
-    font-weight: 600;
-    margin: 0;
-}
-
-.inline-logo {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-}
-
-/* ---------- Board (stacked rounds) ---------- */
-.board {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    overflow-y: auto;
-}
-
-.board h1 {
-    text-align: center;
-    margin-bottom: 16px;
-}
-
-.round {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 24px;
-    /* spacing between rounds */
-}
-
-.round-title {
-    font-size: 14px;
-    margin-bottom: 6px;
-}
-
-.rank-list {
-    min-height: 70px;
-    border: 2px dashed #f3f3f3ff;
-    border-radius: 10px;
-    padding: 6px;
-    background: #111827ff;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.rank-list .player-card {
-    width: 100%;
-    background: #111827ff;
-    border-radius: 10px;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    position: relative;
-    cursor: grab;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-}
-
-.card-actions {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.card-actions button {
-    border: none;
-    cursor: pointer;
-}
-
-.rank-number {
-    font-weight: bold;
-    font-size: 25px;
-    margin-right: 6px;
-}
-
-.remove-btn {
-    border: none;
-    background: #ef4444;
-    color: #f3f3f3ff;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    font-size: 12px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.remove-btn:hover {
-    background: #dc2626;
-}
-
-/* ---------- Search ---------- */
-.search-bar {
-    width: 100%;
-    padding: 8px 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-    font-size: 12px;
-    background: #1f2937;
-    color: #f3f3f3ff;
-}
-
-.search-bar::placeholder {
-    color: #9ca3af;
-}
-
-/* ---------- Player Modal ---------- */
-.player-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
-
-.player-modal .modal-content {
-    background-color: #111827ff;
-    border-radius: 12px;
-
-    width: 90vw;
-    height: 90vh;
-
-    max-width: 1600px;
-    max-height: 900px;
-
-    padding: 20px;
-
-    display: flex;
-    flex-direction: column;
-}
-
-.modal-content .profile-card {
-    width: 100%;
-    min-height: 200px;
-
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    background: #111827;
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.modal-content .profile-card img {
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-}
-
-.modal-content .profile-card .player-info h3 {
-    font-size: 16px;
-    margin-bottom: 4px;
-}
-
-.modal-content .profile-card .player-info p {
-    font-size: 14px;
-    color: #ccc;
-}
-
-.profile-top {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-
-.profile-left {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-
-.profile-logo {
-    width: 100px;
-    height: 100px;
-}
-
-
-.profile-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-
-.profile-actions {
-    display: flex;
-    gap: 10px;
-}
-
-
-.profile-tabs {
-    width: 100%;
-    display: flex;
-    margin-top: 20px;
-}
-
-
-.profile-tabs button {
-    flex: 1;
-}
-
-/* ---------- fvrt & bust btns ---------- */
-.favorite-btn,
-.bust-btn,
-.review-btn {
-    background: transparent;
-    font-size: 44px;
-    width: 44px;
-    height: 44px;
-    line-height: 1;
-    padding: 0;
-    color: #9ca3af;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.favorite-btn:hover {
-    color: #fbbf24;
-    transform: scale(1.1);
-}
-
-.favorite-btn.active {
-    color: #fbbf24;
-}
-
-.bust-btn:hover {
-    color: #e69138ff;
-    transform: scale(1.1);
-}
-
-.bust-btn.active {
-    color: #e69138ff;
-}
-
-.review-btn:hover {
-    color: #3c78d8ff;
-    transform: scale(1.1);
-}
-
-.review-btn.active {
-    color: #3c78d8ff;
-}
-
-/* ---------- Notes & Buttons ---------- */
+/* =====================================================
+   TOP BAR
+===================================================== */
 
 .top-bar {
     height: 64px;
@@ -409,6 +52,7 @@ body {
     letter-spacing: 2px;
 }
 
+/* Top Bar Buttons */
 #download-board-btn,
 #settings-tab-btn,
 #compare-tab-btn,
@@ -421,7 +65,7 @@ body {
     padding: 8px 14px;
     font-size: 12px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: .2s;
 }
 
 #download-board-btn:hover,
@@ -432,48 +76,636 @@ body {
     background: #374151;
 }
 
-/* ---------- Scroll Bar ---------- */
-/* Entire scrollbar */
+
+
+/* =====================================================
+   MAIN PAGE CONTAINER
+===================================================== */
+
+.container {
+    display: flex;
+    height: calc(100vh - 64px);
+    width: 100%;
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+    flex: 0 0 500px;
+    background: #0e1117;
+    color: #f3f3f3ff;
+    padding: 12px;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+/* =====================================================
+   SEARCH BAR
+===================================================== */
+
+.search-bar {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    background: #1f2937;
+    color: #f3f3f3ff;
+}
+
+.search-bar::placeholder {
+    color: #9ca3af;
+}
+
+/* =====================================================
+   SIDEBAR FILTER BUTTONS
+===================================================== */
+
+.unit-buttons,
+.position-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.unit-buttons button,
+.position-buttons button {
+    flex: 1 1 80px;
+    padding: 6px;
+    font-size: 11px;
+    background: #1f2937;
+    color: #f3f3f3ff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.unit-buttons button:hover,
+.position-buttons button:hover {
+    background: #374151;
+}
+
+/* =====================================================
+   SIDEBAR PLAYER LIST
+===================================================== */
+
+#player-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* =====================================================
+   PLAYER CARD BASE (SIDEBAR)
+===================================================== */
+
+.sidebar .player-card {
+    background: #111827;
+    border-radius: 8px;
+    padding: 6px;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Player Images */
+.player-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.school_logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+
+/* Player Position */
+.player-position {
+    padding: 5px;
+    font-size: 25px;
+}
+
+/* =====================================================
+   PLAYER INFO
+   (Only sidebar cards currently)
+===================================================== */
+
+.player-card .player-info h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.player-card .player-info p {
+    font-size: 15px;
+    color: #f3f3f3ff;
+}
+
+/* Future inline logo support */
+.player-name-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.player-name-row h3 {
+    font-size: 11px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.inline-logo {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+/* =====================================================
+   DISCLAIMER
+===================================================== */
+
+.disclaimer {
+    font-size: 10px;
+    color: #6b7280;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+/* =====================================================
+   BOARD
+===================================================== */
+
+.board {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.board h1 {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+/* =====================================================
+   DRAFT ROUND CONTAINERS
+===================================================== */
+
+.round {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.round-title {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.rank-list {
+    min-height: 70px;
+    border: 2px dashed #f3f3f3ff;
+    border-radius: 10px;
+    padding: 6px;
+    background: #111827ff;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* =====================================================
+   BOARD PLAYER CARD
+===================================================== */
+
+.rank-list .player-card {
+    width: 100%;
+    background: #111827ff;
+    border-radius: 10px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    cursor: grab;
+    box-shadow: 0 2px 5px rgba(0,0,0,.08);
+}
+
+/* Board Player Info */
+.rank-list .player-info h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.rank-list .player-info p {
+    font-size: 15px;
+}
+
+/* Rank Number */
+.rank-number {
+    font-weight: bold;
+    font-size: 25px;
+    margin-right: 6px;
+}
+
+/* =====================================================
+   BOARD CARD ACTION BUTTONS
+===================================================== */
+
+.card-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card-actions button {
+    border: none;
+    cursor: pointer;
+}
+
+/* Remove Player Button */
+.remove-btn {
+    border: none;
+    background: #ef4444;
+    color: #f3f3f3ff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-btn:hover {
+    background: #dc2626;
+}
+
+/* =====================================================
+   PLAYER MODAL
+===================================================== */
+
+.player-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Modal Window */
+.player-modal .modal-content {
+    background-color: #111827ff;
+    border-radius: 12px;
+    width: 90vw;
+    height: 90vh;
+    max-width: 1600px;
+    max-height: 900px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =====================================================
+   PROFILE HEADER CARD
+===================================================== */
+
+.modal-content .profile-card {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #111827;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Profile Logo */
+.modal-content .profile-card img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+/* Profile Information */
+.profile-card .player-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.profile-card .player-info h3 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.profile-card .player-info p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.player-ranks {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+/* =====================================================
+   PROFILE ACTIONS
+===================================================== */
+
+.profile-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Future profile layout support */
+.profile-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.profile-left {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.profile-logo {
+    width: 100px;
+    height: 100px;
+}
+
+.profile-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* =====================================================
+   PROFILE TABS
+===================================================== */
+
+.profile-tabs {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+}
+
+.profile-tabs button {
+    flex: 1;
+}
+
+.profile-tab {
+    background: #1f2937;
+    color: #f3f3f3;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.profile-tab:hover {
+    background: #374151;
+}
+
+.profile-tab.active {
+    background: #374151;
+}
+
+/* =====================================================
+   PROFILE TAB CONTENT
+===================================================== */
+
+#profile-tab-content {
+    flex: 1;
+    margin-top: 15px;
+    overflow-y: auto;
+}
+
+/* Notes Area */
+#player-notes {
+    width: 100%;
+    height: 300px;
+    resize: none;
+    background: #1f2937;
+    color: #f3f3f3;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+/* =====================================================
+   OVERALL GRADE DISPLAY
+===================================================== */
+
+.profile-grade {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.grade-circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #1f2937;
+    border: 4px solid #374151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: 800;
+    color: #f3f3f3;
+}
+
+.grade-edit-btn {
+    background: #1f2937;
+    color: #f3f3f3;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.grade-edit-btn:hover {
+    background: #374151;
+}
+
+/* =====================================================
+   MODAL CLOSE BUTTON
+===================================================== */
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #9ca3af;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.modal-close:hover {
+    color: #f3f3f3;
+}
+
+/* =====================================================
+   FAVORITE / BUST / REVIEW BUTTONS
+===================================================== */
+
+.favorite-btn,
+.bust-btn,
+.review-btn {
+    background: transparent;
+    font-size: 44px;
+    width: 44px;
+    height: 44px;
+    line-height: 1;
+    padding: 0;
+    color: #9ca3af;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+
+.favorite-btn:hover {
+    color: #fbbf24;
+    transform: scale(1.1);
+}
+
+.favorite-btn.active {
+    color: #fbbf24;
+}
+
+.bust-btn:hover {
+    color: #e69138ff;
+    transform: scale(1.1);
+}
+
+.bust-btn.active {
+    color: #e69138ff;
+}
+
+.review-btn:hover {
+    color: #3c78d8ff;
+    transform: scale(1.1);
+}
+
+.review-btn.active {
+    color: #3c78d8ff;
+}
+
+/* =====================================================
+   FUTURE GRADE EDIT WINDOW
+===================================================== */
+
+.grade-editor {
+    position: fixed;
+    z-index: 2000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 90%;
+    background: #111827;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.grade-editor-section {
+    background: #1f2937;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+/* =====================================================
+   SCROLL BAR
+===================================================== */
+
 ::-webkit-scrollbar {
     width: 12px;
 }
 
-/* Track (background) */
 ::-webkit-scrollbar-track {
     background: #111827;
     border-radius: 10px;
 }
 
-/* Draggable handle */
 ::-webkit-scrollbar-thumb {
     background: #f3f3f3ff;
     border-radius: 10px;
     border: 2px solid #111827;
 }
 
-/* Hover effect */
 ::-webkit-scrollbar-thumb:hover {
     background: #b7b7b7;
 }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 768px) {
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width:768px) {
     .container {
         flex-direction: column;
     }
 
     .sidebar {
-        width: 100%;
-        max-height: 40vh;
+        width:100%;
+        max-height:40vh;
     }
 
     .board {
-        padding: 12px;
+        padding:12px;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width:600px) {
     .board {
-        padding: 8px;
+        padding:8px;
+    }
+
+    .profile-card {
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .profile-actions {
+        margin-left:0;
     }
 }

@@ -116,6 +116,11 @@ function renderPlayerProfile(player) {
             </p>
         </div>
 
+        <div class="profile-grade">
+            <h1 id="overall-grade">--</h1>
+            <button id="edit-grade-btn">Edit</button>
+        </div>
+
         <div class="profile-actions"></div>
     `;
 }

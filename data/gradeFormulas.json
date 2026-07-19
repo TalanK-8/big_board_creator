@@ -1,0 +1,10 @@
+{
+    "QB": {
+        "Arm Strength": 0.20,
+        "Accuracy": 0.25,
+        "Processing": 0.20,
+        "Decision Making": 0.15,
+        "Playmaking": 0.10,
+        "Rushing": 0.10
+    }
+}
