@@ -71,8 +71,10 @@ function renderPlayerProfile(player) {
 
         <div class="player-info">
             <h3>${player.name} | ${player.position}</h3>
-            <p>${player.height} | ${player.weight}lbs | ${player.age}</p>
+            <p>${player.height} | ${player.weight}lbs | ${player.age}yrs</p>
         </div>
+
+        <div class="profile-actions"></div>
     `;
 }
 
@@ -83,7 +85,7 @@ function renderPlayerProfile(player) {
 
 function setupProfileButtons(player) {
 
-    const actionArea = document.querySelector(".profile-actions");
+    const actionArea = profileCard.querySelector(".profile-actions");
 
     actionArea.innerHTML = "";
 
