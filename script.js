@@ -61,11 +61,23 @@ async function loadPlayers() {
     const playersRes = await fetch("./data/players.json");
     players = await playersRes.json();
 
-    const formulasRes = await fetch("./data/gradeFormulas.json");
-    gradeFormulas = await formulasRes.json();
+    const savedFormulas = localStorage.getItem("gradeFormulas");
+    if(savedFormulas){
+        gradeFormulas = JSON.parse(savedFormulas);
+    }
+    else{
+        const formulasRes = await fetch("./data/gradeFormulas.json");
+        gradeFormulas = await formulasRes.json();
+    }
 
-    const evaluationsRes = await fetch("./data/evaluations.json");
-    Object.assign(evaluations, await evaluationsRes.json());
+    const savedEvaluations = localStorage.getItem("evaluations");
+    if (savedEvaluations) {
+        Object.assign(evaluations, JSON.parse(savedEvaluations));
+    }
+    else {
+        const evaluationsRes = await fetch("./data/evaluations.json");
+        Object.assign(evaluations, await evaluationsRes.json());
+    }
 
     requestAnimationFrame(() => {
         selectUnit("all");
@@ -273,6 +285,20 @@ function calculateOverallGrade(player) {
     }
 
     return total;
+}
+
+function saveEvaluations() {
+    localStorage.setItem(
+        "evaluations",
+        JSON.stringify(evaluations)
+    );
+}
+
+function saveGradeFormulas() {
+    localStorage.setItem(
+        "gradeFormulas",
+        JSON.stringify(gradeFormulas)
+    );
 }
 
 // =====================================================

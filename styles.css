@@ -1,5 +1,5 @@
 /* =====================================================
-   GLOBAL RESET
+   GLOBAL
 ===================================================== */
 
 * {
@@ -402,26 +402,41 @@ body {
 }
 
 /* Profile Logo */
-.modal-content .profile-card img {
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
+#profile-info img {
+    border-radius:50%;
+    width:80px;
+    height:80px;
+    object-fit:contain;
 }
 
-/* Profile Information */
-.profile-card .player-info {
+/* =====================================================
+   PROFILE INFORMATION SECTION
+===================================================== */
+
+.profile-info-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+#profile-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#profile-info .player-info {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.profile-card .player-info h3 {
+#profile-info .player-info h3 {
     font-size: 22px;
     font-weight: 700;
 }
 
-.profile-card .player-info p {
+#profile-info .player-info p {
     font-size: 14px;
     color: #ccc;
 }
@@ -519,12 +534,11 @@ body {
 }
 
 /* =====================================================
-   OVERALL GRADE DISPLAY
+   PROFILE GRADE SECTION
 ===================================================== */
 
-.profile-grade {
-    margin-left: auto;
-    margin-right: auto;
+.profile-grade-section {
+    min-width: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -532,7 +546,7 @@ body {
     gap: 8px;
 }
 
-.grade-circle {
+#overall-grade {
     width: 110px;
     height: 110px;
     border-radius: 50%;
@@ -546,7 +560,7 @@ body {
     color: #f3f3f3;
 }
 
-.grade-edit-btn {
+#edit-grade-btn {
     background: #1f2937;
     color: #f3f3f3;
     border: none;
@@ -556,8 +570,97 @@ body {
     cursor: pointer;
 }
 
-.grade-edit-btn:hover {
-    background: #374151;
+#edit-grade-btn:hover {
+    background:#374151;
+}
+
+/* =====================================================
+   GRADE EDITOR MODAL
+===================================================== */
+
+.grade-editor-modal {
+    display:none;
+    position:fixed;
+    z-index:2000;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    justify-content:center;
+    align-items:center;
+}
+
+.grade-editor-window {
+    width:700px;
+    max-height:85vh;
+    overflow-y:auto;
+    background:#111827;
+    border-radius:12px;
+    padding:25px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.grade-characteristics,
+.grade-weights {
+    background:#1f2937;
+    padding:15px;
+    border-radius:10px;
+}
+
+.grade-row,
+.weight-row {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:10px 0;
+}
+
+/* Characteristic rows with delete button */
+.grade-row,
+.weight-row {
+    gap:10px;
+}
+
+.grade-row label,
+.weight-row label {
+    flex:1;
+}
+
+/* Input + delete button group */
+.grade-input-group {
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.grade-row input,
+.weight-row input {
+    width:80px;
+    background:#111827;
+    color:white;
+    border:none;
+    padding:6px;
+    border-radius:6px;
+}
+
+/* Delete characteristic button */
+.delete-characteristic-btn {
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    border:none;
+    background:#ef4444;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.delete-characteristic-btn:hover {
+    background:#dc2626;
 }
 
 /* =====================================================
@@ -708,4 +811,17 @@ body {
     .profile-actions {
         margin-left:0;
     }
+}
+
+/* Chrome, Edge, Safari */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
 }

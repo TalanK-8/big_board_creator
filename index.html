@@ -131,20 +131,10 @@
                     <div id="profile-info"></div>
                 </div>
 
-
-                <!-- CENTER -->
-                <div class="profile-grade-section">
-                    <h1 id="overall-grade">--</h1>
-                    <button id="edit-grade-btn">Edit</button>
-                </div>
-
-
                 <!-- RIGHT SIDE -->
                 <div class="profile-actions"></div>
 
             </div>
-
-            
 
             <!-- Profile Tabs -->
             <div class="profile-tabs">
@@ -167,13 +157,58 @@
 
 
             <!-- Tab Content -->
-            <div id="profile-tab-content">
-
-            </div>
-
+            <div id="profile-tab-content"></div>
         </div>
     </div>
     <script src="script.js"></script>
+
+    <!-- GRADE EDITOR MODAL -->
+    <div id="grade-editor-modal" class="grade-editor-modal">
+        <div class="grade-editor-window">
+
+            <span id="grade-editor-close" class="modal-close">&times;</span>
+
+            <h2 id="grade-editor-title">
+                Grade Editor
+            </h2>
+
+            <!-- CHARACTERISTICS -->
+            <div class="grade-characteristics">
+
+                <h3>Characteristics</h3>
+
+                <div id="characteristic-container"></div>
+
+                <div class="add-characteristic-row">
+                    <input 
+                        type="text" 
+                        id="new-characteristic-name"
+                        placeholder="Characteristic name">
+                    <button id="add-characteristic-btn">
+                        +ADD
+                    </button>
+                </div>
+            </div>
+
+            <!-- WEIGHTS -->
+            <div class="grade-weights">
+
+                <h3>Weights</h3>
+
+                <div id="weight-container"></div>
+
+                <h3>
+                    Total Weight:
+                    <span id="weight-total">100%</span>
+                </h3>
+
+            </div>
+
+            <button id="save-grade-btn">
+                SAVE GRADE
+            </button>
+        </div>
+    </div>
     <script src="board.js"></script>
     <script src="modal.js"></script>
 </body>
