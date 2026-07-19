@@ -9,5 +9,16 @@
         "weight": "214",
         "stats": "",
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MissouriLogo.png"
+    },
+    {
+        "id": "player-2",
+        "name": "Mary Jane",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 3\"",
+        "age": "21",
+        "weight": "220",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/AlabamaLogo.png"
     }
 ]

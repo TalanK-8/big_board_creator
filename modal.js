@@ -46,6 +46,41 @@ function closeModal(){
 }
 
 // =====================================================
+// GET INFO
+// =====================================================
+
+function getOverallRank(playerId) {
+    const cards = document.querySelectorAll(".rank-list .player-card");
+
+    const index = [...cards].findIndex(card => 
+        card.dataset.playerId === playerId
+    );
+
+    return index === -1 ? "--" : index + 1;
+}
+
+function getPositionRank(playerId) {
+    const player = players.find(p => p.id === playerId);
+    if(!player) return "--";
+
+    const cards = [...document.querySelectorAll(".rank-list .player-card")];
+
+    let rank = 0;
+
+    for (const card of cards) {
+        const current = players.find(p => p.id === card.dataset.playerId);
+
+        if (current.position === player.position) {
+            rank++;
+
+            if (current.id === playerId) return rank;
+        }
+    }
+
+    return "--";
+}
+
+// =====================================================
 // OPEN / CLOSE MODAL
 // =====================================================
 
@@ -66,12 +101,19 @@ function openPlayerModal(player) {
 // =====================================================
 
 function renderPlayerProfile(player) {
+    const overallRank = getOverallRank(player.id);
+    const positionRank = getPositionRank(player.id);
+
     profileCard.innerHTML = `
         <img src="${player.logo}" class="school_logo">
 
         <div class="player-info">
             <h3>${player.name} | ${player.position}</h3>
             <p>${player.height} | ${player.weight}lbs | ${player.age}yrs</p>
+
+            <p class="player-ranks">
+                OR: #${overallRank} | PR: #${positionRank}
+            </p>
         </div>
 
         <div class="profile-actions"></div>
