@@ -252,7 +252,10 @@ function loadBoard() {
                 <p class="player-position">${player.position}</p>
                 <div class="player-info">
                     <h3 class="player-name">${player.name}</h3>
-                    <p>${player.height} | ${player.weight} lbs</p>
+                    <p>${player.height} | ${player.weight}lbs | ${player.age}yrs</p>
+                </div>
+                <div class="card-grade-container">
+                    ${renderCardGrade(player)}
                 </div>
             `;
 
@@ -261,6 +264,7 @@ function loadBoard() {
 
             roundDiv.appendChild(card);
             placedPlayers.add(player.id);
+            updatePlayerCardGrade(player.id);
         });
     });
 

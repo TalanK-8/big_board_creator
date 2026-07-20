@@ -61,6 +61,9 @@ async function loadPlayers() {
     const playersRes = await fetch("./data/players.json");
     players = await playersRes.json();
 
+    const formulasRes = await fetch("./data/gradeFormulas.json");
+    gradeFormulas = await formulasRes.json();
+    /* Switch back once finished updating json
     const savedFormulas = localStorage.getItem("gradeFormulas");
     if(savedFormulas){
         gradeFormulas = JSON.parse(savedFormulas);
@@ -69,19 +72,17 @@ async function loadPlayers() {
         const formulasRes = await fetch("./data/gradeFormulas.json");
         gradeFormulas = await formulasRes.json();
     }
+    */
 
     const savedEvaluations = localStorage.getItem("evaluations");
     if (savedEvaluations) {
         Object.assign(evaluations, JSON.parse(savedEvaluations));
     }
-    else {
-        const evaluationsRes = await fetch("./data/evaluations.json");
-        Object.assign(evaluations, await evaluationsRes.json());
-    }
 
     requestAnimationFrame(() => {
         selectUnit("all");
         loadBoard();
+        refreshAllCardGrades();
     });
 }
 
@@ -153,10 +154,16 @@ function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
 
         card.innerHTML = `
             <img src="${p.logo}" class="school_logo">
+
             ${!selectedPosition ? `<p class="player-position">${p.position}</p>` : ""}
+
             <div class="player-info">
                 <h3 class="player-name">${p.name}</h3>
-                <p>${p.height} | ${p.weight} lbs</p>
+                <p>${p.height} | ${p.weight}lbs | ${p.age}yrs</p>
+            </div>
+
+            <div class="card-grade-container">
+                ${renderCardGrade(p)}
             </div>
         `;
 
@@ -285,6 +292,71 @@ function calculateOverallGrade(player) {
     }
 
     return total;
+}
+
+function renderCardGrade(player) {
+    const grade = calculateOverallGrade(player);
+
+    if (grade === null) {
+        return "";
+    }
+
+    return `
+        <div class="card-grade">
+            ${grade.toFixed(1)}
+        </div>
+    `;
+}
+
+function refreshAllCardGrades(){
+
+    document.querySelectorAll(".player-card").forEach(card => {
+
+        const playerId = card.dataset.playerId;
+
+        const player = players.find(
+            p => p.id === playerId
+        );
+
+        if(!player) return;
+
+        const oldGrade = card.querySelector(".card-grade");
+
+        const newHTML = renderCardGrade(player);
+
+        if(oldGrade){
+            oldGrade.remove();
+        }
+
+        if(newHTML){
+            card.insertAdjacentHTML(
+                "beforeend",
+                newHTML
+            );
+        }
+
+    });
+}
+
+function updatePlayerCardGrade(playerId){
+
+    const player = players.find(p => p.id === playerId);
+    if(!player) return;
+
+    document
+        .querySelectorAll(`.player-card[data-player-id="${playerId}"]`)
+        .forEach(card => {
+            console.log(card.innerHTML);
+            const gradeContainer = card.querySelector(".card-grade-container");
+
+            if(!gradeContainer) return;
+
+            console.log(player);
+            console.log(renderCardGrade(player));
+            console.log(calculateOverallGrade(player));
+            gradeContainer.innerHTML = renderCardGrade(player);
+
+        });
 }
 
 function saveEvaluations() {

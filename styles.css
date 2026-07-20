@@ -199,6 +199,31 @@ body {
 }
 
 /* =====================================================
+   CARD GRADE
+===================================================== */
+
+.card-grade-container{
+    margin-right:auto;
+    flex-shrink:0;
+}
+
+.card-grade {
+    margin-right: auto;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#1f2937;
+    border:2px solid #374151;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+    font-weight:800;
+    color:#f3f3f3;
+    flex-shrink:0;
+}
+
+/* =====================================================
    PLAYER INFO
    (Only sidebar cards currently)
 ===================================================== */
@@ -425,6 +450,10 @@ body {
     gap: 20px;
 }
 
+.player-info{
+    flex:1;
+}
+
 #profile-info .player-info {
     display: flex;
     flex-direction: column;
@@ -572,6 +601,20 @@ body {
 
 #edit-grade-btn:hover {
     background:#374151;
+}
+
+#delete-grade-btn {
+    background:#ef4444;
+    color:white;
+    border:none;
+    border-radius:6px;
+    padding:6px 14px;
+    font-size:12px;
+    cursor:pointer;
+}
+
+#delete-grade-btn:hover {
+    background:#dc2626;
 }
 
 /* =====================================================
@@ -726,6 +769,16 @@ body {
     background:#4b5563;
     transform:scale(1.03);
 
+}
+
+#weight-total.invalid {
+    color:#ef4444;
+    font-weight:bold;
+}
+
+#weight-total.valid {
+    color:#22c55e;
+    font-weight:bold;
 }
 
 /* =====================================================

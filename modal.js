@@ -43,6 +43,7 @@ function setupModalEvents() {
 
 function closeModal(){
     modal.style.display = "none";
+    refreshAllCardGrades();
     currentPlayerId = null;
 }
 
@@ -125,6 +126,10 @@ function renderPlayerProfile(player) {
             <button id="edit-grade-btn">
                 EDIT
             </button>
+
+            <button id="delete-grade-btn">
+                DELETE GRADE
+            </button>
         </div>
 
         <div class="profile-actions"></div>
@@ -143,9 +148,9 @@ function setupGradeEditor(player){
 
     const close = document.getElementById("grade-editor-close");
 
-    const addCharacteristicBtn = document.getElementById(
-        "add-characteristic-btn"
-    );
+    const deleteGradeBtn = document.getElementById("delete-grade-btn");
+
+    const addCharacteristicBtn = document.getElementById("add-characteristic-btn");
 
     editBtn.onclick = () => {
         const characteristicContainer = document.getElementById(
@@ -191,7 +196,7 @@ function setupGradeEditor(player){
                         type="number"
                         class="weight-input"
                         data-characteristic="${characteristic}"
-                        value="${formula[characteristic] * 100}"
+                        value="${Math.round(formula[characteristic] * 100)}"
                     ></div>`;
         }
 
@@ -207,6 +212,15 @@ function setupGradeEditor(player){
 
         document.getElementById("grade-editor-title").textContent =
             `${player.name} Grade Editor`;
+    };
+
+    deleteGradeBtn.onclick = () => {
+        if(!evaluations[player.id]) return;
+        delete evaluations[player.id];
+        saveEvaluations();
+        updateOverallGrade();
+        refreshAllCardGrades();
+        renderSidebarPlayers(selectedUnit, selectedPosition);
     };
 
     close.onclick = () => {
@@ -314,6 +328,8 @@ function setupGradeEditor(player){
         saveEvaluations();
         saveGradeFormulas();
         updateWeightTotal();
+        refreshAllCardGrades();
+        renderSidebarPlayers(selectedUnit, selectedPosition);
     });
 
     editor.onclick = (event)=>{
@@ -348,7 +364,6 @@ function setupGradeEditor(player){
         });
 
         if (Math.abs(totalWeight - 100) > .01) {
-            alert("Weights must total 100%.");
             return;
         }
 
@@ -366,22 +381,33 @@ function setupGradeEditor(player){
         saveEvaluations();
         saveGradeFormulas();
         updateOverallGrade();
+        updatePlayerCardGrade(player.id);
+        renderSidebarPlayers(selectedUnit, selectedPosition);
 
         editor.style.display = "none";
     };
 }
 
 function updateWeightTotal() {
-
     const weightInputs = document.querySelectorAll(".weight-input");
-
     let total = 0;
 
     weightInputs.forEach(input => {
         total += Number(input.value) || 0;
     });
 
-    document.getElementById("weight-total").textContent = `${total}%`;
+    const totalText = document.getElementById("weight-total");
+
+    totalText.textContent = `${total}%`;
+
+    if(Math.abs(total - 100) > .01){
+        totalText.classList.add("invalid");
+        totalText.classList.remove("valid");
+    }
+    else{
+        totalText.classList.add("valid");
+        totalText.classList.remove("invalid");
+    }
 }
 
 // =====================================================
