@@ -615,6 +615,44 @@ body {
     margin:10px 0;
 }
 
+/* =====================================================
+   ADD CHARACTERISTIC
+===================================================== */
+
+.add-characteristic {
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+#new-characteristic-name {
+    flex:1;
+    background:#111827;
+    color:white;
+    border:none;
+    border-radius:6px;
+    padding:8px 10px;
+    font-size:14px;
+}
+
+#new-characteristic-name::placeholder {
+    color:#9ca3af;
+}
+
+#add-characteristic-btn {
+    background:#374151;
+    color:white;
+    border:none;
+    border-radius:6px;
+    padding:8px 14px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+#add-characteristic-btn:hover {
+    background:#4b5563;
+}
+
 /* Characteristic rows with delete button */
 .grade-row,
 .weight-row {
@@ -661,6 +699,33 @@ body {
 
 .delete-characteristic-btn:hover {
     background:#dc2626;
+}
+
+#save-grade-btn {
+
+    background:#374151;
+    color:#f3f3f3;
+
+    border:none;
+    border-radius:8px;
+
+    padding:10px 20px;
+
+    font-size:14px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+#save-grade-btn:hover {
+
+    background:#4b5563;
+    transform:scale(1.03);
+
 }
 
 /* =====================================================

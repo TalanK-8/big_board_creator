@@ -195,96 +195,6 @@ function setupGradeEditor(player){
                     ></div>`;
         }
 
-        addCharacteristicBtn.onclick = () => {
-            const nameInput = document.getElementById(
-                "new-characteristic-name"
-            );
-
-            const name = nameInput.value.trim();
-
-            if(!name) return;
-
-            nameInput.value = "";
-
-            const characteristicContainer = document.getElementById(
-                "characteristic-container"
-            );
-
-            const weightContainer = document.getElementById(
-                "weight-container"
-            );
-
-            characteristicContainer.innerHTML += `
-                <div class="grade-row" data-characteristic-row="${name}">
-                    <label>${name}</label>
-                    <input 
-                        type="number"
-                        class="characteristic-input"
-                        data-characteristic="${name}"
-                        min="1"
-                        max="99"
-                        value="50">
-
-                    <button 
-                        class="delete-characteristic-btn"
-                        data-characteristic="${name}">
-                        X
-                    </button>
-                </div>`;
-
-            weightContainer.innerHTML += `
-                <div class="weight-row">
-
-                    <label>${name} %</label>
-
-                    <input 
-                        type="number"
-                        class="weight-input"
-                        data-characteristic="${name}"
-                        value="0"
-                    >
-
-                </div>
-            `;
-
-            const newWeightInput = weightContainer.lastElementChild.querySelector(
-                ".weight-input"
-            );
-
-            newWeightInput.addEventListener(
-                "input",
-                updateWeightTotal
-            );
-
-            updateWeightTotal();
-        };
-
-        document.addEventListener("click", (event) => {
-            if(!event.target.classList.contains("delete-characteristic-btn")){
-                return;
-            }
-
-            const characteristic = event.target.dataset.characteristic;
-            // remove characteristic row
-            const row = document.querySelector(
-                `[data-characteristic-row="${characteristic}"]`
-            );
-
-            if(row){
-                row.remove();
-            }
-
-            // remove matching weight row
-            const weightInput = document.querySelector(
-                `.weight-input[data-characteristic="${characteristic}"]`
-            );
-            if(weightInput){
-                weightInput.closest(".weight-row").remove();
-            }
-
-            updateWeightTotal();
-        });
-
         const weightInputs = document.querySelectorAll(".weight-input");
 
         weightInputs.forEach(input => {
@@ -303,6 +213,108 @@ function setupGradeEditor(player){
         editor.style.display = "none";
     };
 
+    addCharacteristicBtn.onclick = () => {
+        const nameInput = document.getElementById(
+            "new-characteristic-name"
+        );
+
+        const name = nameInput.value.trim();
+
+        if(!name) return;
+
+        nameInput.value = "";
+
+        const characteristicContainer = document.getElementById(
+            "characteristic-container"
+        );
+
+        const weightContainer = document.getElementById(
+            "weight-container"
+        );
+
+        characteristicContainer.innerHTML += `
+            <div class="grade-row" data-characteristic-row="${name}">
+                <label>${name}</label>
+                <input 
+                    type="number"
+                    class="characteristic-input"
+                    data-characteristic="${name}"
+                    min="1"
+                    max="99"
+                    value="50">
+
+                <button 
+                    class="delete-characteristic-btn"
+                    data-characteristic="${name}">
+                    X
+                </button>
+            </div>`;
+
+        weightContainer.innerHTML += `
+            <div class="weight-row">
+
+                <label>${name} %</label>
+
+                <input 
+                    type="number"
+                    class="weight-input"
+                    data-characteristic="${name}"
+                    value="0"
+                >
+
+            </div>
+        `;
+
+        const newWeightInput = weightContainer.lastElementChild.querySelector(
+            ".weight-input"
+        );
+
+        newWeightInput.addEventListener(
+            "input",
+            updateWeightTotal
+        );
+
+        updateWeightTotal();
+    };
+
+    document.addEventListener("click", (event) => {
+        if(!event.target.classList.contains("delete-characteristic-btn")){
+            return;
+        }
+
+        const characteristic = event.target.dataset.characteristic;
+
+        // Remove characteristic row
+        const row = document.querySelector(
+            `[data-characteristic-row="${characteristic}"]`
+        );
+
+        if(row){
+            row.remove();
+        }
+
+        // Remove matching weight row
+        const weightInput = document.querySelector(
+            `.weight-input[data-characteristic="${characteristic}"]`
+        );
+
+        if(weightInput){
+            weightInput.closest(".weight-row").remove();
+        }
+
+        // Remove from saved data
+        if(gradeFormulas[player.position]){
+            delete gradeFormulas[player.position][characteristic];
+        }
+
+        if(evaluations[player.id]){
+            delete evaluations[player.id][characteristic];
+        }
+
+        saveEvaluations();
+        saveGradeFormulas();
+        updateWeightTotal();
+    });
 
     editor.onclick = (event)=>{
       if(event.target === editor){
