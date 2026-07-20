@@ -320,41 +320,38 @@ function refreshAllCardGrades(){
 
         if(!player) return;
 
-        const oldGrade = card.querySelector(".card-grade");
+        let gradeContainer = card.querySelector(".card-grade-container");
 
-        const newHTML = renderCardGrade(player);
-
-        if(oldGrade){
-            oldGrade.remove();
+        if(!gradeContainer){
+            gradeContainer = document.createElement("div");
+            gradeContainer.className = "card-grade-container";
+            card.appendChild(gradeContainer);
         }
 
-        if(newHTML){
-            card.insertAdjacentHTML(
-                "beforeend",
-                newHTML
-            );
-        }
+        gradeContainer.innerHTML = renderCardGrade(player);
 
     });
 }
 
-function updatePlayerCardGrade(playerId){
+function updatePlayerCardGrade(playerId) {
 
     const player = players.find(p => p.id === playerId);
-    if(!player) return;
+    if (!player) return;
 
     document
         .querySelectorAll(`.player-card[data-player-id="${playerId}"]`)
         .forEach(card => {
+
+            console.log("BEFORE");
             console.log(card.innerHTML);
+
             const gradeContainer = card.querySelector(".card-grade-container");
+            if (!gradeContainer) return;
 
-            if(!gradeContainer) return;
-
-            console.log(player);
-            console.log(renderCardGrade(player));
-            console.log(calculateOverallGrade(player));
             gradeContainer.innerHTML = renderCardGrade(player);
+
+            console.log("AFTER");
+            console.log(card.innerHTML);
 
         });
 }

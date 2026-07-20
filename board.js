@@ -264,7 +264,6 @@ function loadBoard() {
 
             roundDiv.appendChild(card);
             placedPlayers.add(player.id);
-            updatePlayerCardGrade(player.id);
         });
     });
 

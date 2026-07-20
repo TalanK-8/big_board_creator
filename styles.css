@@ -202,13 +202,12 @@ body {
    CARD GRADE
 ===================================================== */
 
-.card-grade-container{
-    margin-right:auto;
-    flex-shrink:0;
+.card-grade-container {
+    margin-left: 10px;
+    flex-shrink: 0;
 }
 
 .card-grade {
-    margin-right: auto;
     width:45px;
     height:45px;
     border-radius:50%;
@@ -450,8 +449,8 @@ body {
     gap: 20px;
 }
 
-.player-info{
-    flex:1;
+.player-info {
+    flex:0 1 auto;
 }
 
 #profile-info .player-info {
