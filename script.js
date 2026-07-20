@@ -36,7 +36,7 @@ Object.assign(playerNotes,
 // =====================================================
 
 const positionsByUnit = {
-    offense: ["QB", "RB", "WR", "TE", "OT", "OG", "C"],
+    offense: ["QB", "RB", "WR", "TE", "OT", "IOL"],
     defense: ["EDGE", "IDL", "LB", "CB", "S"],
     special: ["K", "P", "LS"]
 };
@@ -138,8 +138,12 @@ function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
         const positionFilter = filterPosition || selectedPosition;
 
         if (placedPlayers.has(p.id)) return;
-        if (unitFilter !== "all" && p.unit !== unitFilter) return;
-        if (positionFilter && p.position !== positionFilter) return;
+        if (unitFilter !== "all" && !p.unit.includes(unitFilter)) return;
+        if (
+            positionFilter &&
+            p.position !== positionFilter &&
+            p.secondaryPosition !== positionFilter
+        ) return;
         if (searchQuery && !p.name.toLowerCase().includes(searchQuery)) return;
 
         const card = document.createElement("div");

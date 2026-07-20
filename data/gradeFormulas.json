@@ -16,6 +16,43 @@
 
     "RB": 
     {
+        "Vision": 0.20,
+        "Explosiveness": 0.15,
+        "Contact": 0.15,
+        "Patience": 0.05,
+        "Burst": 0.10,
+        "Elusiveness": 0.10,
+        "Receiving": 0.08,
+        "Power": 0.07,
+        "Speed": 0.07,
+        "Passblock": 0.03 
+    },
 
+    "WR":
+    {
+        "Routes": 0.22,
+        "Hands": 0.15,
+        "Release": 0.15,
+        "Tracking": 0.12,
+        "YAC": 0.10,
+        "Contested": 0.13,
+        "Bodycontrol": 0.10,
+        "Blocking": 0.03
+    },
+
+    "TE":
+    {
+        "Routes": 0.20,
+        "Hands": 0.20,
+        "Blocking": 0.15,
+        "YAC": 0.15,
+        "Contested": 15,
+        "Release": 0.10,
+        "Versatility": 0.05
+    },
+
+    "OT":
+    {
+        
     }
 }
