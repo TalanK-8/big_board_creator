@@ -46,7 +46,7 @@
         "Hands": 0.20,
         "Blocking": 0.15,
         "YAC": 0.15,
-        "Contested": 15,
+        "Contested": 0.15,
         "Release": 0.10,
         "Versatility": 0.05
     },
