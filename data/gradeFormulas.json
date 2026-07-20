@@ -53,6 +53,118 @@
 
     "OT":
     {
-        
+        "Technique": 0.15,
+        "Passblock": 0.15,
+        "Footwork": 0.12,
+        "Power": 0.12,
+        "Balance": 0.12,
+        "Runblock": 0.12,
+        "Hands": 0.10,
+        "Awarness": 0.07,
+        "Recovery": 0.05
+    },
+
+    "IOL":
+    {
+        "Technique": 0.15,
+        "Power": 0.15,
+        "Hands": 0.12,
+        "Balance": 0.12,
+        "Awarness": 0.12,
+        "Movement": 0.10,
+        "Runblock": 0.10,
+        "Passblock": 0.08,
+        "Anchor": 0.06
+    },
+
+    "EDGE":
+    {
+        "Passrush": 0.20,
+        "Burst": 0.15,
+        "Power": 0.12,
+        "Bend": 0.12,
+        "Hands": 0.10,
+        "Run": 0.10,
+        "Motor": 0.08,
+        "Instincts": 0.08,
+        "Tackling": 0.05
+    },
+
+    "IDL":
+    {
+        "Power": 0.18,
+        "Passrush": 0.15,
+        "Run": 0.15,
+        "Hands": 0.15,
+        "Leverage": 0.12,
+        "Burst": 0.10,
+        "Motor": 0.05,
+        "Awarness": 0.05,
+        "Versatility": 0.05
+    },
+
+    "LB":
+    {
+        "Instincts": 0.18,
+        "Tackling": 0.15,
+        "Coverage": 0.15,
+        "Run": 0.12,
+        "Range": 0.10,
+        "Blockshed": 0.10,
+        "Pursuit": 0.08,
+        "Passrush": 0.07,
+        "Versatility": 0.05
+    },
+
+    "CB":
+    {
+        "Man": 0.20,
+        "Zone": 0.15,
+        "Footwork": 0.15,
+        "Ball Skills": 0.15,
+        "Recovery": 0.10,
+        "Awarness": 0.10,
+        "Press": 0.08,
+        "Tackling": 0.07
+    },
+
+    "S":
+    {
+        "Instincts": 0.19,
+        "Coverage": 0.18,
+        "Range": 0.15,
+        "Tackling": 0.15,
+        "Ball Skills": 0.12,
+        "Pursuit": 0.08,
+        "Run": 0.08,
+        "Versatility": 0.05 
+    },
+
+    "K":
+    {
+        "Accuracy":	0.30,
+        "Consistency": 0.15,
+        "Range": 0.25,
+        "Clutch": 0.15,
+        "Kickoff": 0.10,
+        "Technique": 0.05
+    },
+
+    "P":
+    {
+        "Placement": 0.20,
+        "Consistency": 0.15,
+        "Power": 0.25,
+        "Hangtime":	0.15,
+        "Directional": 0.15,
+        "Technique": 0.10
+    },
+
+    "LS":
+    {
+        "Accuracy": 0.35,
+        "Consistency": 0.25,
+        "Speed": 0.20,
+        "Blocking":	0.20
     }
 }
