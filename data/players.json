@@ -240,5 +240,126 @@
         "weight": "200",
         "stats": "",
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/NotreDameLogo.png"
+    },
+    {
+        "id": "player-23",
+        "name": "Arch Manning",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 4\"",
+        "age": "23",
+        "weight": "226",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/TexasLogo.png"
+    },
+    {
+        "id": "player-24",
+        "name": "Jordan Seaton",
+        "unit": "offense",
+        "position": "OT",
+        "height": "6' 5\"",
+        "age": "22",
+        "weight": "307",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/LSULogo.png"
+    },
+    {
+        "id": "player-25",
+        "name": "Julian Sayin",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 1\"",
+        "age": "22",
+        "weight": "208",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OhioStateLogo.png"
+    },
+    {
+        "id": "player-26",
+        "name": "A'Mauri Washington",
+        "unit": "defense",
+        "position": "IDL",
+        "height": "6' 3\"",
+        "age": "23",
+        "weight": "330",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OregonLogo.png"
+    },
+    {
+        "id": "player-27",
+        "name": "Ryan Williams",
+        "unit": "offense",
+        "position": "WR",
+        "height": "6' 0\"",
+        "age": "20",
+        "weight": "182",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/AlabamaLogo.png"
+    },
+    {
+        "id": "player-28",
+        "name": "CJ Carr",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 2\"",
+        "age": "22",
+        "weight": "215",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/NotreDameLogo.png"
+    },
+    {
+        "id": "player-29",
+        "name": "Charlie Becker",
+        "unit": "offense",
+        "position": "WR",
+        "height": "6' 4\"",
+        "age": "21",
+        "weight": "207",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/IndianaLogo.png"
+    },
+    {
+        "id": "player-30",
+        "name": "Zabien Brown",
+        "unit": "defense",
+        "position": "CB",
+        "height": "6' 0\"",
+        "age": "21",
+        "weight": "194",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/AlabamaLogo.png"
+    },
+    {
+        "id": "player-31",
+        "name": "Justice Haynes",
+        "unit": "offense",
+        "position": "RB",
+        "height": "5' 11\"",
+        "age": "23",
+        "weight": "210",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/GeorgiaTechLogo.png"
+    },
+    {
+        "id": "player-32",
+        "name": "Matayo Uiagalelei",
+        "unit": "defense",
+        "position": "EDGE",
+        "height": "6' 5\"",
+        "age": "22",
+        "weight": "272",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OregonLogo.png"
+    },
+    {
+        "id": "player-33",
+        "name": "Drew Mestemaker",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 3\"",
+        "age": "21",
+        "weight": "215",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OklahomaStateLogo.png"
     }
 ]
