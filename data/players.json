@@ -1538,5 +1538,192 @@
         "weight": "210",
         "stats": "",
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/ArizonaStateLogo.png"
+    },
+    {
+        "id": "player-141",
+        "name": "Mel Brown",
+        "unit": "offense",
+        "position": "RB",
+        "height": "5' 9\"",
+        "age": "23",
+        "weight": "180",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/ColoradoStateLogo.png"
+    },
+    {
+        "id": "player-142",
+        "name": "Sutton Smith",
+        "unit": "offense",
+        "position": "RB",
+        "height": "5' 9\"",
+        "age": "23",
+        "weight": "196",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/ArkansasLogo.png"
+    },
+    {
+        "id": "player-143",
+        "name": "Cam Edwards",
+        "unit": "offense",
+        "position": "RB",
+        "height": "5' 11\"",
+        "age": "23",
+        "weight": "210",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MichiganStateLogo.png"
+    },
+    {
+        "id": "player-144",
+        "name": "Kenji Christian",
+        "unit": "offense",
+        "position": "RB",
+        "height": "6' 2\"",
+        "age": "24",
+        "weight": "207",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/UConnLogo.png"
+    },
+    {
+        "id": "player-145",
+        "name": "Charles Pierre Jr.",
+        "unit": "offense",
+        "position": "RB",
+        "height": "5' 10\"",
+        "age": "23",
+        "weight": "210",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/SouthDakotaLogo.png"
+    },
+    {
+        "id": "player-146",
+        "name": "CJ Campbell Jr.",
+        "unit": "offense",
+        "position": "RB",
+        "height": "5' 10\"",
+        "age": "24",
+        "weight": "200",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/DukeLogo.png"
+    },
+    {
+        "id": "player-147",
+        "name": "Rayshon Luke",
+        "unit": "offense",
+        "position": "RB",
+        "height": "5' 10\"",
+        "age": "23",
+        "weight": "180",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/FresnoStateLogo.png"
+    },
+    {
+        "id": "player-148",
+        "name": "Luke Yoder",
+        "unit": "offense",
+        "position": "RB",
+        "height": "5' 11\"",
+        "age": "22",
+        "weight": "205",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/LehighLogo.png"
+    },
+    {
+        "id": "player-149",
+        "name": "Anthony Woods",
+        "unit": "offense",
+        "position": "RB",
+        "height": "5' 11\"",
+        "age": "23",
+        "weight": "185",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/UCLALogo.png"
+    },
+    {
+        "id": "player-150",
+        "name": "DJ Scott",
+        "unit": "offense",
+        "position": "RB",
+        "height": "5' 11\"",
+        "age": "23",
+        "weight": "203",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/NorthDakotaStateLogo.png"
+    },
+    {
+        "id": "player-151",
+        "name": "Rodney Nelson",
+        "unit": "offense",
+        "position": "RB",
+        "height": "5' 8\"",
+        "age": "23",
+        "weight": "195",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MiamiOhioLogo.png"
+    },
+    {
+        "id": "player-152",
+        "name": "Roderick Robinson II",
+        "unit": "offense",
+        "position": "RB",
+        "height": "6' 1\"",
+        "age": "22",
+        "weight": "235",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/UABLogo.png"
+    },
+    {
+        "id": "player-153",
+        "name": "Jamal Roberts",
+        "unit": "offense",
+        "position": "RB",
+        "height": "6' 0\"",
+        "age": "23",
+        "weight": "212",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MissouriLogo.png"
+    },
+    {
+        "id": "player-154",
+        "name": "Joe Jackson",
+        "unit": "offense",
+        "position": "RB",
+        "height": "6' 0\"",
+        "age": "23",
+        "weight": "212",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/KansasStateLogo.png"
+    },
+    {
+        "id": "player-155",
+        "name": "Bryson Washington",
+        "unit": "offense",
+        "position": "RB",
+        "height": "6' 0\"",
+        "age": "22",
+        "weight": "216",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/AuburnLogo.png"
+    },
+    {
+        "id": "player-156",
+        "name": "Jordan Marshall",
+        "unit": "offense",
+        "position": "RB",
+        "height": "5' 11\"",
+        "age": "21",
+        "weight": "216",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MichiganLogo.png"
+    },
+    {
+        "id": "player-157",
+        "name": "King Miller",
+        "unit": "offense",
+        "position": "RB",
+        "height": "6' 0\"",
+        "age": "22",
+        "weight": "215",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/USCLogo.png"
     }
 ]
