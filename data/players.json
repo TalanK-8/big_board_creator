@@ -4962,17 +4962,6 @@
     },
     {
         "id": "player-452",
-        "name": "Boo Carter",
-        "unit": "defense",
-        "position": "CB",
-        "height": "5' 11\"",
-        "age": "22",
-        "weight": "200",
-        "stats": "",
-        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/ColoradoLogo.png"
-    },
-    {
-        "id": "player-453",
         "name": "Antonio Kite",
         "unit": "defense",
         "position": "CB",
@@ -4983,7 +4972,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OleMissLogo.png"
     },
     {
-        "id": "player-454",
+        "id": "player-453",
         "name": "Randon Fontenette",
         "unit": "defense",
         "position": "S",
@@ -4994,7 +4983,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/ColoradoLogo.png"
     },
     {
-        "id": "player-455",
+        "id": "player-454",
         "name": "Smith Snowden",
         "unit": "defense",
         "position": "CB",
@@ -5005,7 +4994,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MichiganLogo.png"
     },
     {
-        "id": "player-456",
+        "id": "player-455",
         "name": "OJ Frederique Jr.",
         "unit": "defense",
         "position": "CB",
@@ -5016,7 +5005,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MiamiLogo.png"
     },
     {
-        "id": "player-457",
+        "id": "player-456",
         "name": "Xavier Scott",
         "unit": "defense",
         "position": "CB",
@@ -5027,7 +5016,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/IllinoisLogo.png"
     },
     {
-        "id": "player-458",
+        "id": "player-457",
         "name": "Elliot Washington II",
         "unit": "defense",
         "position": "CB",
@@ -5038,7 +5027,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/ClemsonLogo.png"
     },
     {
-        "id": "player-459",
+        "id": "player-458",
         "name": "DJ McKinney",
         "unit": "defense",
         "position": "CB",
@@ -5049,7 +5038,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/NotreDameLogo.png"
     },
     {
-        "id": "player-460",
+        "id": "player-459",
         "name": "Gentry Williams",
         "unit": "defense",
         "position": "CB",
@@ -5060,7 +5049,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/GeorgiaLogo.png"
     },
     {
-        "id": "player-461",
+        "id": "player-460",
         "name": "JK Johnson",
         "unit": "defense",
         "position": "CB",
@@ -5071,7 +5060,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/FAULogo.png"
     },
     {
-        "id": "player-462",
+        "id": "player-461",
         "name": "Cam Calhoun",
         "unit": "defense",
         "position": "CB",
@@ -5082,7 +5071,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OhioStateLogo.png"
     },
     {
-        "id": "player-463",
+        "id": "player-462",
         "name": "Dante Lovett",
         "unit": "defense",
         "position": "CB",
@@ -5093,7 +5082,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/UCLALogo.png"
     },
     {
-        "id": "player-464",
+        "id": "player-463",
         "name": "Vicari Swain",
         "unit": "defense",
         "position": "CB",
@@ -5104,7 +5093,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/SouthCarolinaLogo.png"
     },
     {
-        "id": "player-465",
+        "id": "player-464",
         "name": "Ja'Bril Rawls",
         "unit": "defense",
         "position": "CB",
@@ -5115,7 +5104,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/FloridaStateLogo.png"
     },
     {
-        "id": "player-466",
+        "id": "player-465",
         "name": "Evan Johnson",
         "unit": "defense",
         "position": "CB",
@@ -5126,7 +5115,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/BYULogo.png"
     },
     {
-        "id": "player-467",
+        "id": "player-466",
         "name": "Zeke Berry",
         "unit": "defense",
         "position": "CB",
@@ -5137,7 +5126,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MichiganLogo.png"
     },
     {
-        "id": "player-468",
+        "id": "player-467",
         "name": "Jalen Mayo",
         "unit": "defense",
         "position": "CB",
@@ -5148,7 +5137,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/HoustonLogo.png"
     },
     {
-        "id": "player-469",
+        "id": "player-468",
         "name": "Jontez Williams",
         "unit": "defense",
         "position": "CB",
@@ -5159,7 +5148,7 @@
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/USCLogo.png"
     },
     {
-        "id": "player-470",
+        "id": "player-469",
         "name": "Judge Collier",
         "unit": "defense",
         "position": "CB",
@@ -5168,5 +5157,368 @@
         "weight": "206",
         "stats": "",
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/SouthCarolinaLogo.png"
+    },
+    {
+        "id": "player-470",
+        "name": "Dashawn Spears",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 3\"",
+        "age": "21",
+        "weight": "209",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/LSULogo.png"
+    },
+    {
+        "id": "player-471",
+        "name": "Keon Sabb",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 1\"",
+        "age": "25",
+        "weight": "208",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/AlabamaLogo.png"
+    },
+    {
+        "id": "player-472",
+        "name": "Bray Hubbard",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 2\"",
+        "age": "22",
+        "weight": "217",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/AlabamaLogo.png"
+    },
+    {
+        "id": "player-473",
+        "name": "Jelani McDonald",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 2\"",
+        "age": "22",
+        "weight": "201",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/TexasLogo.png"
+    },
+    {
+        "id": "player-474",
+        "name": "Peyton Bowen",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 0\"",
+        "age": "23",
+        "weight": "203",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OklahomaLogo.png"
+    },
+    {
+        "id": "player-475",
+        "name": "Terry Moore",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 0\"",
+        "age": "23",
+        "weight": "200",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OhioStateLogo.png"
+    },
+    {
+        "id": "player-476",
+        "name": "Faletau Satuala",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 4\"",
+        "age": "21",
+        "weight": "215",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/BYULogo.png"
+    },
+    {
+        "id": "player-477",
+        "name": "Marcus Neal Jr.",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 1\"",
+        "age": "21",
+        "weight": "216",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/PennStateLogo.png"
+    },
+    {
+        "id": "player-478",
+        "name": "Corey Myrick",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 3\"",
+        "age": "21",
+        "weight": "200",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/ClemsonLogo.png"
+    },
+    {
+        "id": "player-479",
+        "name": "Earl Little Jr.",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 0\"",
+        "age": "24",
+        "weight": "198",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OhioStateLogo.png"
+    },
+    {
+        "id": "player-480",
+        "name": "Adon Shuler",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 0\"",
+        "age": "22",
+        "weight": "205",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/NotreDameLogo.png"
+    },
+    {
+        "id": "player-481",
+        "name": "Ty Benefield",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 3\"",
+        "age": "22",
+        "weight": "208",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/LSULogo.png"
+    },
+    {
+        "id": "player-482",
+        "name": "King Mack",
+        "unit": "defense",
+        "position": "S",
+        "height": "5' 10\"",
+        "age": "23",
+        "weight": "195",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/NCStateLogo.png"
+    },
+    {
+        "id": "player-483",
+        "name": "Tao Johnson",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 1\"",
+        "age": "24",
+        "weight": "200",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/UCLALogo.png"
+    },
+    {
+        "id": "player-484",
+        "name": "Zavier Mincey",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 3\"",
+        "age": "21",
+        "weight": "206",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/AlabamaLogo.png"
+    },
+    {
+        "id": "player-485",
+        "name": "Aaron Flowers",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 0\"",
+        "age": "21",
+        "weight": "208",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OregonLogo.png"
+    },
+    {
+        "id": "player-486",
+        "name": "Jaylen McClain",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 0\"",
+        "age": "21",
+        "weight": "201",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OhioStateLogo.png"
+    },
+    {
+        "id": "player-487",
+        "name": "Mason Curtis",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 4\"",
+        "age": "22",
+        "weight": "211",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MichiganLogo.png"
+    },
+    {
+        "id": "player-488",
+        "name": "Jackson Bennee",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 2\"",
+        "age": "21",
+        "weight": "190",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/UtahLogo.png"
+    },
+    {
+        "id": "player-489",
+        "name": "Edrees Farooq",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 0\"",
+        "age": "21",
+        "weight": "202",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/TennesseeLogo.png"
+    },
+    {
+        "id": "player-490",
+        "name": "Joenel Aguero",
+        "unit": "defense",
+        "position": "S",
+        "height": "5' 11\"",
+        "age": "23",
+        "weight": "200",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OleMissLogo.png"
+    },
+    {
+        "id": "player-491",
+        "name": "TJ Metcalf",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 1\"",
+        "age": "22",
+        "weight": "205",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/TennesseeLogo.png"
+    },
+    {
+        "id": "player-492",
+        "name": "Kamari Wilson",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 0\"",
+        "age": "24",
+        "weight": "211",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/WestVirginiaLogo.png"
+    },
+    {
+        "id": "player-493",
+        "name": "Jordan Castell",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 2\"",
+        "age": "23",
+        "weight": "211",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/KentuckyLogo.png"
+    },
+    {
+        "id": "player-494",
+        "name": "Khalil Barnes",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 0\"",
+        "age": "22",
+        "weight": "200",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/GeorgiaLogo.png"
+    },
+    {
+        "id": "player-495",
+        "name": "Derek Williams Jr.",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 2\"",
+        "age": "22",
+        "weight": "199",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/TexasLogo.png"
+    },
+    {
+        "id": "player-496",
+        "name": "Malik Hartford",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 2\"",
+        "age": "22",
+        "weight": "193",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/UCLALogo.png"
+    },
+    {
+        "id": "player-497",
+        "name": "Bryce Thorton",
+        "unit": "defense",
+        "position": "S",
+        "height": "5' 10\"",
+        "age": "22",
+        "weight": "211",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/FloridaLogo.png"
+    },
+    {
+        "id": "player-498",
+        "name": "Michael Boganowski",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 2\"",
+        "age": "21",
+        "weight": "212",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/OklahomaLogo.png"
+    },
+    {
+        "id": "player-499",
+        "name": "Amare Ferrell",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 2\"",
+        "age": "22",
+        "weight": "205",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/IndianaLogo.png"
+    },
+    {
+        "id": "player-500",
+        "name": "Ian Foster",
+        "unit": "defense",
+        "position": "S",
+        "height": "5' 10\"",
+        "age": "22",
+        "weight": "181",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MemphisLogo.png"
+    },
+    {
+        "id": "player-501",
+        "name": "Davaughn Patterson",
+        "unit": "defense",
+        "position": "S",
+        "height": "6' 0\"",
+        "age": "22",
+        "weight": "217",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/WakeForestLogo.png"
+    },
+    {
+        "id": "player-502",
+        "name": "CJ Heard",
+        "unit": "defense",
+        "position": "S",
+        "height": "5' 11\"",
+        "age": "21",
+        "weight": "210",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/VanderbiltLogo.png"
     }
 ]
