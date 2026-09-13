@@ -208,18 +208,18 @@ body {
 }
 
 .card-grade {
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    background:#1f2937;
-    border:2px solid #374151;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:16px;
-    font-weight:800;
-    color:#f3f3f3;
-    flex-shrink:0;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #1f2937;
+    border: 2px solid #374151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800;
+    color: #f3f3f3;
+    flex-shrink: 0;
 }
 
 /* =====================================================
@@ -324,7 +324,7 @@ body {
     gap: 8px;
     position: relative;
     cursor: grab;
-    box-shadow: 0 2px 5px rgba(0,0,0,.08);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .08);
 }
 
 /* Board Player Info */
@@ -392,7 +392,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, .5);
     justify-content: center;
     align-items: center;
 }
@@ -448,6 +448,7 @@ body {
     gap: 30px;
     padding: 30px;
 }
+
 /* =====================================================
    PROFILE INFORMATION SECTION
 ===================================================== */
@@ -465,7 +466,7 @@ body {
 }
 
 .player-info {
-    flex:0 1 auto;
+    flex: 0 1 auto;
 }
 
 #profile-info .player-info {
@@ -623,21 +624,21 @@ body {
 }
 
 #edit-grade-btn:hover {
-    background:#374151;
+    background: #374151;
 }
 
 #delete-grade-btn {
-    background:#ef4444;
-    color:white;
-    border:none;
-    border-radius:6px;
-    padding:6px 14px;
-    font-size:12px;
-    cursor:pointer;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 12px;
+    cursor: pointer;
 }
 
 #delete-grade-btn:hover {
-    background:#dc2626;
+    background: #dc2626;
 }
 
 /* =====================================================
@@ -645,40 +646,40 @@ body {
 ===================================================== */
 
 .grade-editor-modal {
-    display:none;
-    position:fixed;
-    z-index:2000;
-    inset:0;
-    background:rgba(0,0,0,.6);
-    justify-content:center;
-    align-items:center;
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    inset: 0;
+    background: rgba(0, 0, 0, .6);
+    justify-content: center;
+    align-items: center;
 }
 
 .grade-editor-window {
-    width:700px;
-    max-height:85vh;
-    overflow-y:auto;
-    background:#111827;
-    border-radius:12px;
-    padding:25px;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
+    width: 700px;
+    max-height: 85vh;
+    overflow-y: auto;
+    background: #111827;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .grade-characteristics,
 .grade-weights {
-    background:#1f2937;
-    padding:15px;
-    border-radius:10px;
+    background: #1f2937;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .grade-row,
 .weight-row {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin:10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
 }
 
 /* =====================================================
@@ -686,122 +687,122 @@ body {
 ===================================================== */
 
 .add-characteristic {
-    display:flex;
-    gap:10px;
-    margin-top:15px;
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
 }
 
 #new-characteristic-name {
-    flex:1;
-    background:#111827;
-    color:white;
-    border:none;
-    border-radius:6px;
-    padding:8px 10px;
-    font-size:14px;
+    flex: 1;
+    background: #111827;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 14px;
 }
 
 #new-characteristic-name::placeholder {
-    color:#9ca3af;
+    color: #9ca3af;
 }
 
 #add-characteristic-btn {
-    background:#374151;
-    color:white;
-    border:none;
-    border-radius:6px;
-    padding:8px 14px;
-    cursor:pointer;
-    font-size:14px;
+    background: #374151;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 #add-characteristic-btn:hover {
-    background:#4b5563;
+    background: #4b5563;
 }
 
 /* Characteristic rows with delete button */
 .grade-row,
 .weight-row {
-    gap:10px;
+    gap: 10px;
 }
 
 .grade-row label,
 .weight-row label {
-    flex:1;
+    flex: 1;
 }
 
 /* Input + delete button group */
 .grade-input-group {
-    display:flex;
-    align-items:center;
-    gap:8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .grade-row input,
 .weight-row input {
-    width:80px;
-    background:#111827;
-    color:white;
-    border:none;
-    padding:6px;
-    border-radius:6px;
+    width: 80px;
+    background: #111827;
+    color: white;
+    border: none;
+    padding: 6px;
+    border-radius: 6px;
 }
 
 /* Delete characteristic button */
 .delete-characteristic-btn {
-    width:28px;
-    height:28px;
-    border-radius:50%;
-    border:none;
-    background:#ef4444;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    background: #ef4444;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .delete-characteristic-btn:hover {
-    background:#dc2626;
+    background: #dc2626;
 }
 
 #save-grade-btn {
 
-    background:#374151;
-    color:#f3f3f3;
+    background: #374151;
+    color: #f3f3f3;
 
-    border:none;
-    border-radius:8px;
+    border: none;
+    border-radius: 8px;
 
-    padding:10px 20px;
+    padding: 10px 20px;
 
-    font-size:14px;
-    font-weight:600;
+    font-size: 14px;
+    font-weight: 600;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    transition:.2s;
+    transition: .2s;
 
 }
 
 
 #save-grade-btn:hover {
 
-    background:#4b5563;
-    transform:scale(1.03);
+    background: #4b5563;
+    transform: scale(1.03);
 
 }
 
 #weight-total.invalid {
-    color:#ef4444;
-    font-weight:bold;
+    color: #ef4444;
+    font-weight: bold;
 }
 
 #weight-total.valid {
-    color:#22c55e;
-    font-weight:bold;
+    color: #22c55e;
+    font-weight: bold;
 }
 
 /* =====================================================
@@ -921,6 +922,49 @@ body {
 }
 
 /* =====================================================
+   FAVORITES TAB
+===================================================== */
+
+.screen {
+    width: 100%;
+}
+
+.favorites-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 30px;
+}
+
+.favorites-header h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+#back-to-board-btn {
+    background: #1f2937;
+    color: #f3f4f6;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#back-to-board-btn:hover {
+    background: #374151;
+}
+
+.favorites-board {
+    width: calc(100% - 60px);
+    margin: 0 30px;
+}
+
+#favorites-list {
+    min-height: 100px;
+}
+
+/* =====================================================
    RESPONSIVE
 ===================================================== */
 
@@ -930,27 +974,27 @@ body {
     }
 
     .sidebar {
-        width:100%;
-        max-height:40vh;
+        width: 100%;
+        max-height: 40vh;
     }
 
     .board {
-        padding:12px;
+        padding: 12px;
     }
 }
 
 @media (max-width:600px) {
     .board {
-        padding:8px;
+        padding: 8px;
     }
 
     .profile-card {
-        flex-direction:column;
-        align-items:flex-start;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .profile-actions {
-        margin-left:0;
+        margin-left: 0;
     }
 }
 

@@ -24,97 +24,116 @@
         </div>
     </div>
 
-    <div class="container">
-        <!-- LEFT SIDEBAR -->
-        <div class="sidebar" ondragover="allowDrop(event)" ondrop="dropBackToSidebar(event)">
-            <h2>Players</h2>
-            <input type="text" id="player-search" placeholder="Search players..." oninput="handleSearch(this.value)"
-                class="search-bar" />
-            <!--Unit selection-->
-            <div class="unit-buttons">
-                <button onclick="selectUnit('all')">ALL</button>
-                <button onclick="selectUnit('offense')">OFFENSE</button>
-                <button onclick="selectUnit('defense')">DEFENSE</button>
-                <button onclick="selectUnit('special')">SPECIAL TEAMS</button>
+    <div id="big-board-screen" class="screen">
+        <div class="container">
+            <!-- LEFT SIDEBAR -->
+            <div class="sidebar" ondragover="allowDrop(event)" ondrop="dropBackToSidebar(event)">
+                <h2>Players</h2>
+                <input type="text" id="player-search" placeholder="Search players..." oninput="handleSearch(this.value)"
+                    class="search-bar" />
+                <!--Unit selection-->
+                <div class="unit-buttons">
+                    <button onclick="selectUnit('all')">ALL</button>
+                    <button onclick="selectUnit('offense')">OFFENSE</button>
+                    <button onclick="selectUnit('defense')">DEFENSE</button>
+                    <button onclick="selectUnit('special')">SPECIAL TEAMS</button>
+                </div>
+
+                <!-- Position selection-->
+                <div class="position-buttons" id="position-buttons">
+
+                </div>
+
+                <!-- Players will go here -->
+                <div id="player-list"></div>
             </div>
 
-            <!-- Position selection-->
-            <div class="position-buttons" id="position-buttons">
+            <!--RIGHT BOARD-->
+            <div class="board">
+                <p class="disclaimer">*Not affiliated with NFL or NCAA</p>
+
+                <!-- ROUND 1 -->
+                <div class="round" data-round="1">
+                    <h2 class="round-title">1st Round</h2>
+
+                    <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
+                    </div>
+                </div>
+
+                <!-- ROUND 2 -->
+                <div class="round" data-round="2">
+                    <h2 class="round-title">2nd Round</h2>
+
+                    <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
+                    </div>
+                </div>
+
+                <!-- ROUND 3 -->
+                <div class="round" data-round="3">
+                    <h2 class="round-title">3rd Round</h2>
+
+                    <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
+                    </div>
+                </div>
+
+                <!-- ROUND 4 -->
+                <div class="round" data-round="4">
+                    <h2 class="round-title">4th Round</h2>
+
+                    <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
+                    </div>
+                </div>
+
+                <!-- ROUND 5 -->
+                <div class="round" data-round="5">
+                    <h2 class="round-title">5th Round</h2>
+
+                    <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
+                    </div>
+                </div>
+
+                <!-- ROUND 6 -->
+                <div class="round" data-round="6">
+                    <h2 class="round-title">6th Round</h2>
+
+                    <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
+                    </div>
+                </div>
+
+                <!-- ROUND 7 -->
+                <div class="round" data-round="7">
+                    <h2 class="round-title">7th Round</h2>
+
+                    <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
+                    </div>
+                </div>
+
+                <!-- UDFA -->
+                <div class="round" data-round="8">
+                    <h2 class="round-title">UDFA</h2>
+
+                    <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
+                    </div>
+                </div>
 
             </div>
+        </div>
+    </div>
 
-            <!-- Players will go here -->
-            <div id="player-list"></div>
+    <div id="favorites-screen" class="screen" style="display: none;">
+        <div class="favorites-header">
+            <button id="back-to-board-btn">BIG BOARD</button>
+            <h2>FAVORITES</h2>
         </div>
 
-        <!--RIGHT BOARD-->
-        <div class="board">
-            <p class="disclaimer">*Not affiliated with NFL or NCAA</p>
+        <div class="favorites-board">
+            <div class="round">
+                <h2 class="round-title">FAVORITES</h2>
 
-            <!-- ROUND 1 -->
-            <div class="round" data-round="1">
-                <h2 class="round-title">1st Round</h2>
-
-                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
+                <div id="favorites-list" class="rank-list" ondragover="allowDrop(event)"
+                    ondrop="dropIntoFavorites(event)">
                 </div>
             </div>
-
-            <!-- ROUND 2 -->
-            <div class="round" data-round="2">
-                <h2 class="round-title">2nd Round</h2>
-
-                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
-                </div>
-            </div>
-
-            <!-- ROUND 3 -->
-            <div class="round" data-round="3">
-                <h2 class="round-title">3rd Round</h2>
-
-                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
-                </div>
-            </div>
-
-            <!-- ROUND 4 -->
-            <div class="round" data-round="4">
-                <h2 class="round-title">4th Round</h2>
-
-                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
-                </div>
-            </div>
-
-            <!-- ROUND 5 -->
-            <div class="round" data-round="5">
-                <h2 class="round-title">5th Round</h2>
-
-                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
-                </div>
-            </div>
-
-            <!-- ROUND 6 -->
-            <div class="round" data-round="6">
-                <h2 class="round-title">6th Round</h2>
-
-                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
-                </div>
-            </div>
-
-            <!-- ROUND 7 -->
-            <div class="round" data-round="7">
-                <h2 class="round-title">7th Round</h2>
-
-                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
-                </div>
-            </div>
-
-            <!-- UDFA -->
-            <div class="round" data-round="8">
-                <h2 class="round-title">UDFA</h2>
-
-                <div class="rank-list" ondragover="allowDrop(event)" ondrop="dropIntoRound(event)">
-                </div>
-            </div>
-
         </div>
     </div>
 
@@ -180,10 +199,7 @@
                 <div id="characteristic-container"></div>
 
                 <div class="add-characteristic-row">
-                    <input 
-                        type="text" 
-                        id="new-characteristic-name"
-                        placeholder="Characteristic name">
+                    <input type="text" id="new-characteristic-name" placeholder="Characteristic name">
                     <button id="add-characteristic-btn">
                         +ADD
                     </button>
@@ -212,4 +228,5 @@
     <script src="board.js"></script>
     <script src="modal.js"></script>
 </body>
+
 </html>
