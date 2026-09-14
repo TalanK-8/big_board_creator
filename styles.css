@@ -941,7 +941,7 @@ body {
     font-size: 28px;
 }
 
-#back-to-board-btn {
+#favorites-back-to-board-btn {
     background: #1f2937;
     color: #f3f4f6;
     border: none;
@@ -951,7 +951,7 @@ body {
     cursor: pointer;
 }
 
-#back-to-board-btn:hover {
+#favorites-back-to-board-btn:hover {
     background: #374151;
 }
 
@@ -961,6 +961,49 @@ body {
 }
 
 #favorites-list {
+    min-height: 100px;
+}
+
+/* =====================================================
+   WATCHLIST TAB
+===================================================== */
+
+.screen {
+    width: 100%;
+}
+
+.watchlist-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 30px;
+}
+
+.watchlist-header h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+#watchlist-back-to-board-btn {
+    background: #1f2937;
+    color: #f3f4f6;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#watchlist-back-to-board-btn:hover {
+    background: #374151;
+}
+
+.watchlist-board {
+    width: calc(100% - 60px);
+    margin: 0 30px;
+}
+
+#watchlist-list {
     min-height: 100px;
 }
 

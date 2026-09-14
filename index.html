@@ -122,7 +122,7 @@
 
     <div id="favorites-screen" class="screen" style="display: none;">
         <div class="favorites-header">
-            <button id="back-to-board-btn">BIG BOARD</button>
+            <button id="favorites-back-to-board-btn">BIG BOARD</button>
             <h2>FAVORITES</h2>
         </div>
 
@@ -132,6 +132,23 @@
 
                 <div id="favorites-list" class="rank-list" ondragover="allowDrop(event)"
                     ondrop="dropIntoFavorites(event)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="watchlist-screen" class="screen" style="display: none;">
+        <div class="watchlist-header">
+            <button id="watchlist-back-to-board-btn">BIG BOARD</button>
+            <h2>WATCHLIST</h2>
+        </div>
+
+        <div class="watchlist-board">
+            <div class="round">
+                <h2 class="round-title">WATCHLIST</h2>
+
+                <div id="watchlist-list" class="rank-list" ondragover="allowDrop(event)"
+                    ondrop="dropIntoWatchlist(event)">
                 </div>
             </div>
         </div>

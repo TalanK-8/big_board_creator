@@ -12,9 +12,13 @@ function drag(ev) {
 
     const playerId = card.dataset.playerId || card.id;
 
-    const source = card.closest("#favorites-list")
-        ? "favorites"
-        : "board";
+    let source = "board";
+
+    if (card.closest("#favorites-list")) {
+        source = "favorites";
+    } else if (card.closest("#watchlist-list")) {
+        source = "watchlist";
+    }
 
     ev.dataTransfer.setData("text/plain", playerId);
     ev.dataTransfer.setData("source", source);
@@ -48,6 +52,7 @@ function dropIntoRound(ev) {
 
     // Don't allow My Guys cards to be moved onto the Big Board
     if (source === "favorites") return;
+    if (source === "watchlist") return;
 
     const card = document.querySelector(
         `#big-board-screen .player-card[data-player-id="${playerId}"]`
