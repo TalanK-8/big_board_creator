@@ -88,6 +88,13 @@ async function loadPlayers() {
 
 document.addEventListener("DOMContentLoaded", () => {
     loadPlayers();
+
+    const favoritesBtn = document.getElementById("favorites-tab-btn");
+    const backBtn = document.getElementById("back-to-board-btn");
+
+    favoritesBtn.addEventListener("click", openFavorites);
+
+    backBtn.addEventListener("click", closeFavorites);
 });
 
 
@@ -184,6 +191,12 @@ function toggleFavorite(playerId) {
     favorites.has(playerId) ? favorites.delete(playerId) : favorites.add(playerId);
     localStorage.setItem("favorites", JSON.stringify([...favorites]));
     updateAllFavoriteIcons(playerId);
+
+    const myFavoritesScreen = document.getElementById("my-favorites-screen");
+
+    if (myFavoritesScreen && myFavoritesScreen.style.display !== "none") {
+        renderFavorites();
+    }
 }
 
 function toggleBust(playerId) {
@@ -287,7 +300,7 @@ function calculateOverallGrade(player) {
 
     let total = 0;
 
-    for (const characteristic in  formula) {
+    for (const characteristic in formula) {
         const value = evaluation[characteristic];
 
         if (value === undefined) continue;
@@ -312,7 +325,7 @@ function renderCardGrade(player) {
     `;
 }
 
-function refreshAllCardGrades(){
+function refreshAllCardGrades() {
 
     document.querySelectorAll(".player-card").forEach(card => {
 
@@ -322,11 +335,11 @@ function refreshAllCardGrades(){
             p => p.id === playerId
         );
 
-        if(!player) return;
+        if (!player) return;
 
         let gradeContainer = card.querySelector(".card-grade-container");
 
-        if(!gradeContainer){
+        if (!gradeContainer) {
             gradeContainer = document.createElement("div");
             gradeContainer.className = "card-grade-container";
             card.appendChild(gradeContainer);
@@ -372,6 +385,89 @@ function saveGradeFormulas() {
         "gradeFormulas",
         JSON.stringify(gradeFormulas)
     );
+}
+
+// =====================================================
+// FAVORITES FUNCTIONS
+// =====================================================
+
+function openFavorites() {
+    document.getElementById("big-board-screen").style.display = "none";
+    document.getElementById("favorites-screen").style.display = "block";
+
+    renderFavorites();
+}
+
+function closeFavorites() {
+    document.getElementById("favorites-screen").style.display = "none";
+    document.getElementById("big-board-screen").style.display = "block";
+}
+
+function renderFavorites() {
+    const list = document.getElementById("favorites-list");
+
+    if (!list) return;
+
+    list.innerHTML = "";
+
+    players.forEach(player => {
+        if (!favorites.has(player.id)) return;
+
+        const card = document.createElement("div");
+
+        card.className = "player-card";
+        card.draggable = true;
+        card.dataset.playerId = player.id;
+        card.ondragstart = drag;
+
+        card.innerHTML = `
+            <img src="${player.logo}" class="school_logo">
+            
+            <p class="player-position">${player.position}</p>
+            
+            <div class="player-info">
+                <h3 class="player-name">${player.name}</h3>
+                <p>${player.height} | ${player.weight}lbs | ${player.age}yrs</p>
+            </div>
+            
+            <div class="card-grade-container">
+                ${renderCardGrade(player)}
+            </div>
+        `;
+
+        list.appendChild(card);
+    });
+}
+
+function dropIntoFavorites(ev) {
+    ev.preventDefault();
+
+    const playerId = ev.dataTransfer.getData("text/plain");
+    const source = ev.dataTransfer.getData("source");
+
+    if (!playerId) return;
+
+    if (source !== "favorites") return;
+
+    const list = document.getElementById("favorites-list");
+    if (!list) return;
+
+    const card = list.querySelector(
+        `.player-card[data-player-id="${playerId}"]`
+    );
+
+    if (!card) return;
+
+    const afterElement = getDragAfterElement(
+        list,
+        ev.clientY
+    );
+
+    if (!afterElement) {
+        list.appendChild(card);
+    } else {
+        list.insertBefore(card, afterElement);
+    }
 }
 
 // =====================================================

@@ -8,8 +8,16 @@ function allowDrop(ev) {
 
 function drag(ev) {
     const card = ev.target.closest(".player-card");
+    if (!card) return;
+
     const playerId = card.dataset.playerId || card.id;
+
+    const source = card.closest("#favorites-list")
+        ? "favorites"
+        : "board";
+
     ev.dataTransfer.setData("text/plain", playerId);
+    ev.dataTransfer.setData("source", source);
 }
 
 function getDragAfterElement(container, y) {
@@ -34,9 +42,17 @@ function dropIntoRound(ev) {
     ev.preventDefault();
 
     const playerId = ev.dataTransfer.getData("text/plain");
+    const source = ev.dataTransfer.getData("source");
+
     if (!playerId) return;
 
-    let card = document.querySelector(`.player-card[data-player-id="${playerId}"]`);
+    // Don't allow My Guys cards to be moved onto the Big Board
+    if (source === "favorites") return;
+
+    const card = document.querySelector(
+        `#big-board-screen .player-card[data-player-id="${playerId}"]`
+    );
+
     if (!card) return;
 
     const roundList = ev.currentTarget;
@@ -53,10 +69,16 @@ function dropIntoRound(ev) {
 
     addPositionIfMissing(playerId, card);
 
-    const afterElement = getDragAfterElement(roundList, ev.clientY);
+    const afterElement = getDragAfterElement(
+        roundList,
+        ev.clientY
+    );
 
-    if (!afterElement) roundList.appendChild(card);
-    else roundList.insertBefore(card, afterElement);
+    if (!afterElement) {
+        roundList.appendChild(card);
+    } else {
+        roundList.insertBefore(card, afterElement);
+    }
 
     updateRanks();
 }
