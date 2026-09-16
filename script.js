@@ -30,7 +30,6 @@ Object.assign(playerNotes,
     JSON.parse(localStorage.getItem("playerNotes") || "{}")
 );
 
-
 // =====================================================
 // CONSTANTS
 // =====================================================
