@@ -5520,5 +5520,170 @@
         "weight": "210",
         "stats": "",
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/VanderbiltLogo.png"
+    },
+    {
+        "id": "player-503",
+        "name": "Tayven Jackson",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 4\"",
+        "age": "23",
+        "weight": "211",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/NorthTexasLogo.png"
+    },
+    {
+        "id": "player-504",
+        "name": "Max Johnson",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 5\"",
+        "age": "26",
+        "weight": "220",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/GeorgiaSouthernLogo.png"
+    },
+    {
+        "id": "player-504",
+        "name": "Luke Weaver",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 2\"",
+        "age": "23",
+        "weight": "210",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/SanJoseStateLogo.png"
+    },
+    {
+        "id": "player-505",
+        "name": "Noah Kim",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 2\"",
+        "age": "25",
+        "weight": "186",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/EasternMichiganLogo.png"
+    },
+    {
+        "id": "player-506",
+        "name": "Caden Veltkamp",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 5\"",
+        "age": "24",
+        "weight": "236",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/FAULogo.png"
+    },
+    {
+        "id": "player-507",
+        "name": "Tayven Jackson",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 4\"",
+        "age": "23",
+        "weight": "211",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/NorthTexasLogo.png"
+    },
+    {
+        "id": "player-508",
+        "name": "Davis Warren",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 2\"",
+        "age": "25",
+        "weight": "195",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/StanfordLogo.png"
+    },
+    {
+        "id": "player-509",
+        "name": "Ashton Daniels",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 2\"",
+        "age": "22",
+        "weight": "225",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/FloridaStateLogo.png"
+    },
+    {
+        "id": "player-510",
+        "name": "Maddux Madsen",
+        "unit": "offense",
+        "position": "QB",
+        "height": "5' 10\"",
+        "age": "23",
+        "weight": "207",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/BoiseStateLogo.png"
+    },
+    {
+        "id": "player-511",
+        "name": "Camden Coleman",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 3\"",
+        "age": "23",
+        "weight": "225",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/JamesMadisonLogo.png"
+    },
+    {
+        "id": "player-512",
+        "name": "Beau Pribula",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 2\"",
+        "age": "23",
+        "weight": "209",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/VirginiaLogo.png"
+    },
+    {
+        "id": "player-513",
+        "name": "Billy Edwards Jr.",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 3\"",
+        "age": "24",
+        "weight": "220",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/NorthCarolinaLogo.png"
+    },
+    {
+        "id": "player-514",
+        "name": "Goose Crowder",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 2\"",
+        "age": "23",
+        "weight": "214",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/TroyLogo.png"
+    },
+    {
+        "id": "player-515",
+        "name": "Carlos Del Rio-Wilson",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 2\"",
+        "age": "25",
+        "weight": "225",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/MarshallLogo.png"
+    },
+    {
+        "id": "player-516",
+        "name": "Walker Eget",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 3\"",
+        "age": "24",
+        "weight": "235",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/DukeLogo.png"
     }
 ]
