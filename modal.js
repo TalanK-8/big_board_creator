@@ -29,19 +29,19 @@ function setupModalEvents() {
     closeBtn.onclick = closeModal;
 
     modal.onclick = (event) => {
-        if(event.target === modal){
+        if (event.target === modal) {
             closeModal();
         }
     };
 
-    document.addEventListener("keydown",(event)=>{
-        if(event.key === "Escape" && modal.style.display === "flex"){
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal.style.display === "flex") {
             closeModal();
         }
     });
 }
 
-function closeModal(){
+function closeModal() {
     modal.style.display = "none";
     refreshAllCardGrades();
     currentPlayerId = null;
@@ -54,7 +54,7 @@ function closeModal(){
 function getOverallRank(playerId) {
     const cards = document.querySelectorAll(".rank-list .player-card");
 
-    const index = [...cards].findIndex(card => 
+    const index = [...cards].findIndex(card =>
         card.dataset.playerId === playerId
     );
 
@@ -63,7 +63,7 @@ function getOverallRank(playerId) {
 
 function getPositionRank(playerId) {
     const player = players.find(p => p.id === playerId);
-    if(!player) return "--";
+    if (!player) return "--";
 
     const cards = [...document.querySelectorAll(".rank-list .player-card")];
 
@@ -116,7 +116,7 @@ function renderPlayerProfile(player) {
             <p>${player.height} | ${player.weight}lbs | ${player.age}yrs</p>
 
             <p class="player-ranks">
-                OR: #${overallRank} | PR: #${positionRank}
+                OR: #${overallRank} | ${player.position} #${positionRank}
             </p>
         </div>
 
@@ -140,7 +140,7 @@ function renderPlayerProfile(player) {
 // Grade edit button
 // =====================================================
 
-function setupGradeEditor(player){
+function setupGradeEditor(player) {
 
     const editBtn = document.getElementById("edit-grade-btn");
 
@@ -166,9 +166,9 @@ function setupGradeEditor(player){
 
         const formula = gradeFormulas[player.position];
 
-        if(!formula) return;
+        if (!formula) return;
 
-        for(const characteristic in formula){
+        for (const characteristic in formula) {
             characteristicContainer.innerHTML += `
                 <div class="grade-row" data-characteristic-row="${characteristic}">
 
@@ -215,7 +215,7 @@ function setupGradeEditor(player){
     };
 
     deleteGradeBtn.onclick = () => {
-        if(!evaluations[player.id]) return;
+        if (!evaluations[player.id]) return;
         delete evaluations[player.id];
         saveEvaluations();
         updateOverallGrade();
@@ -234,7 +234,7 @@ function setupGradeEditor(player){
 
         const name = nameInput.value.trim();
 
-        if(!name) return;
+        if (!name) return;
 
         nameInput.value = "";
 
@@ -292,7 +292,7 @@ function setupGradeEditor(player){
     };
 
     document.addEventListener("click", (event) => {
-        if(!event.target.classList.contains("delete-characteristic-btn")){
+        if (!event.target.classList.contains("delete-characteristic-btn")) {
             return;
         }
 
@@ -303,7 +303,7 @@ function setupGradeEditor(player){
             `[data-characteristic-row="${characteristic}"]`
         );
 
-        if(row){
+        if (row) {
             row.remove();
         }
 
@@ -312,16 +312,16 @@ function setupGradeEditor(player){
             `.weight-input[data-characteristic="${characteristic}"]`
         );
 
-        if(weightInput){
+        if (weightInput) {
             weightInput.closest(".weight-row").remove();
         }
 
         // Remove from saved data
-        if(gradeFormulas[player.position]){
+        if (gradeFormulas[player.position]) {
             delete gradeFormulas[player.position][characteristic];
         }
 
-        if(evaluations[player.id]){
+        if (evaluations[player.id]) {
             delete evaluations[player.id][characteristic];
         }
 
@@ -332,16 +332,16 @@ function setupGradeEditor(player){
         renderSidebarPlayers(selectedUnit, selectedPosition);
     });
 
-    editor.onclick = (event)=>{
-      if(event.target === editor){
-            editor.style.display="none";
+    editor.onclick = (event) => {
+        if (event.target === editor) {
+            editor.style.display = "none";
         }
     };
 
     const saveBtn = document.getElementById("save-grade-btn");
 
     saveBtn.onclick = () => {
-        if(!evaluations[player.id]){
+        if (!evaluations[player.id]) {
             evaluations[player.id] = {};
         }
 
@@ -367,7 +367,7 @@ function setupGradeEditor(player){
             return;
         }
 
-        if(!gradeFormulas[player.position]){
+        if (!gradeFormulas[player.position]) {
             gradeFormulas[player.position] = {};
         }
 
@@ -400,11 +400,11 @@ function updateWeightTotal() {
 
     totalText.textContent = `${total}%`;
 
-    if(Math.abs(total - 100) > .01){
+    if (Math.abs(total - 100) > .01) {
         totalText.classList.add("invalid");
         totalText.classList.remove("valid");
     }
-    else{
+    else {
         totalText.classList.add("valid");
         totalText.classList.remove("invalid");
     }
@@ -414,9 +414,9 @@ function updateWeightTotal() {
 // UPDATE GRADES
 // =====================================================
 
-function updateOverallGrade(){
+function updateOverallGrade() {
 
-    if(!currentProfilePlayer) return;
+    if (!currentProfilePlayer) return;
 
     const grade = document.getElementById("overall-grade");
 
