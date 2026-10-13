@@ -6,11 +6,13 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
+
 function drag(ev) {
     const card = ev.target.closest(".player-card");
     if (!card) return;
 
     const playerId = card.dataset.playerId || card.id;
+    if (!playerId) return;
 
     let source = "board";
 
@@ -18,14 +20,24 @@ function drag(ev) {
         source = "favorites";
     } else if (card.closest("#watchlist-list")) {
         source = "watchlist";
+    } else if (card.closest("#player-list")) {
+        source = "sidebar";
     }
 
     ev.dataTransfer.setData("text/plain", playerId);
     ev.dataTransfer.setData("source", source);
+    ev.dataTransfer.effectAllowed = "move";
 }
 
-function getDragAfterElement(container, y) {
-    const draggableElements = [...container.querySelectorAll(".player-card")];
+
+
+function getDragAfterElement(container, y, movingPlayerId = null) {
+    const draggableElements = [
+        ...container.querySelectorAll(".player-card")
+    ].filter(card => {
+        const id = card.dataset.playerId || card.id;
+        return id !== movingPlayerId;
+    });
 
     return draggableElements.reduce((closest, child) => {
         const box = child.getBoundingClientRect();
@@ -34,13 +46,201 @@ function getDragAfterElement(container, y) {
         if (offset < 0 && offset > closest.offset) {
             return { offset, element: child };
         }
+
         return closest;
-    }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }, {
+        offset: Number.NEGATIVE_INFINITY,
+        element: null
+    }).element;
+}
+
+
+
+// =========================
+// CLICK-TO-SELECT / CLICK-TO-PLACE
+// =========================
+
+let selectedPlayerId = null;
+
+function selectPlayerForPlacement(playerId) {
+    selectedPlayerId = playerId;
+
+    // Update the selection highlight on every copy of this player.
+    document.querySelectorAll(".player-card").forEach(card => {
+        const id = card.dataset.playerId || card.id;
+
+        card.classList.toggle(
+            "placement-selected",
+            id === selectedPlayerId
+        );
+    });
+}
+
+function clearPlacementSelection() {
+    selectedPlayerId = null;
+
+    document.querySelectorAll(".player-card").forEach(card => {
+        card.classList.remove("placement-selected");
+    });
+}
+
+
+function createPlacementButton(playerId) {
+    const btn = document.createElement("button");
+    btn.className = "placement-btn";
+    btn.type = "button";
+    btn.title = "Select player to place or move";
+    btn.setAttribute("aria-label", "Select player to place or move");
+
+    // Six dots arranged in 3 rows and 2 columns
+    btn.textContent = "⠿";
+
+
+    btn.addEventListener("click", event => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (selectedPlayerId === playerId) {
+            clearPlacementSelection();
+        } else {
+            selectPlayerForPlacement(playerId);
+        }
+    });
+
+    return btn;
+}
+
+function addPlacementButton(card, playerId) {
+    if (card.querySelector(".placement-btn")) return;
+    card.prepend(createPlacementButton(playerId));
+}
+
+
+// Place a selected player into a round.
+
+
+function placeSelectedPlayer(roundList, targetCard = null) {
+    if (!selectedPlayerId || !roundList) return;
+
+    const playerId = selectedPlayerId;
+    const player = players.find(p => p.id === playerId);
+
+    if (!player) return;
+
+    // Find the existing card if this player is already on the board.
+    const boardCards = [
+        ...document.querySelectorAll(
+            "#big-board-screen .rank-list .player-card"
+        )
+    ];
+
+    let card = boardCards.find(
+        c => (c.dataset.playerId || c.id) === playerId
+    );
+
+    // Otherwise, find the player's card in the sidebar.
+    if (!card) {
+        card = document.querySelector(
+            `#player-list .player-card[data-player-id="${playerId}"]`
+        );
+    }
+
+    if (!card) return;
+
+    // Remember where the player was before moving them.
+    const oldParent = card.parentElement;
+    const oldNextSibling = card.nextElementSibling;
+
+    // Remove the player temporarily so they aren't duplicated.
+    if (oldParent) oldParent.removeChild(card);
+
+    // Add the button and board actions if needed.
+    addPlacementButton(card, playerId);
+
+    if (!card.querySelector(".card-actions")) {
+        card.appendChild(createBoardActions(playerId, card));
+    }
+
+    addPositionIfMissing(playerId, card);
+
+    // Place before the clicked player, or at the end if no player was clicked.
+    if (targetCard && targetCard.parentElement === roundList) {
+        roundList.insertBefore(card, targetCard);
+    } else {
+        roundList.appendChild(card);
+    }
+
+    placedPlayers.add(playerId);
+
+    clearPlacementSelection();
+    updateRanks();
+    renderSidebarPlayers(selectedUnit, selectedPosition);
+}
+function placeSelectedPlayer(roundList, targetCard = null) {
+    if (!selectedPlayerId || !roundList) return;
+
+    const playerId = selectedPlayerId;
+    const player = players.find(p => p.id === playerId);
+
+    if (!player) return;
+
+    // Find the existing card on the board first.
+    const boardCards = [
+        ...document.querySelectorAll(
+            "#big-board-screen .rank-list .player-card"
+        )
+    ];
+
+    let card = boardCards.find(
+        c => (c.dataset.playerId || c.id) === playerId
+    );
+
+    // If the player isn't on the board, find their sidebar card.
+    if (!card) {
+        card = [
+            ...document.querySelectorAll(
+                "#player-list .player-card"
+            )
+        ].find(c => (c.dataset.playerId || c.id) === playerId);
+    }
+
+    if (!card) return;
+
+    // Don't try to insert a card before itself.
+    if (targetCard === card) {
+        targetCard = card.nextElementSibling;
+    }
+
+    // Remove the card from its current location.
+    card.remove();
+
+    addPlacementButton(card, playerId);
+
+    if (!card.querySelector(".card-actions")) {
+        card.appendChild(createBoardActions(playerId, card));
+    }
+
+    addPositionIfMissing(playerId, card);
+
+    // Insert before the target card, or append if no target exists.
+    if (targetCard && targetCard.parentElement === roundList) {
+        roundList.insertBefore(card, targetCard);
+    } else {
+        roundList.appendChild(card);
+    }
+
+    placedPlayers.add(playerId);
+
+    clearPlacementSelection();
+    updateRanks();
+    renderSidebarPlayers(selectedUnit, selectedPosition);
 }
 
 // =========================
 // DROP INTO BOARD
 // =========================
+
+
 
 function dropIntoRound(ev) {
     ev.preventDefault();
@@ -49,43 +249,21 @@ function dropIntoRound(ev) {
     const source = ev.dataTransfer.getData("source");
 
     if (!playerId) return;
-
-    // Don't allow My Guys cards to be moved onto the Big Board
-    if (source === "favorites") return;
-    if (source === "watchlist") return;
-
-    const card = document.querySelector(
-        `#big-board-screen .player-card[data-player-id="${playerId}"]`
-    );
-
-    if (!card) return;
+    if (source === "favorites" || source === "watchlist") return;
 
     const roundList = ev.currentTarget;
     if (!roundList) return;
 
-    if (!placedPlayers.has(playerId)) {
-        placedPlayers.add(playerId);
-
-        if (!card.querySelector(".card-actions")) {
-            const actionContainer = createBoardActions(playerId, card);
-            card.appendChild(actionContainer);
-        }
-    }
-
-    addPositionIfMissing(playerId, card);
-
-    const afterElement = getDragAfterElement(
+    // Determine the insertion point BEFORE moving the card.
+    const targetCard = getDragAfterElement(
         roundList,
-        ev.clientY
+        ev.clientY,
+        playerId
     );
 
-    if (!afterElement) {
-        roundList.appendChild(card);
-    } else {
-        roundList.insertBefore(card, afterElement);
-    }
+    selectedPlayerId = playerId;
 
-    updateRanks();
+    placeSelectedPlayer(roundList, targetCard);
 }
 
 // =========================
@@ -248,27 +426,74 @@ function dropBackToSidebar(ev) {
     updateRanks();
 }
 
+
+function returnSelectedPlayerToSidebar() {
+    if (!selectedPlayerId) return;
+
+    const playerId = selectedPlayerId;
+
+    const boardCards = [
+        ...document.querySelectorAll(
+            "#big-board-screen .rank-list .player-card"
+        )
+    ];
+
+    const boardCard = boardCards.find(card =>
+        (card.dataset.playerId || card.id) === playerId
+    );
+
+    if (!boardCard) return;
+
+    boardCard.remove();
+    placedPlayers.delete(playerId);
+
+    clearPlacementSelection();
+    updateRanks();
+    renderSidebarPlayers(selectedUnit, selectedPosition);
+}
+
+
 // =========================
 // LOAD BOARD
 // =========================
 
+
 function loadBoard() {
     const savedData = localStorage.getItem("bigBoardData");
-    if (!savedData) return;
+    if (!savedData) {
+        renderSidebarPlayers(selectedUnit, selectedPosition);
+        return;
+    }
 
-    const boardData = JSON.parse(savedData);
+    let boardData;
+
+    try {
+        boardData = JSON.parse(savedData);
+    } catch (error) {
+        console.error("Could not load saved Big Board:", error);
+        renderSidebarPlayers(selectedUnit, selectedPosition);
+        return;
+    }
+
+    // Prevent duplicate placement state if the board is reloaded.
+    placedPlayers.clear();
 
     Object.keys(boardData).forEach(roundNumber => {
-        const roundDiv =
-            document.querySelector(`.round[data-round="${roundNumber}"] .rank-list`);
+        const roundDiv = document.querySelector(
+            `.round[data-round="${roundNumber}"] .rank-list`
+        );
 
-        if (!roundDiv) return;
+        if (!roundDiv || !Array.isArray(boardData[roundNumber])) return;
 
         boardData[roundNumber].forEach(playerId => {
             const player = players.find(p => p.id === playerId);
             if (!player) return;
 
+            // Avoid placing the same player twice.
+            if (placedPlayers.has(player.id)) return;
+
             const card = document.createElement("div");
+
             card.className = "player-card";
             card.draggable = true;
             card.dataset.playerId = player.id;
@@ -276,18 +501,23 @@ function loadBoard() {
 
             card.innerHTML = `
                 <img src="${player.logo}" class="school_logo">
+
                 <p class="player-position">${player.position}</p>
+
                 <div class="player-info">
                     <h3 class="player-name">${player.name}</h3>
                     <p>${player.height} | ${player.weight}lbs | ${player.age}yrs</p>
                 </div>
+
                 <div class="card-grade-container">
                     ${renderCardGrade(player)}
                 </div>
             `;
 
-            const actionContainer = createBoardActions(player.id, card);
-            card.appendChild(actionContainer);
+            // IMPORTANT: Add buttons AFTER setting innerHTML.
+            addPlacementButton(card, player.id);
+
+            card.appendChild(createBoardActions(player.id, card));
 
             roundDiv.appendChild(card);
             placedPlayers.add(player.id);
@@ -298,6 +528,7 @@ function loadBoard() {
     updateRanks();
 }
 
+
 // =========================
 // INIT
 // =========================
@@ -305,8 +536,46 @@ function loadBoard() {
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".round").forEach(round => {
         const rankList = round.querySelector(".rank-list");
+        if (!rankList) return;
 
-        rankList.addEventListener("dragover", ev => ev.preventDefault());
+        rankList.addEventListener("dragover", event => {
+            event.preventDefault();
+        });
+
         rankList.addEventListener("drop", dropIntoRound);
+
+        round.addEventListener("click", event => {
+            if (!selectedPlayerId) return;
+
+            // Don't place a player when clicking a button.
+            if (event.target.closest("button")) return;
+
+            const clickedCard = event.target.closest(".player-card");
+
+            // Ignore clicks outside this round's player list.
+            if (clickedCard && !rankList.contains(clickedCard)) return;
+
+            // Use the click's vertical position to determine
+            // whether to insert above or below the card.
+            const targetCard = getDragAfterElement(
+                rankList,
+                event.clientY,
+                selectedPlayerId
+            );
+
+            event.stopPropagation();
+            placeSelectedPlayer(rankList, targetCard);
+        });
     });
+
+    const sidebar = document.getElementById("player-list");
+
+    if (sidebar) {
+        sidebar.addEventListener("click", event => {
+            if (!selectedPlayerId) return;
+            if (event.target.closest(".player-card")) return;
+
+            returnSelectedPlayerToSidebar();
+        });
+    }
 });

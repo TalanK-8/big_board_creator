@@ -872,6 +872,66 @@ body {
     color: #3c78d8ff;
 }
 
+
+
+.player-card {
+    position: relative;
+}
+
+.placement-btn {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 27px;
+    height: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #64748b;
+    border-radius: 5px;
+    background: #1e293b;
+    color: #e2e8f0;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.placement-btn:hover {
+    background: #334155;
+    border-color: #60a5fa;
+}
+
+.placement-dots {
+    display: grid;
+    grid-template-columns: repeat(2, 4px);
+    grid-template-rows: repeat(3, 4px);
+    gap: 3px;
+}
+
+.placement-dots span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.player-card:has(.placement-btn) {
+    padding-left: 38px;
+}
+
+.player-card.placement-selected {
+    outline: 2px solid #38bdf8;
+    outline-offset: -2px;
+}
+
+
+/* Keep card content from sitting underneath the new button.
+   Adjust the value if your existing card layout needs more space. */
+.player-card:has(.placement-btn) {
+    padding-left: 38px;
+}
+
 /* =====================================================
    FUTURE GRADE EDIT WINDOW
 ===================================================== */
@@ -1005,6 +1065,21 @@ body {
 
 #watchlist-list {
     min-height: 100px;
+}
+
+/* Favorites and Watchlist scroll independently. */
+#favorites-screen,
+#watchlist-screen {
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+}
+
+/* Leave space below the final card. */
+#favorites-screen .favorites-board,
+#watchlist-screen .watchlist-board {
+    padding-bottom: 30px;
 }
 
 /* =====================================================

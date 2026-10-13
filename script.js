@@ -26,6 +26,60 @@ if (savedBusts) JSON.parse(savedBusts).forEach(id => busts.add(id));
 const savedReviews = localStorage.getItem("reviews");
 if (savedReviews) JSON.parse(savedReviews).forEach(id => reviews.add(id));
 
+// Keep Favorites and Watchlist order independently in localStorage.
+function getPlayersInSavedOrder(storageKey, membershipSet) {
+    let savedOrder = [];
+
+    try {
+        savedOrder = JSON.parse(
+            localStorage.getItem(storageKey) || "[]"
+        );
+    } catch {
+        savedOrder = [];
+    }
+
+    const members = players.filter(player =>
+        membershipSet.has(player.id)
+    );
+
+    const byId = new Map(
+        members.map(player => [player.id, player])
+    );
+
+    const ordered = savedOrder
+        .map(id => byId.get(id))
+        .filter(Boolean);
+
+    const included = new Set(
+        ordered.map(player => player.id)
+    );
+
+    // Add newly favorited or watchlisted players at the end.
+    members.forEach(player => {
+        if (!included.has(player.id)) {
+            ordered.push(player);
+        }
+    });
+
+    return ordered;
+}
+
+function saveListOrder(listId, storageKey) {
+    const list = document.getElementById(listId);
+    if (!list) return;
+
+    const order = [
+        ...list.querySelectorAll(
+            ".player-card[data-player-id]"
+        )
+    ].map(card => card.dataset.playerId);
+
+    localStorage.setItem(
+        storageKey,
+        JSON.stringify(order)
+    );
+}
+
 Object.assign(playerNotes,
     JSON.parse(localStorage.getItem("playerNotes") || "{}")
 );
@@ -182,6 +236,7 @@ function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
             </div>
         `;
 
+        addPlacementButton(card, p.id);
         playerList.appendChild(card);
     });
 }
@@ -192,13 +247,24 @@ function renderSidebarPlayers(filterUnit = null, filterPosition = null) {
 // =====================================================
 
 function toggleFavorite(playerId) {
-    favorites.has(playerId) ? favorites.delete(playerId) : favorites.add(playerId);
-    localStorage.setItem("favorites", JSON.stringify([...favorites]));
+    favorites.has(playerId)
+        ? favorites.delete(playerId)
+        : favorites.add(playerId);
+
+    localStorage.setItem(
+        "favorites",
+        JSON.stringify([...favorites])
+    );
+
     updateAllFavoriteIcons(playerId);
 
-    const myFavoritesScreen = document.getElementById("my-favorites-screen");
+    const favoritesScreen =
+        document.getElementById("favorites-screen");
 
-    if (myFavoritesScreen && myFavoritesScreen.style.display !== "none") {
+    if (
+        favoritesScreen &&
+        favoritesScreen.style.display !== "none"
+    ) {
         renderFavorites();
     }
 }
@@ -216,9 +282,26 @@ function toggleBust(playerId) {
 }
 
 function toggleReview(playerId) {
-    reviews.has(playerId) ? reviews.delete(playerId) : reviews.add(playerId);
-    localStorage.setItem("reviews", JSON.stringify([...reviews]));
+    reviews.has(playerId)
+        ? reviews.delete(playerId)
+        : reviews.add(playerId);
+
+    localStorage.setItem(
+        "reviews",
+        JSON.stringify([...reviews])
+    );
+
     updateAllReviewsIcons(playerId);
+
+    const watchlistScreen =
+        document.getElementById("watchlist-screen");
+
+    if (
+        watchlistScreen &&
+        watchlistScreen.style.display !== "none"
+    ) {
+        renderWatchlist();
+    }
 }
 
 
@@ -279,11 +362,18 @@ function updateAllReviewsIcons(playerId) {
 // PLAYER PROFILE OPENER
 // =====================================================
 
+
 document.addEventListener("click", (e) => {
     const card = e.target.closest(".player-card");
     if (!card) return;
 
-    // IMPORTANT: ignore clicks on action buttons
+    // Clicking the six-dot button should only select the player.
+    if (e.target.closest(".placement-btn")) return;
+
+    // Don't open profiles while a player is selected for placement.
+    if (selectedPlayerId !== null) return;
+
+    // Keep existing card-action behavior.
     if (e.target.closest(".card-actions")) return;
 
     const playerId = card.dataset.playerId;
@@ -294,6 +384,7 @@ document.addEventListener("click", (e) => {
 
     openPlayerModal(player);
 });
+
 
 // =====================================================
 // HELPER FUNCTION FOR GRADES
@@ -421,8 +512,7 @@ function renderFavorites() {
 
     list.innerHTML = "";
 
-    players.forEach(player => {
-        if (!favorites.has(player.id)) return;
+    getPlayersInSavedOrder("favoritesOrder", favorites).forEach(player => {
 
         const card = document.createElement("div");
 
@@ -448,6 +538,7 @@ function renderFavorites() {
 
         list.appendChild(card);
     });
+    saveListOrder("favorites-list", "favoritesOrder");
 }
 
 function dropIntoFavorites(ev) {
@@ -479,6 +570,7 @@ function dropIntoFavorites(ev) {
     } else {
         list.insertBefore(card, afterElement);
     }
+    saveListOrder("favorites-list", "favoritesOrder");
 }
 
 // =====================================================
@@ -505,8 +597,10 @@ function renderWatchlist() {
 
     list.innerHTML = "";
 
-    players.forEach(player => {
-        if (!reviews.has(player.id)) return;
+    getPlayersInSavedOrder(
+        "watchlistOrder",
+        reviews
+    ).forEach(player => {
 
         const card = document.createElement("div");
 
@@ -532,6 +626,7 @@ function renderWatchlist() {
 
         list.appendChild(card);
     });
+    saveListOrder("watchlist-list", "watchlistOrder");
 }
 
 function dropIntoWatchlist(ev) {
@@ -563,6 +658,7 @@ function dropIntoWatchlist(ev) {
     } else {
         list.insertBefore(card, afterElement);
     }
+    saveListOrder("watchlist-list", "watchlistOrder");
 }
 
 // =====================================================
