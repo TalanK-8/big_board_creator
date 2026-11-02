@@ -427,30 +427,34 @@ function dropBackToSidebar(ev) {
 }
 
 
+
 function returnSelectedPlayerToSidebar() {
     if (!selectedPlayerId) return;
 
     const playerId = selectedPlayerId;
 
-    const boardCards = [
+    const boardCard = [
         ...document.querySelectorAll(
             "#big-board-screen .rank-list .player-card"
         )
-    ];
-
-    const boardCard = boardCards.find(card =>
+    ].find(card =>
         (card.dataset.playerId || card.id) === playerId
     );
 
     if (!boardCard) return;
 
+    // Remove the player from the board.
     boardCard.remove();
     placedPlayers.delete(playerId);
 
+    // Clear selection before rebuilding the sidebar.
     clearPlacementSelection();
+
+    // Save the updated board and rebuild the sidebar.
     updateRanks();
     renderSidebarPlayers(selectedUnit, selectedPosition);
 }
+
 
 
 // =========================
@@ -568,14 +572,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+
+
+
     const sidebar = document.getElementById("player-list");
 
     if (sidebar) {
         sidebar.addEventListener("click", event => {
             if (!selectedPlayerId) return;
-            if (event.target.closest(".player-card")) return;
+
+            // Stop the click from reaching the profile-opening listener.
+            event.preventDefault();
+            event.stopPropagation();
 
             returnSelectedPlayerToSidebar();
         });
     }
+
+
 });

@@ -363,17 +363,16 @@ function updateAllReviewsIcons(playerId) {
 // =====================================================
 
 
+
+
 document.addEventListener("click", (e) => {
+    // Never open a profile while a player is selected.
+    if (selectedPlayerId !== null) return;
+
     const card = e.target.closest(".player-card");
     if (!card) return;
 
-    // Clicking the six-dot button should only select the player.
     if (e.target.closest(".placement-btn")) return;
-
-    // Don't open profiles while a player is selected for placement.
-    if (selectedPlayerId !== null) return;
-
-    // Keep existing card-action behavior.
     if (e.target.closest(".card-actions")) return;
 
     const playerId = card.dataset.playerId;
@@ -384,6 +383,8 @@ document.addEventListener("click", (e) => {
 
     openPlayerModal(player);
 });
+
+
 
 
 // =====================================================
