@@ -5674,5 +5674,16 @@
         "weight": "235",
         "stats": "",
         "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/DukeLogo.png"
+    },
+    {
+        "id": "player-517",
+        "name": "Lincoln Kienholz",
+        "unit": "offense",
+        "position": "QB",
+        "height": "6' 2\"",
+        "age": "23",
+        "weight": "215",
+        "stats": "",
+        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/LouisvilleLogo.png"
     }
 ]
