@@ -508,15 +508,14 @@ function closeFavorites() {
 
 function renderFavorites() {
     const list = document.getElementById("favorites-list");
-
     if (!list) return;
+
+    list.onclick = event => handleSavedListClick(event, "favorites");
 
     list.innerHTML = "";
 
     getPlayersInSavedOrder("favoritesOrder", favorites).forEach(player => {
-
         const card = document.createElement("div");
-
         card.className = "player-card";
         card.draggable = true;
         card.dataset.playerId = player.id;
@@ -524,21 +523,24 @@ function renderFavorites() {
 
         card.innerHTML = `
             <img src="${player.logo}" class="school_logo">
-            
+
             <p class="player-position">${player.position}</p>
-            
+
             <div class="player-info">
                 <h3 class="player-name">${player.name}</h3>
                 <p>${player.height} | ${player.weight}lbs | ${player.age}yrs</p>
             </div>
-            
+
             <div class="card-grade-container">
                 ${renderCardGrade(player)}
             </div>
         `;
 
+        card.prepend(createSavedListMoveButton(player.id, "favorites"));
+
         list.appendChild(card);
     });
+
     saveListOrder("favorites-list", "favoritesOrder");
 }
 
@@ -593,18 +595,14 @@ function closeWatchlist() {
 
 function renderWatchlist() {
     const list = document.getElementById("watchlist-list");
-
     if (!list) return;
+
+    list.onclick = event => handleSavedListClick(event, "watchlist");
 
     list.innerHTML = "";
 
-    getPlayersInSavedOrder(
-        "watchlistOrder",
-        reviews
-    ).forEach(player => {
-
+    getPlayersInSavedOrder("watchlistOrder", reviews).forEach(player => {
         const card = document.createElement("div");
-
         card.className = "player-card";
         card.draggable = true;
         card.dataset.playerId = player.id;
@@ -612,21 +610,24 @@ function renderWatchlist() {
 
         card.innerHTML = `
             <img src="${player.logo}" class="school_logo">
-            
+
             <p class="player-position">${player.position}</p>
-            
+
             <div class="player-info">
                 <h3 class="player-name">${player.name}</h3>
                 <p>${player.height} | ${player.weight}lbs | ${player.age}yrs</p>
             </div>
-            
+
             <div class="card-grade-container">
                 ${renderCardGrade(player)}
             </div>
         `;
 
+        card.prepend(createSavedListMoveButton(player.id, "watchlist"));
+
         list.appendChild(card);
     });
+
     saveListOrder("watchlist-list", "watchlistOrder");
 }
 
