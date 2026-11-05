@@ -5523,17 +5523,6 @@
     },
     {
         "id": "player-503",
-        "name": "Tayven Jackson",
-        "unit": "offense",
-        "position": "QB",
-        "height": "6' 4\"",
-        "age": "23",
-        "weight": "211",
-        "stats": "",
-        "logo": "https://raw.githubusercontent.com/TalanK-8/big_board_creator/main/images/logos/NorthTexasLogo.png"
-    },
-    {
-        "id": "player-504",
         "name": "Max Johnson",
         "unit": "offense",
         "position": "QB",
